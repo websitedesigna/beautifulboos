@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BeautifulBoos - Handmade Items with Love</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="style.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        .hero-pattern {
+            background-image: radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+        .product-image {
+            transition: transform 0.3s ease;
+        }
+        .newsletter-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.5);
+        }
+    </style>
+</head>
+<body class="font-sans bg-amber-50 text-gray-800">
+<!-- Header -->
+<header class="bg-white shadow-md sticky top-0 z-50">
+<div class="container mx-auto px-4 py-4 flex justify-between items-center">
+<div class="flex items-center">
+<h1 class="text-2xl md:text-3xl font-bold text-amber-600">
+<span class="text-pink-500">Beautiful</span>Boos
+                </h1>
+</div>
+<nav class="hidden md:flex space-x-8">
+<a class="text-gray-700 hover:text-amber-600 font-medium" href="#home">Home</a>
+<a class="text-gray-700 hover:text-amber-600 font-medium" href="#shop">Shop</a>
+<a class="text-gray-700 hover:text-amber-600 font-medium" href="#collections">Collections</a>
+<a class="text-gray-700 hover:text-amber-600 font-medium" href="#our-story">Our Story</a>
+<a class="text-gray-700 hover:text-amber-600 font-medium" href="#contact">Contact</a>
+</nav>
+<div class="flex items-center space-x-4">
+<button class="text-gray-700 hover:text-amber-600">
+<i class="fas fa-search text-xl"></i>
+</button>
+<button class="text-gray-700 hover:text-amber-600">
+<i class="fas fa-user text-xl"></i>
+</button>
+<button id="cart-btn" class="relative text-gray-700 hover:text-amber-600">
+  <i class="fa fa-shopping-cart text-xl"></i>
+  <span class="absolute -top-2 -right-2 bg-amber-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center" id="cart-count">0</span>
+</button>
+
+
+
+<button class="md:hidden text-gray-700">
+<i class="fas fa-bars text-xl"></i>
+</button>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="hero-pattern bg-amber-100 py-16 md:py-24" id="home">
+<div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+<div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+<h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+                    Handcrafted <span class="text-pink-500">with Love</span>
+</h2>
+<p class="text-lg text-gray-700 mb-8">
+                    Discover our unique collection of handmade treasures including custom tumblers, highland cow designs, plant pots, tote bags, keychains, and Disney-themed items. Each piece is lovingly crafted with attention to detail.
+                </p>
+<div class="flex flex-wrap gap-4 mb-8">
+<div class="flex items-center bg-white px-4 py-2 rounded-full shadow-sm">
+<i class="fas fa-star text-amber-400 mr-2"></i>
+<span class="font-medium">5-Star Reviews</span>
+</div>
+<div class="flex items-center bg-white px-4 py-2 rounded-full shadow-sm">
+<i class="fas fa-heart text-pink-500 mr-2"></i>
+<span class="font-medium">Made with Love</span>
+</div>
+<div class="flex items-center bg-white px-4 py-2 rounded-full shadow-sm">
+<i class="fas fa-truck text-amber-600 mr-2"></i>
+<span class="font-medium">Free UK Delivery</span>
+</div>
+</div>
+<button class="bg-gradient-to-r from-pink-500 to-amber-500 text-white px-8 py-3 rounded-full font-bold hover:opacity-90 transition duration-300 shadow-lg">
+                    Shop Now
+                </button>
+</div>
+<div class="md:w-1/2 relative">
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-white p-4 rounded-xl shadow-lg transform rotate-3">
+<img alt="Highland Cow Costas" class="w-full h-auto rounded-lg" src="images/cow_costas.jpeg"/>
+</div>
+<div class="bg-white p-4 rounded-xl shadow-lg transform -rotate-2 mt-8">
+<img alt="Strawberry Tumbler" class="w-full h-auto rounded-lg" src="images/strawberry_tumbler.jpeg"/>
+</div>
+<div class="bg-white p-4 rounded-xl shadow-lg transform rotate-1 -mt-4">
+<img alt="Stitch Water Bottle" class="w-full h-auto rounded-lg" src="images/water_bottle.jpeg"/>
+</div>
+<div class="bg-white p-4 rounded-xl shadow-lg transform -rotate-3 mt-6">
+<img alt="3 Homemade Pots Set" class="w-full h-auto rounded-lg" src="images/3-homemadepots.jpeg"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Collections -->
+<section class="py-16 bg-white" id="collections">
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Handmade Collections</h2>
+<div class="w-24 h-1 bg-gradient-to-r from-pink-500 to-amber-500 mx-auto"></div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+<div class="bg-amber-100 rounded-xl p-6 text-center hover:bg-amber-200 transition duration-300 cursor-pointer">
+<div class="bg-white p-4 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+<i class="fas fa-mug-hot text-3xl text-amber-600"></i>
+</div>
+<h3 class="font-bold text-lg">Tumblers</h3>
+<p class="text-sm text-gray-600 mt-1">12 items</p>
+</div>
+<div class="bg-pink-100 rounded-xl p-6 text-center hover:bg-pink-200 transition duration-300 cursor-pointer">
+<div class="bg-white p-4 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+<i class="fas fa-seedling text-3xl text-pink-600"></i>
+</div>
+<h3 class="font-bold text-lg">Plant Pots</h3>
+<p class="text-sm text-gray-600 mt-1">8 items</p>
+</div>
+<div class="bg-amber-100 rounded-xl p-6 text-center hover:bg-amber-200 transition duration-300 cursor-pointer">
+<div class="bg-white p-4 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+<i class="fas fa-key text-3xl text-amber-600"></i>
+</div>
+<h3 class="font-bold text-lg">Keychains</h3>
+<p class="text-sm text-gray-600 mt-1">7 items</p>
+</div>
+<div class="bg-pink-100 rounded-xl p-6 text-center hover:bg-pink-200 transition duration-300 cursor-pointer">
+<div class="bg-white p-4 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+<i class="fas fa-bottle-water text-3xl text-pink-600"></i>
+</div>
+<h3 class="font-bold text-lg">Water Bottles</h3>
+<p class="text-sm text-gray-600 mt-1">5 items</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Popular Products -->
+<section class="py-16 bg-amber-50" id="shop">
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Handmade Treasures</h2>
+<p class="text-lg text-gray-600 max-w-2xl mx-auto">Each piece is uniquely crafted with love and attention to detail</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+<!-- Product 1 -->
+<div class="product-card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300">
+<div class="relative overflow-hidden h-64">
+<img alt="Highland Cow Costas" class="product-image w-full h-full object-cover" src="images/cow_costas.jpeg"/>
+<div class="absolute top-3 left-3 bg-pink-500 text-white text-xs font-bold px-2 py-1 rounded">Cow Costas</div>
+</div>
+<div class="p-5">
+<h3 class="font-bold text-lg mb-2">Highland Cow Costas</h3>
+<p class="text-gray-600 text-sm mb-4">Adorable highland cow design on premium ceramic tumbler</p>
+<div class="flex justify-between items-center">
+<span class="font-bold text-amber-600">£8.00</span>
+<button class="bg-amber-100 text-amber-600 hover:bg-amber-200 px-3 py-1 rounded-full text-sm font-medium transition duration-300 add-to-cart-btn" data-image="images/cow_costas.jpeg" data-name="Highland Cow Costas" data-price="8.00">
+                                Add to Cart
+                            </button>
+</div>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="product-card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300">
+<div class="relative overflow-hidden h-64">
+<img alt="Strawberry Tumbler" class="product-image w-full h-full object-cover" src="images/strawberry_tumbler.jpeg"/>
+<div class="absolute top-3 left-3 bg-pink-500 text-white text-xs font-bold px-2 py-1 rounded">Tumblers</div>
+</div>
+<div class="p-5">
+<h3 class="font-bold text-lg mb-2">Strawberry Tumbler</h3>
+<p class="text-gray-600 text-sm mb-4">Sweet strawberry design perfect for your favorite drinks</p>
+<div class="flex justify-between items-center">
+<span class="font-bold text-amber-600">£8.00</span>
+<button class="bg-amber-100 text-amber-600 hover:bg-amber-200 px-3 py-1 rounded-full text-sm font-medium transition duration-300 add-to-cart-btn" data-image="images/strawberry_tumbler.jpeg" data-name="Strawberry Tumbler" data-price="8.00">
+                                Add to Cart
+                            </button>
+</div>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="product-card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300">
+<div class="relative overflow-hidden h-64">
+<img alt="3 Homemade Pots Set" class="product-image w-full h-full object-cover" src="images/3-homemadepots.jpeg"/>
+<div class="absolute top-3 left-3 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded">Plant Pots</div>
+</div>
+<div class="p-5">
+<h3 class="font-bold text-lg mb-2">3 Homemade Pots Set</h3>
+<p class="text-gray-600 text-sm mb-4">Beautiful set of three handcrafted ceramic plant pots</p>
+<div class="flex justify-between items-center">
+<span class="font-bold text-amber-600">£15.00</span>
+<button class="bg-amber-100 text-amber-600 hover:bg-amber-200 px-3 py-1 rounded-full text-sm font-medium transition duration-300 add-to-cart-btn" data-image="images/3-homemadepots.jpeg" data-name="3 Homemade Pots Set" data-price="15.00">
+                                Add to Cart
+                            </button>
+</div>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="product-card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300">
+<div class="relative overflow-hidden h-64">
+<img alt="Stitch Water Bottle" class="product-image w-full h-full object-cover" src="images/water_bottle.jpeg"/>
+<div class="absolute top-3 left-3 bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded">Water Bottles</div>
+</div>
+<div class="p-5">
+<h3 class="font-bold text-lg mb-2">Stitch Water Bottle</h3>
+<p class="text-gray-600 text-sm mb-4">Disney Stitch themed water bottle for staying hydrated in style</p>
+<div class="flex justify-between items-center">
+<span class="font-bold text-amber-600">£12.00</span>
+<button class="bg-amber-100 text-amber-600 hover:bg-amber-200 px-3 py-1 rounded-full text-sm font-medium transition duration-300 add-to-cart-btn" data-image="images/water_bottle.jpeg" data-name="Stitch Water Bottle" data-price="12.00">
+                                Add to Cart
+                            </button>
+</div>
+</div>
+</div>
+
+<!-- Product 5 -->
+<div class="product-card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300">
+  <div class="relative overflow-hidden h-64">
+    <img alt="Disney Tote Bag" class="product-image w-full h-full object-cover" src="images/totes_bag.jpeg"/>
+    <div class="absolute top-3 left-3 bg-pink-500 text-white text-xs font-bold px-2 py-1 rounded">Tote Bags</div>
+  </div>
+  <div class="p-5">
+    <h3 class="font-bold text-lg mb-2">Summer Vibes Tote Bag</h3>
+    <p class="text-gray-600 text-sm mb-4">Stylish and spacious tote bag featuring your favorite Disney characters</p>
+    <div class="flex justify-between items-center">
+      <span class="font-bold text-amber-600">£6.00</span>
+      <button class="bg-amber-100 text-amber-600 hover:bg-amber-200 px-3 py-1 rounded-full text-sm font-medium transition duration-300 add-to-cart-btn" data-image="images/totes_bag.jpeg" data-name="Summer Vibes Tote Bag" data-price="6.00">
+        Add to Cart
+      </button>
+    </div>
+  </div>
+</div>
+<!-- Product 6 -->
+<div class="product-card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300">
+  <div class="relative overflow-hidden h-64">
+    <img alt="Custom Keychain" class="product-image w-full h-full object-cover" src="images/key_chains.jpeg"/>
+    <div class="absolute top-3 left-3 bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded">Keychains</div>
+  </div>
+  <div class="p-5">
+    <h3 class="font-bold text-lg mb-2">Keychains</h3>
+    <p class="text-gray-600 text-sm mb-4">Exquisite keychains to add a touch of magic to your keys</p>
+    <div class="flex justify-between items-center">
+      <span class="font-bold text-amber-600">£20.00</span>
+      <button class="bg-amber-100 text-amber-600 hover:bg-amber-200 px-3 py-1 rounded-full text-sm font-medium transition duration-300 add-to-cart-btn" data-image="images/keychain.jpeg" data-name="Custom Keychain" data-price="20.00">
+        Add to Cart
+      </button>
+    </div>
+  </div>
+</div>
+<!-- Product 7 -->
+<div class="product-card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300">
+  <div class="relative overflow-hidden h-64">
+    <img alt="Custom Mug" class="product-image w-full h-full object-cover" src="images/bow_teacups.jpeg"/>
+    <div class="absolute top-3 left-3 bg-pink-500 text-white text-xs font-bold px-2 py-1 rounded">Bow Mugs set of 2</div>
+  </div>
+  <div class="p-5">
+    <h3 class="font-bold text-lg mb-2">Bow Mugs</h3>
+    <p class="text-gray-600 text-sm mb-4">Charming set of 2 mugs featuring delightful bow designs</p>
+    <div class="flex justify-between items-center">
+      <span class="font-bold text-amber-600">£10.00</span>
+      <button class="bg-amber-100 text-amber-600 hover:bg-amber-200 px-3 py-1 rounded-full text-sm font-medium transition duration-300 add-to-cart-btn" data-image="images/bow_teacups.jpeg" data-name="Bow Mugs set of 2" data-price="25.00">
+        Add to Cart
+      </button>
+    </div>
+  </div>
+</div>
+<!-- Product 8 -->
+<div class="product-card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300">
+  <div class="relative overflow-hidden h-64">
+    <img alt="Custom Mug" class="product-image w-full h-full object-cover" src="images/bow_teacups1.jpeg"/>
+    <div class="absolute top-3 left-3 bg-pink-500 text-white text-xs font-bold px-2 py-1 rounded">Bow Mugs set of 2</div>
+  </div>
+  <div class="p-5">
+    <h3 class="font-bold text-lg mb-2">Bow Mugs</h3>
+    <p class="text-gray-600 text-sm mb-4">Charming set of 2 mugs featuring delightful bow designs</p>
+    <div class="flex justify-between items-center">
+      <span class="font-bold text-amber-600">£10.00</span>
+      <button class="bg-amber-100 text-amber-600 hover:bg-amber-200 px-3 py-1 rounded-full text-sm font-medium transition duration-300 add-to-cart-btn" data-image="images/bow_teacups1.jpeg" data-name="Bow Mugs set of 2" data-price="25.00">
+        Add to Cart
+      </button>
+    </div>
+  </div>
+</div>
+<!-- Product 9 -->
+<div class="product-card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300">
+  <div class="relative overflow-hidden h-64">
+    <img alt="bowcup" class="product-image w-full h-full object-cover" src="images/bow_cup.jpeg"/>
+    <div class="absolute top-3 left-3 bg-pink-500 text-white text-xs font-bold px-2 py-1 rounded">Bow Cup</div>
+  </div>
+  <div class="p-5">
+    <h3 class="font-bold text-lg mb-2">Bow Cup</h3>
+    <p class="text-gray-600 text-sm mb-4">Charming cup featuring a delightful bow design</p>
+    <div class="flex justify-between items-center">
+      <span class="font-bold text-amber-600">£8.00</span>
+      <button class="bg-amber-100 text-amber-600 hover:bg-amber-200 px-3 py-1 rounded-full text-sm font-medium transition duration-300 add-to-cart-btn" data-image="images/bow_cup.jpeg" data-name="Bow Cup" data-price="8.00">
+        Add to Cart
+      </button>
+    </div>
+  </div>
+</div>
+<!-- Product 10 -->
+<div class="product-card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300">
+  <div class="relative overflow-hidden h-64">
+    <img alt="Custom Mug" class="product-image w-full h-full object-cover" src="images/bow_drinking_glass.jpeg"/>
+    <div class="absolute top-3 left-3 bg-pink-500 text-white text-xs font-bold px-2 py-1 rounded">Bow Drinking Glass</div>
+  </div>
+  <div class="p-5">
+    <h3 class="font-bold text-lg mb-2">Bow Drinking Glass</h3>
+    <p class="text-gray-600 text-sm mb-4">Elegant drinking glass perfect for your favorite beverages</p>
+    <div class="flex justify-between items-center">
+      <span class="font-bold text-amber-600">£8.00</span>
+      <button class="bg-amber-100 text-amber-600 hover:bg-amber-200 px-3 py-1 rounded-full text-sm font-medium transition duration-300 add-to-cart-btn" data-image="images/bow_drinking_glass.jpeg" data-name="Bow Drinking Glass" data-price="8.00">
+        Add to Cart
+      </button>
+    </div>
+  </div>
+</div>
+<!-- Product 11 -->
+<div class="product-card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300">
+  <div class="relative overflow-hidden h-64">
+    <img alt="Custom Mug" class="product-image w-full h-full object-cover" src="images/frame with photo.jpeg"/>
+    <div class="absolute top-3 left-3 bg-pink-500 text-white text-xs font-bold px-2 py-1 rounded">Photo With Frame</div>
+  </div>
+    <div class="p-5">
+        <h3 class="font-bold text-lg mb-2">Photo With Frame</h3>
+        <p class="text-gray-600 text-sm mb-4">Beautifully framed photo to cherish your memories</p>
+        <div class="flex justify-between items-center">
+        <span class="font-bold text-amber-600">£10.00</span>
+        <button class="bg-amber-100 text-amber-600 hover:bg-amber-200 px-3 py-1 rounded-full text-sm font-medium transition duration-300 add-to-cart-btn" data-image="images/frame with photo.jpeg" data-name="Photo With Frame" data-price="10.00">
+            Add to Cart
+        </button>
+
+        </div>
+    </div>
+</div>
+<!-- Product 12 -->
+<div class="product-card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300">
+  <div class="relative overflow-hidden h-64">
+    <img alt="Custom Mug" class="product-image w-full h-full object-cover" src="images/Strawberry_drinking_glass.jpeg"/>
+    <div class="absolute top-3 left-3 bg-pink-500 text-white text-xs font-bold px-2 py-1 rounded">Strawberry Drinking Glass</div>
+  </div>
+  <div class="p-5">
+    <h3 class="font-bold text-lg mb-2">Strawberry Drinking Glass</h3>
+    <p class="text-gray-600 text-sm mb-4">Charming glass featuring a delightful strawberry design</p>
+    <div class="flex justify-between items-center">
+      <span class="font-bold text-amber-600">£8.00</span>
+      <button class="bg-amber-100 text-amber-600 hover:bg-amber-200 px-3 py-1 rounded-full text-sm font-medium transition duration-300 add-to-cart-btn" data-image="images/Strawberry_drinking_glass.jpeg" data-name="Strawberry Drinking Glass" data-price="8.00">
+        Add to Cart
+      </button>
+    </div>
+  </div>
+</div>
+<!-- Product 13 -->
+<div class="product-card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300">
+  <div class="relative overflow-hidden h-64">
+    <img alt="Custom Mug" class="product-image w-full h-full object-cover" src="images/dolls.jpeg"/>
+    <div class="absolute top-3 left-3 bg-pink-500 text-white text-xs font-bold px-2 py-1 rounded">My First Tooth Fairy</div>
+  </div>
+  <div class="p-5">
+    <h3 class="font-bold text-lg mb-2">My first Tooth Fairy</h3>
+    <p class="text-gray-600 text-sm mb-4">Adorable handmade dolls to cherish and play with</p>
+    <div class="flex justify-between items-center">
+      <span class="font-bold text-amber-600">£5.00</span>
+      <button class="bg-amber-100 text-amber-600 hover:bg-amber-200 px-3 py-1 rounded-full text-sm font-medium transition duration-300 add-to-cart-btn" data-image="images/dolls.jpeg" data-name="My first Tooth Fairy" data-price="5.00">
+        Add to Cart
+      </button>
+    </div>
+    </div>
+</div>
+<!-- Product 13 -->
+ <div class="product-card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300">
+  <div class="relative overflow-hidden h-64">
+    <img alt="Custom Mug" class="product-image w-full h-full object-cover" src="images/bag.jpeg"/>
+    <div class="absolute top-3 left-3 bg-pink-500 text-white text-xs font-bold px-2 py-1 rounded">Teacher Tote Bags</div>
+  </div>
+  <div class="p-5">
+    <h3 class="font-bold text-lg mb-2">Teacher Tote Bags</h3>
+    <p class="text-gray-600 text-sm mb-4">Stylish and teacher-friendly tote bags for every occasion</p>
+    <div class="flex justify-between items-center">
+      <span class="font-bold text-amber-600">£6.00</span>
+      <button class="bg-amber-100 text-amber-600 hover:bg-amber-200 px-3 py-1 rounded-full text-sm font-medium transition duration-300 add-to-cart-btn" data-image="images/bag.jpeg" data-name="Teacher Tote Bags" data-price="6.00">
+        Add to Cart
+      </button>
+    </div>
+  </div>
+</div>
+  <!-- Product 14 -->
+<div class="product-card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300">
+  <div class="relative overflow-hidden h-64">
+    <img alt="Custom Mug" class="product-image w-full h-full object-cover" src="images/flower_cup.jpeg"/>
+    <div class="absolute top-3 left-3 bg-pink-500 text-white text-xs font-bold px-2 py-1 rounded">Flower Cups</div>
+  </div>
+  <div class="p-5">
+    <h3 class="font-bold text-lg mb-2">Flower Cups</h3>
+    <p class="text-gray-600 text-sm mb-4">Charming cups adorned with beautiful floral designs</p>
+    <div class="flex justify-between items-center">
+      <span class="font-bold text-amber-600">£8.00</span>
+      <button class="bg-amber-100 text-amber-600 hover:bg-amber-200 px-3 py-1 rounded-full text-sm font-medium transition duration-300 add-to-cart-btn" data-image="images/flower_cup.jpeg" data-name="Flower Cups" data-price="8.00">
+        Add to Cart
+      </button>
+    </div>
+  </div>
+</div>
+<!-- Product 15 -->
+<div class="product-card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300">
+  <div class="relative overflow-hidden h-64">
+    <img alt="Custom Mug" class="product-image w-full h-full object-cover" src="images/jewellery_box.jpeg"/>
+    <div class="absolute top-3 left-3 bg-pink-500 text-white text-xs font-bold px-2 py-1 rounded">Jewellery Box</div>
+  </div>
+  <div class="p-5">
+    <h3 class="font-bold text-lg mb-2">Jewellery Box</h3>
+    <p class="text-gray-600 text-sm mb-4">Elegant jewellery box to keep your treasures safe</p>
+    <div class="flex justify-between items-center">
+      <span class="font-bold text-amber-600">£8.00</span>
+      <button class="bg-amber-100 text-amber-600 hover:bg-amber-200 px-3 py-1 rounded-full text-sm font-medium transition duration-300 add-to-cart-btn" data-image="images/jewellery_box.jpeg" data-name="Jewellery Box" data-price="8.00">
+        Add to Cart
+      </button>
+    </div>
+  </div>
+</div>
+
+</section>
+<!-- Our Story -->
+<section class="py-16 bg-white" id="our-story">
+<div class="container mx-auto px-4">
+<div class="flex flex-col md:flex-row items-center">
+<div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+<img alt="Artisan at work" class="w-full h-auto rounded-xl shadow-xl" src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=1471&amp;q=80"/>
+</div>
+<div class="md:w-1/2">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+                        Crafted with <span class="text-pink-500">Love</span>, Made to <span class="text-amber-500">Last</span>
+</h2>
+<p class="text-lg text-gray-700 mb-6">
+                        Welcome to BeautifulBoos, where every piece tells a story of passion, creativity, and meticulous craftsmanship. What started as a small dream in our home studio has blossomed into a celebration of handmade artistry.
+                    </p>
+<p class="text-lg text-gray-700 mb-8">
+                        Each tumbler, mug, keychain, tote bag, and plant pot is lovingly created by hand, ensuring that no two pieces are exactly alike. We believe in the beauty of imperfection and the charm that comes from the human touch.
+                    </p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+<div class="bg-amber-50 p-4 rounded-lg text-center">
+<i class="fas fa-heart text-pink-500 text-3xl mb-3"></i>
+<h4 class="font-bold mb-2">Made with Love</h4>
+<p class="text-sm text-gray-600">Every piece is handcrafted with care and attention to detail</p>
+</div>
+<div class="bg-amber-50 p-4 rounded-lg text-center">
+<i class="fas fa-gem text-amber-500 text-3xl mb-3"></i>
+<h4 class="font-bold mb-2">Premium Quality</h4>
+<p class="text-sm text-gray-600">We use only the finest materials for lasting beauty</p>
+</div>
+<div class="bg-amber-50 p-4 rounded-lg text-center">
+<i class="fas fa-palette text-pink-500 text-3xl mb-3"></i>
+<h4 class="font-bold mb-2">Unique Designs</h4>
+<p class="text-sm text-gray-600">Original creations you won't find anywhere else</p>
+</div>
+</div>
+<button class="bg-gradient-to-r from-pink-500 to-amber-500 text-white px-8 py-3 rounded-full font-bold hover:opacity-90 transition duration-300 shadow-lg">
+                        Read Our Full Story
+                    </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-16 bg-amber-100">
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">What Our Customers Say</h2>
+<div class="flex justify-center">
+<div class="flex">
+<i class="fas fa-star text-amber-400 text-xl"></i>
+<i class="fas fa-star text-amber-400 text-xl"></i>
+<i class="fas fa-star text-amber-400 text-xl"></i>
+<i class="fas fa-star text-amber-400 text-xl"></i>
+<i class="fas fa-star text-amber-400 text-xl"></i>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-white p-6 rounded-xl shadow-md">
+<div class="flex mb-4">
+<i class="fas fa-star text-amber-400"></i>
+<i class="fas fa-star text-amber-400"></i>
+<i class="fas fa-star text-amber-400"></i>
+<i class="fas fa-star text-amber-400"></i>
+<i class="fas fa-star text-amber-400"></i>
+</div>
+<p class="text-gray-700 mb-6">"The Highland Cow tumbler is absolutely adorable! The craftsmanship is impeccable and it keeps my drinks hot for hours. Worth every penny!"</p>
+<div class="flex items-center">
+<div class="w-10 h-10 rounded-full bg-gray-300 mr-3 overflow-hidden">
+<img alt="Sarah J." class="w-full h-full object-cover" src="https://randomuser.me/api/portraits/women/43.jpg"/>
+</div>
+<div>
+<h4 class="font-bold">Sarah J.</h4>
+<p class="text-sm text-gray-500">Verified Buyer</p>
+</div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-md">
+<div class="flex mb-4">
+<i class="fas fa-star text-amber-400"></i>
+<i class="fas fa-star text-amber-400"></i>
+<i class="fas fa-star text-amber-400"></i>
+<i class="fas fa-star text-amber-400"></i>
+<i class="fas fa-star text-amber-400"></i>
+</div>
+<p class="text-gray-700 mb-6">"I ordered the plant pot set for my kitchen windowsill and they're perfect! Each one has such unique character and my herbs are thriving."</p>
+<div class="flex items-center">
+<div class="w-10 h-10 rounded-full bg-gray-300 mr-3 overflow-hidden">
+<img alt="Michael T." class="w-full h-full object-cover" src="https://randomuser.me/api/portraits/men/32.jpg"/>
+</div>
+<div>
+<h4 class="font-bold">Michael T.</h4>
+<p class="text-sm text-gray-500">Verified Buyer</p>
+</div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-md">
+<div class="flex mb-4">
+<i class="fas fa-star text-amber-400"></i>
+<i class="fas fa-star text-amber-400"></i>
+<i class="fas fa-star text-amber-400"></i>
+<i class="fas fa-star text-amber-400"></i>
+<i class="fas fa-star text-amber-400"></i>
+</div>
+<p class="text-gray-700 mb-6">"The Stitch water bottle was a birthday gift for my daughter and she won't go anywhere without it! The design is so vibrant and durable."</p>
+<div class="flex items-center">
+<div class="w-10 h-10 rounded-full bg-gray-300 mr-3 overflow-hidden">
+<img alt="Emma R." class="w-full h-full object-cover" src="https://randomuser.me/api/portraits/women/65.jpg"/>
+</div>
+<div>
+<h4 class="font-bold">Emma R.</h4>
+<p class="text-sm text-gray-500">Verified Buyer</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter -->
+<section class="py-16 bg-gradient-to-r from-pink-500 to-amber-500 text-white">
+<div class="container mx-auto px-4 text-center">
+<h2 class="text-3xl md:text-4xl font-bold mb-6">Stay in the Loop</h2>
+<p class="text-xl mb-8 max-w-2xl mx-auto">
+                Be the first to know about new arrivals, exclusive offers, and behind-the-scenes stories from BeautifulBoos.
+            </p>
+<p class="mb-8 text-pink-100">
+                No spam, just beautiful handmade treasures and special offers.
+            </p>
+<div class="max-w-md mx-auto flex">
+<input class="newsletter-input flex-grow px-4 py-3 rounded-l-full text-gray-800 focus:ring-0" placeholder="Your email address" type="email"/>
+<button class="bg-gray-800 hover:bg-gray-900 px-6 py-3 rounded-r-full font-bold transition duration-300">
+                    Subscribe
+                </button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-gray-900 text-white pt-16 pb-8" id="contact">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+<div>
+<h3 class="text-2xl font-bold mb-4">
+<span class="text-pink-400">Beautiful</span><span class="text-amber-400">Boos</span>
+</h3>
+<p class="text-gray-400 mb-4">
+                        Handcrafted with love, made to bring joy to your everyday life.
+                    </p>
+<div class="flex space-x-4">
+<a class="text-gray-400 hover:text-pink-400 transition duration-300" href="#">
+<i class="fab fa-facebook-f text-xl"></i>
+</a>
+<a class="text-gray-400 hover:text-pink-400 transition duration-300" href="#">
+<i class="fab fa-instagram text-xl"></i>
+</a>
+<a class="text-gray-400 hover:text-pink-400 transition duration-300" href="#">
+<i class="fab fa-pinterest-p text-xl"></i>
+</a>
+<a class="text-gray-400 hover:text-pink-400 transition duration-300" href="#">
+<i class="fab fa-etsy text-xl"></i>
+</a>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-lg mb-4">Shop</h4>
+<ul class="space-y-2">
+<li><a class="text-gray-400 hover:text-amber-400 transition duration-300" href="#">Tumblers</a></li>
+<li><a class="text-gray-400 hover:text-amber-400 transition duration-300" href="#">Plant Pots</a></li>
+<li><a class="text-gray-400 hover:text-amber-400 transition duration-300" href="#">Keychains</a></li>
+<li><a class="text-gray-400 hover:text-amber-400 transition duration-300" href="#">Water Bottles</a></li>
+<li><a class="text-gray-400 hover:text-amber-400 transition duration-300" href="#">Mugs</a></li>
+<li><a class="text-gray-400 hover:text-amber-400 transition duration-300" href="#">Tote Bags</a></li>
+</ul>
+</div>
+<div> 
+<h4 class="font-bold text-lg mb-4">Information</h4>
+<ul class="space-y-2">
+<li><a class="text-gray-400 hover:text-amber-400 transition duration-300" href="#">About Us</a></li>
+<li><a class="text-gray-400 hover:text-amber-400 transition duration-300" href="#">Our Story</a></li>
+<li><a class="text-gray-400 hover:text-amber-400 transition duration-300" href="#">Shipping Policy</a></li>
+<li><a class="text-gray-400 hover:text-amber-400 transition duration-300" href="#">Returns &amp; Exchanges</a></li>
+<li><a class="text-gray-400 hover:text-amber-400 transition duration-300" href="#">Privacy Policy</a></li>
+<li><a class="text-gray-400 hover:text-amber-400 transition duration-300" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-lg mb-4">Contact Us</h4>
+<ul class="space-y-2">
+<li class="flex items-start">
+<i class="fas fa-map-marker-alt text-amber-400 mt-1 mr-3"></i>
+<span class="text-gray-400">123 Craft Lane, Artisan Town, UK</span>
+</li>
+<li class="flex items-center">
+<i class="fas fa-envelope text-amber-400 mr-3"></i>
+<span class="text-gray-400">hello@beautifulboos.com</span>
+</li>
+<li class="flex items-center">
+<i class="fas fa-phone-alt text-amber-400 mr-3"></i>
+<span class="text-gray-400">+44 123 456 7890</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="border-t border-gray-800 pt-8">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-500 text-sm mb-4 md:mb-0">
+                        © 2023 BeautifulBoos. All rights reserved.
+                    </p>
+<div class="flex space-x-6">
+<img alt="Visa" class="h-8" src="https://cdn.shopify.com/shopifycloud/checkout-web/assets/30d2d3d8b1a0c1b7b4a6.svg"/>
+<img alt="Mastercard" class="h-8" src="https://cdn.shopify.com/shopifycloud/checkout-web/assets/1c2b32b8a1a0c1b7b4a6.svg"/>
+<img alt="American Express" class="h-8" src="https://cdn.shopify.com/shopifycloud/checkout-web/assets/3a2b32b8a1a0c1b7b4a6.svg"/>
+<img alt="PayPal" class="h-8" src="https://cdn.shopify.com/shopifycloud/checkout-web/assets/4a2b32b8a1a0c1b7b4a6.svg"/>
+</div>
+</div>
+</div>
+</div>
+</footer>
+</div>
+</div>
+<div id="cart-modal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+  <div class="bg-white rounded-xl w-full max-w-2xl p-6 shadow-lg relative">
+    <h2 class="text-2xl font-bold mb-4">Your Cart</h2>
+
+    <div id="cart-items" class="space-y-4 max-h-80 overflow-y-auto">
+    
+    </div>
+
+    <div class="flex justify-between items-center mt-6 border-t pt-4">
+      <span class="text-xl font-bold">Total:</span>
+      <span id="cart-total" class="text-xl text-amber-600 font-bold">£0.00</span>
+    </div>
+
+    <div class="mt-4 flex justify-end gap-4">
+      <button id="continue-shopping" class="bg-gray-200 px-4 py-2 rounded hover:bg-gray-300">Continue Shopping</button>
+      <button id="checkout-btn" class="bg-amber-500 text-white px-4 py-2 rounded hover:bg-amber-600">Checkout</button>
+    </div>
+
+    
+    <button id="close-cart" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl">&times;</button>
+  </div>
+</div>
+
+
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
