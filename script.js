@@ -258,46 +258,125 @@ function closeCartModal() {
     cartModal.classList.remove('active');
     document.body.style.overflow = 'auto';
 }
-
-function handleCheckout() {
+function openCheckoutModal() {
     if (cart.length === 0) {
-        showNotification('Your cart is empty!', 'warning');
+        alert('Your cart is empty!');
         return;
     }
 
-    // Create an order record for each item
+    document.getElementById('checkout-modal').style.display = 'flex';
+
+    const DELIVERY_FEE = 4.99;
+    let subtotal = 0;
+    cart.forEach(item => subtotal += item.price * item.quantity);
+    const totalAmount = subtotal + DELIVERY_FEE;
+
+    document.getElementById('checkout-summary').innerHTML = `
+        <p><strong>Subtotal:</strong> £${subtotal.toFixed(2)}</p>
+        <p><strong>Delivery:</strong> £${DELIVERY_FEE.toFixed(2)}</p>
+        <p><strong>Total:</strong> £${totalAmount.toFixed(2)}</p>
+    `;
+    document.getElementById('card-total').textContent = totalAmount.toFixed(2);
+
+    // Render PayPal button
+    paypal.Buttons({
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: { value: totalAmount.toFixed(2), currency_code: 'GBP' }
+                }]
+            });
+        },
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+                completeOrder(details.payer.name.given_name);
+            });
+        }
+    }).render('#paypal-button-container');
+}
+
+function closeCheckoutModal() {
+    document.getElementById('checkout-modal').style.display = 'none';
+}
+
+function completeOrder(customerName) {
+    const DELIVERY_FEE = 4.99;
     const orderId = Date.now();
-    const newOrders = JSON.parse(localStorage.getItem('orders') || '[]');
-    const deliveryFee = 4.99;
+    const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+
     cart.forEach(item => {
-        newOrders.push({
+        orders.push({
             id: orderId + '-' + Math.floor(Math.random() * 1000),
             product: item.name,
             customization: item.customization,
-            price: item.price * item.quantity,
-            status: 'pending',
+            price: item.price + DELIVERY_FEE,
+            status: 'paid',
             time: Date.now(),
-            previewImage: item.customization?.image || null // pass uploaded image if exists
+            previewImage: item.customization?.image || null
         });
     });
 
-    localStorage.setItem('orders', JSON.stringify(newOrders));
-
-    // Simulate payment
-    showNotification('Processing payment...', 'info');
-    setTimeout(() => {
-        let updatedOrders = JSON.parse(localStorage.getItem('orders'));
-        updatedOrders = updatedOrders.map(o => {
-            if (o.status === 'pending') o.status = 'paid';
-            return o;
-        });
-        localStorage.setItem('orders', JSON.stringify(updatedOrders));
-        showNotification('Payment successful! Thank you for your order.', 'success');
-        cart = [];
-        updateCartDisplay();
-        closeCartModal();
-    }, 2000);
+    localStorage.setItem('orders', JSON.stringify(orders));
+    cart = [];
+    localStorage.removeItem('cart');
+    updateCartDisplay();
+    closeCheckoutModal();
+    closeCartModal();
+    alert(`Order placed successfully! Thank you, ${customerName || 'Customer'}!`);
 }
+function handleCheckout() {
+    if (cart.length === 0) {
+        alert('Your cart is empty!');
+        return;
+    }
+
+    const DELIVERY_FEE = 4.99;
+    let subtotal = 0;
+    cart.forEach(item => subtotal += item.price * item.quantity);
+    const totalAmount = subtotal + DELIVERY_FEE;
+
+    paypal.Buttons({
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: totalAmount.toFixed(2),
+                        currency_code: 'GBP'
+                    }
+                }]
+            });
+        },
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+                alert('Payment completed by ' + details.payer.name.given_name);
+
+                const orderId = Date.now();
+                const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+
+                cart.forEach(item => {
+                    orders.push({
+                        id: orderId + '-' + Math.floor(Math.random() * 1000),
+                        product: item.name,
+                        customization: item.customization,
+                        price: item.price + DELIVERY_FEE,
+                        status: 'paid',
+                        time: Date.now(),
+                        previewImage: item.customization?.image || null
+                    });
+                });
+
+                localStorage.setItem('orders', JSON.stringify(orders));
+                cart = [];
+                localStorage.removeItem('cart');
+                updateCartDisplay();
+                closeCartModal();
+                alert('Order placed successfully!');
+            });
+        }
+    }).render('#paypal-button-container');
+}
+
+
 
 
 // Customizer Functions
