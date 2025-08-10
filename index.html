@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BeautifulBoos - Personalized Items with Love</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://www.paypal.com/sdk/js?client-id=Ad99fIxksPl2we4uQ0i7aOsUXPo5V0YbKy2gNEb2yVXdog1ISkbhXKsF7yEd66AWqbxPGwZA0o-BWag6&currency=GBP"></script>
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
@@ -560,13 +562,23 @@
                 </div>
                 <div class="cart-actions">
                     <button class="continue-shopping" id="continue-shopping">Continue Shopping</button>
-                    <button class="checkout-btn" id="checkout-btn">Checkout</button>
+                    <button class="checkout-btn" onclick="openCheckoutModal()" id="checkout-btn">Checkout</button>
+                    
+
                 </div>
             </div>
         </div>
     </div>
 
-    
+    <div id="checkout-modal" class="checkout-modal" style="display: none;">
+    <div class="checkout-content">
+        <h2>Complete Your Order</h2>
+
+        <div id="checkout-summary"></div>
+
+        <div id="paypal-button-container" style="margin-top: 20px;"></div>
+    </div>
+</div>
     <div class="success-message" id="success-message">
         <i class="fas fa-check-circle"></i>
         <span>Item added to cart!</span>
