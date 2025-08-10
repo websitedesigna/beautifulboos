@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard - Orders</title>
+    <style>
+        body { background: #f8f9fa; padding: 2rem; font-family: sans-serif; }
+        h1 { margin-bottom: 1rem; }
+        table { width: 100%; border-collapse: collapse; background: white; }
+        th, td { border: 1px solid #ddd; padding: 0.75rem; text-align: left; vertical-align: top; }
+        th { background: #ff6b9d; color: white; }
+        tr:nth-child(even) { background: #f2f2f2; }
+        img.thumb { max-width: 80px; max-height: 80px; border-radius: 8px; }
+        .status-pending { color: orange; font-weight: bold; }
+        .status-paid { color: green; font-weight: bold; }
+        .status-shipped { color: blue; font-weight: bold; }
+        .status-cancelled { color: red; font-weight: bold; }
+        button { padding: 5px 10px; margin-right: 5px; border: none; border-radius: 4px; cursor: pointer; }
+        .btn-ship { background: #4ecdc4; color: white; }
+        .btn-cancel { background: #ff4757; color: white; }
+        #login-screen {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.85); display: flex;
+            align-items: center; justify-content: center; flex-direction: column;
+            color: white; z-index: 9999;
+        }
+        #login-screen input {
+            padding: 10px; border-radius: 5px; border: none;
+            margin-bottom: 10px; font-size: 16px;
+        }
+        #login-screen button {
+            background: #ff6b9d; color: white; padding: 10px 20px; border: none;
+            border-radius: 5px; font-size: 16px; cursor: pointer;
+        }
+        .color-dot {
+            display: inline-block;
+            width: 14px; height: 14px;
+            border-radius: 50%;
+            border: 1px solid #ccc;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="login-screen">
+        <h2>Admin Login</h2>
+        <input type="password" id="admin-password" placeholder="Enter password">
+        <button onclick="checkPassword()">Login</button>
+    </div>
+
+    <h1>Admin Dashboard - Orders</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Product</th>
+                <th>Customization</th>
+                <th>Image</th>
+                <th>Price</th>
+                <th>Status</th>
+                <th>Time</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="orders-table"></tbody>
+    </table>
+
+    <script>
+        const ADMIN_PASSWORD = "Admin19836";
+
+        function checkPassword() {
+            const entered = document.getElementById('admin-password').value;
+            if (entered === ADMIN_PASSWORD) {
+                document.getElementById('login-screen').style.display = 'none';
+                loadOrders();
+                setInterval(loadOrders, 3000);
+            } else {
+                alert("Incorrect password");
+            }
+        }
+
+        function formatCustomization(cust) {
+            let details = [];
+            if (cust.text) details.push(`<strong>Text:</strong> ${cust.text}`);
+            if (cust.color) {
+                details.push(
+                    `<strong>Color:</strong> ${cust.color} <span class="color-dot" style="background:${cust.color}"></span>`
+                );
+            }
+            if (cust.glitter && cust.glitter.length) {
+                details.push(`<strong>Glitter:</strong> ${cust.glitter.join(', ')}`);
+            }
+            if (cust.hasLidStraw) details.push(`<strong>Lid & Straw:</strong> Yes`);
+            return details.length ? details.join('<br>') : 'None';
+        }
+
+        function loadOrders() {
+            const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+            const table = document.getElementById('orders-table');
+            table.innerHTML = orders.map(order => `
+                <tr>
+                    <td>${order.id}</td>
+                    <td>${order.product}</td>
+                    <td>${order.customization ? formatCustomization(order.customization) : 'None'}</td>
+                    <td>${order.previewImage ? `<img src="${order.previewImage}" class="thumb">` : '—'}</td>
+                    <td>£${order.price.toFixed(2)}</td>
+                    <td class="status-${order.status}">${order.status}</td>
+                    <td>${new Date(order.time).toLocaleString()}</td>
+                    <td>
+                        <button class="btn-ship" onclick="updateOrderStatus('${order.id}', 'shipped')">Ship</button>
+                        <button class="btn-cancel" onclick="updateOrderStatus('${order.id}', 'cancelled')">Cancel</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function updateOrderStatus(orderId, newStatus) {
+            let orders = JSON.parse(localStorage.getItem('orders') || '[]');
+            orders = orders.map(order => {
+                if (order.id === orderId) {
+                    order.status = newStatus;
+                }
+                return order;
+            });
+            localStorage.setItem('orders', JSON.stringify(orders));
+            loadOrders();
+        }
+    </script>
+</body>
+</html>
