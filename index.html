@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeautifulBoos - Personalized Items with Love</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <h1 class="logo">
+                    <img class="logo-img" src="/images/logo1.jpg" alt="BeautifulBoos Logo">
+                    <span class="text-pink">Beautiful</span><span class="text-blue">Boos</span>
+
+                </h1>
+            </div>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#products" class="nav-link">Products</a>
+                <a href="#custom" class="nav-link">Custom Design</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="cart-btn" id="cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </button>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2 class="hero-title">Personalized Items <span class="text-gradient">Made with Love</span></h2>
+                    <p class="hero-subtitle">Custom designs on cups, clothing, and more. Every piece is uniquely yours with our wide range of colors and design palettes.</p>
+                    <div class="hero-features">
+                        <div class="feature-badge">
+                            <i class="fas fa-palette"></i>
+                            <span>Custom Designs</span>
+                        </div>
+                        <div class="feature-badge">
+                            <i class="fas fa-heart"></i>
+                            <span>Made with Love</span>
+                        </div>
+                        <div class="feature-badge">
+                            <i class="fas fa-shipping-fast"></i>
+                            <span>Fast UK Delivery For Just £4.99</span>
+                        </div>
+                    </div>
+                    <button class="cta-btn" onclick="scrollToSection('products')">
+                        Shop Now <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                <div class="hero-image">
+                    <div class="product-showcase">
+                        <div class="showcase-item">
+                            <img src="/images/bow_tumbler.jpeg" alt="Custom Tumbler">
+                        </div>
+                        <div class="showcase-item">
+                            <img src="/images/Strawberry_drinking_glass.jpeg" alt="Custom Hoodie">
+                        </div>
+                        <div class="showcase-item">
+                            <img src="/images/bow_cup.jpeg" alt="Custom Mug">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Products</h2>
+                <p class="section-subtitle">Choose from our wide range of customizable items</p>
+            </div>
+
+            <!-- Product Categories -->
+            <div class="product-categories">
+                <button class="category-btn active" data-category="all">All Products</button>
+                <button class="category-btn" data-category="cups">Cups & Tumblers</button>
+                <button class="category-btn" data-category="clothing">Clothing</button>
+                <button class="category-btn" data-category="other">Other Items</button>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="product-grid" id="product-grid">
+                <!-- Cups & Tumblers -->
+                <div class="product-card" data-category="cups">
+                    <div class="product-image">
+                        <img src="/images/cow_mug.jpeg" alt="10oz Mug">
+                        <div class="product-overlay">
+                            <button class="quick-view-btn" onclick="openCustomizer('mug')">Customize</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">10oz Mug</h3>
+                        <p class="product-description">Custom design mug</p>
+                        <div class="product-price">£5.00</div>
+                        <button class="add-to-cart-btn" data-product="10oz Mug" data-price="5.00">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="cups">
+                    <div class="product-image">
+                        <img src="/images/water_bottle.jpeg" alt="10oz Water Bottle">
+                        <div class="product-overlay">
+                            <button class="quick-view-btn" onclick="openCustomizer('bottle')">Customize</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">10oz Water Bottle</h3>
+                        <p class="product-description">Custom design wrap</p>
+                        <div class="product-price">£8.00</div>
+                        <button class="add-to-cart-btn" data-product="10oz Water Bottle" data-price="8.00">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="cups">
+                    <div class="product-image">
+                        <img src="/images/16ozG.jpg" alt="10oz Glass Tumbler">
+                        <div class="product-overlay">
+                            <button class="quick-view-btn" onclick="openCustomizer('tumbler')">Customize</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">10oz Glass Tumbler</h3>
+                        <p class="product-description">Any design</p>
+                        <div class="product-price">£3.00</div>
+                        <button class="add-to-cart-btn" data-product="10oz Glass Tumbler" data-price="3.00">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="cups">
+                    <div class="product-image">
+                        <img src="/images/16ozG.jpg" alt="16oz Tumbler">
+                        <div class="product-overlay">
+                            <button class="quick-view-btn" onclick="openCustomizer('tumbler16')">Customize</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">16oz Clear/Frosted Tumbler</h3>
+                        <p class="product-description">Any design</p>
+                        <div class="product-price">£10.00</div>
+                        <button class="add-to-cart-btn" data-product="16oz Clear/Frosted Tumbler" data-price="10.00">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="cups">
+                    <div class="product-image">
+                        <img src="/images/snowGlobe.jpg" alt="16oz Snow Globe Tumbler">
+                        <div class="product-overlay">
+                            <button class="quick-view-btn" onclick="openCustomizer('snowglobe')">Customize</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">16oz Snow Globe Tumbler</h3>
+                        <p class="product-description">Any design + 3 glitter choices</p>
+                        <div class="product-price">£12.00</div>
+                        <button class="add-to-cart-btn" data-product="16oz Snow Globe Tumbler" data-price="12.00">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="cups">
+                    <div class="product-image">
+                        <img src="/images/pBottle.jpg" alt="20oz Metal Tumbler">
+                        <div class="product-overlay">
+                            <button class="quick-view-btn" onclick="openCustomizer('metal')">Customize</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">20oz Metal Tumbler</h3>
+                        <p class="product-description">Sublimation design</p>
+                        <div class="product-price">£15.00</div>
+                        <button class="add-to-cart-btn" data-product="20oz Metal Tumbler" data-price="15.00">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Clothing -->
+                <div class="product-card" data-category="clothing">
+                    <div class="product-image">
+                        <img src="images/kidshoodie.jpeg" alt="Adult Hoodie">
+                        <div class="product-overlay">
+                            <button class="quick-view-btn" onclick="openCustomizer('hoodie-adult')">Customize</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Adult Hoodie</h3>
+                        <p class="product-description">Custom design</p>
+                        <div class="product-price">From £25.00</div>
+                        <button class="add-to-cart-btn" data-product="Adult Hoodie" data-price="25.00">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="clothing">
+                    <div class="product-image">
+                        <img src="images/kidshoodie.jpeg" alt="Kids Hoodie">
+                        <div class="product-overlay">
+                            <button class="quick-view-btn" onclick="openCustomizer('hoodie-kids')">Customize</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Kids Hoodie</h3>
+                        <p class="product-description">Custom design</p>
+                        <div class="product-price">From £20.00</div>
+                        <button class="add-to-cart-btn" data-product="Kids Hoodie" data-price="20.00">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="clothing">
+                    <div class="product-image">
+                        <img src="images/tshirt.jpeg" alt="Adult T-Shirt">
+                        <div class="product-overlay">
+                            <button class="quick-view-btn" onclick="openCustomizer('tee-adult')">Customize</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Adult T-Shirt</h3>
+                        <p class="product-description">Custom design</p>
+                        <div class="product-price">From £7.00</div>
+                        <button class="add-to-cart-btn" data-product="Adult T-Shirt" data-price="7.00">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="clothing">
+                    <div class="product-image">
+                        <img src="images/tshirt.jpeg" alt="Kids T-Shirt">
+                        <div class="product-overlay">
+                            <button class="quick-view-btn" onclick="openCustomizer('tee-kids')">Customize</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Kids T-Shirt</h3>
+                        <p class="product-description">Custom design</p>
+                        <div class="product-price">From £5.00</div>
+                        <button class="add-to-cart-btn" data-product="Kids T-Shirt" data-price="5.00">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="clothing">
+                    <div class="product-image">
+                        <img src="images/cap.jpeg" alt="Cap">
+                        <div class="product-overlay">
+                            <button class="quick-view-btn" onclick="openCustomizer('cap')">Customize</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Cap</h3>
+                        <p class="product-description">Custom design</p>
+                        <div class="product-price">£5.00</div>
+                        <button class="add-to-cart-btn" data-product="Cap" data-price="5.00">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="clothing">
+                    <div class="product-image">
+                        <img src="images/rucksack.jpeg" alt="Bags">
+                        <div class="product-overlay">
+                            <button class="quick-view-btn" onclick="openCustomizer('bags')">Customize</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Rucksacks & Drawstring Bags</h3>
+                        <p class="product-description">Custom design</p>
+                        <div class="product-price">From £5.00</div>
+                        <button class="add-to-cart-btn" data-product="Rucksacks & Drawstring Bags" data-price="5.00">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="Stationary">
+                    <div class="product-image">
+                        <img src="images/fn.jpg" alt="Pencil Case">
+                        <div class="product-overlay">
+                            <button class="quick-view-btn" onclick="openCustomizer('Case')">Customize</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Custom Pencil Cases</h3>
+                        <p class="product-description">Custom design</p>
+                        <div class="product-price">From £5.00</div>
+                        <button class="add-to-cart-btn" data-product="Custom Pencil Cases" data-price="5.00">Add to Cart</button>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Design Section -->
+    <section class="custom-design" id="custom">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Custom Design Studio</h2>
+                <p class="section-subtitle">Create your perfect personalized item with our design tools</p>
+            </div>
+
+            <div class="customizer-container" id="customizer-container">
+                <div class="customizer-card">
+                    <div class="customizer-header">
+                        <h3>Design Your Item</h3>
+                        <button class="close-customizer" id="close-customizer">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+
+                    <div class="customizer-content">
+                        <div class="customizer-options">
+                            <div class="option-group">
+                                <label class="option-label">
+                                    <i class="fas fa-font"></i>
+                                    Personalization Text (up to 10 letters - £2.00)
+                                </label>
+                                <input type="text" id="custom-text" class="custom-input" placeholder="Enter your text" maxlength="10">
+                                <small class="input-help">Each letter counts towards the 10 letter limit</small>
+                            </div>
+
+                            <div class="option-group">
+                                <label class="option-label">
+                                    <i class="fas fa-palette"></i>
+                                    Choose Color
+                                </label>
+                                <div class="color-options">
+                                    <div class="color-option" data-color="#ff6b9d" style="background: #ff6b9d;"></div>
+                                    <div class="color-option" data-color="#4ecdc4" style="background: #4ecdc4;"></div>
+                                    <div class="color-option" data-color="#45b7d1" style="background: #45b7d1;"></div>
+                                    <div class="color-option" data-color="#96ceb4" style="background: #96ceb4;"></div>
+                                    <div class="color-option" data-color="#feca57" style="background: #feca57;"></div>
+                                    <div class="color-option" data-color="#ff9ff3" style="background: #ff9ff3;"></div>
+                                    <div class="color-option" data-color="#54a0ff" style="background: #54a0ff;"></div>
+                                    <div class="color-option" data-color="#5f27cd" style="background: #5f27cd;"></div>
+                                </div>
+                            </div>
+
+                            <div class="option-group">
+                                <label class="option-label">
+                                    <i class="fas fa-image"></i>
+                                    Upload Your Design
+                                </label>
+                                <input type="file" id="custom-image" class="file-input" accept="image/*">
+                                <small class="input-help">Upload your own design or logo</small>
+                            </div>
+
+                            <div class="option-group" id="glitter-options" style="display: none;">
+                                <label class="option-label">
+                                    <i class="fas fa-sparkles"></i>
+                                    Choose Glitter (Select 3)
+                                </label>
+                                <div class="glitter-options">
+                                    <div class="glitter-option" data-glitter="gold">Gold</div>
+                                    <div class="glitter-option" data-glitter="silver">Silver</div>
+                                    <div class="glitter-option" data-glitter="pink">Pink</div>
+                                    <div class="glitter-option" data-glitter="blue">Blue</div>
+                                    <div class="glitter-option" data-glitter="purple">Purple</div>
+                                    <div class="glitter-option" data-glitter="green">Green</div>
+                                </div>
+                            </div>  
+                            <div class="custom-option">
+                                <label for="textColor">Text Color (+£1)</label>
+                                <input type="color" id="textColor" value="#000000">
+                            </div>
+
+                            <div class="custom-option">
+                                <label><input type="checkbox" id="decorative-lid"> Decorative Lid (+£2.50)</label>
+                            </div>
+
+                            
+
+                            <div class="option-group" id="lid-straw-options" style="display: none;">
+                                <label class="option-label">
+                                    <i class="fas fa-plus"></i>
+                                    16oz Lid & Straw Color Change (+£2.50)
+                                </label>
+                                <div class="addon-options">
+                                    <label class="addon-checkbox">
+                                        <input type="checkbox" id="lid-straw-addon">
+                                        <span class="checkmark"></span>
+                                        Add Color Change Lid & Straw
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="customizer-preview">
+                            <div class="preview-container">
+                                <div class="preview-item" id="preview-item">
+                                    <div class="preview-text" id="preview-text">Your Text</div>
+                                    <div class="preview-image" id="preview-image"></div>
+                                </div>
+                            </div>
+                            <div class="preview-info">
+                                <h4 id="preview-title">Custom Item</h4>
+                                <div class="price-breakdown">
+                                    <div class="price-line">
+                                        <span>Base Price:</span>
+                                        <span id="base-price">£0.00</span>
+                                    </div>
+                                    <div class="price-line" id="text-price-line" style="display: none;">
+                                        <span>Personalization:</span>
+                                        <span>£2.00</span>
+                                    </div>
+                                    <div class="price-line" id="addon-price-line" style="display: none;">
+                                        <span>Lid & Straw:</span>
+                                        <span>£2.50</span>
+                                    </div>
+                                    <div class="price-line total-price">
+                                        <span>Total:</span>
+                                        <span id="total-price">£0.00</span>
+                                    </div>
+                                </div>
+                                <button class="add-custom-to-cart" id="add-custom-to-cart">
+                                    Add to Cart <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">About BeautifulBoos</h2>
+                    <p class="about-description">
+                        We specialize in creating personalized items that are uniquely yours. With our wide range of colors and design palettes, we can bring any vision to life. Whether you have your own design or need us to create something custom, we're here to help make your ideas a reality.
+                    </p>
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <i class="fas fa-palette"></i>
+                            <div>
+                                <h4>Wide Range of Colors</h4>
+                                <p>Extensive color palette for all your design needs</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-magic"></i>
+                            <div>
+                                <h4>Custom Designs</h4>
+                                <p>We create unique designs tailored to your vision</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-heart"></i>
+                            <div>
+                                <h4>Made with Love</h4>
+                                <p>Every item is crafted with care and attention to detail</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="/images/logo1.jpg" alt="Custom Design Process">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Ready to create something beautiful? Contact us for quotes and custom designs</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email Us</h4>
+                            <p>beautifulboos@outlook.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Call Us</h4>
+                            <p>Phone isn't available</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Business Hours</h4>
+                            <p>Mon-Fri: 9AM-6PM<br>Sat-Sun: 10AM-4PM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Tell us about your design ideas..." rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            Send Message <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-overlay" id="cart-overlay"></div>
+        <div class="cart-container">
+            <div class="cart-header">
+                <h3>Your Cart</h3>
+                <button class="close-cart" id="close-cart">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="cart-content" id="cart-content">
+                <div class="empty-cart" id="empty-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h4>Your cart is empty</h4>
+                    <p>Add some beautiful items to get started!</p>
+                </div>
+                <div class="cart-items" id="cart-items"></div>
+                <div class="cart-delivery" id="cart-delivery" style="display: none;">
+                    <div class="delivery-line">
+                        <span>Delivery:</span>
+                        <span id="deliveryFee">£4.99</span>
+                    </div>
+                </div>
+            </div>
+            <div class="cart-footer" id="cart-footer" style="display: none;">
+                <div class="cart-total">
+                    <div class="total-line">
+                        <span>Subtotal:</span>
+                        <span id="cart-subtotal">£0.00</span>
+                    </div>
+                    <div class="total-line total">
+                        <span>Total:</span>
+                        <span id="cart-total">£0.00</span>
+                    </div>
+                </div>
+                <div class="cart-actions">
+                    <button class="continue-shopping" id="continue-shopping">Continue Shopping</button>
+                    <button class="checkout-btn" id="checkout-btn">Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="success-message" id="success-message">
+        <i class="fas fa-check-circle"></i>
+        <span>Item added to cart!</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
