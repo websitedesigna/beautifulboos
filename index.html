@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BeautifulBoos - Personalized Items with Love</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://www.paypal.com/sdk/js?client-id=Ad99fIxksPl2we4uQ0i7aOsUXPo5V0YbKy2gNEb2yVXdog1ISkbhXKsF7yEd66AWqbxPGwZA0o-BWag6&currency=GBP"></script>
+    <script 
+  src="https://www.paypal.com/sdk/js?client-id=BAAeIuuq2aNamk4wy3j7qqrptZrtLFGWr8eSBKk7jJMSQtAHOEEreObJ4TgYCuZNiYd9t_InRl2KER0E98&components=hosted-buttons&disable-funding=venmo&currency=GBP">
+</script>
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -101,20 +103,7 @@
             <!-- Product Grid -->
             <div class="product-grid" id="product-grid">
                 <!-- Cups & Tumblers -->
-                <div class="product-card" data-category="cups">
-                    <div class="product-image">
-                        <img src="/images/cow_mug.jpeg" alt="10oz Mug">
-                        <div class="product-overlay">
-                            <button class="quick-view-btn" onclick="openCustomizer('mug')">Customize</button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">10oz Mug</h3>
-                        <p class="product-description">Custom design mug</p>
-                        <div class="product-price">£5.00</div>
-                        <button class="add-to-cart-btn" data-product="10oz Mug" data-price="5.00">Add to Cart</button>
-                    </div>
-                </div>
+             
 
                 <div class="product-card" data-category="cups">
                     <div class="product-image">
@@ -124,10 +113,10 @@
                         </div>
                     </div>
                     <div class="product-info">
-                        <h3 class="product-name">10oz Water Bottle</h3>
+                        <h3 class="product-name">20oz Water Bottle</h3>
                         <p class="product-description">Custom design wrap</p>
                         <div class="product-price">£8.00</div>
-                        <button class="add-to-cart-btn" data-product="10oz Water Bottle" data-price="8.00">Add to Cart</button>
+                        <button class="add-to-cart-btn" data-product="20oz Water Bottle" data-price="8.00">Add to Cart</button>
                     </div>
                 </div>
 
@@ -139,10 +128,10 @@
                         </div>
                     </div>
                     <div class="product-info">
-                        <h3 class="product-name">10oz Glass Tumbler</h3>
+                        <h3 class="product-name">11oz Glass Tumbler</h3>
                         <p class="product-description">Any design</p>
                         <div class="product-price">£3.00</div>
-                        <button class="add-to-cart-btn" data-product="10oz Glass Tumbler" data-price="3.00">Add to Cart</button>
+                        <button class="add-to-cart-btn" data-product="11oz Glass Tumbler" data-price="3.00">Add to Cart</button>
                     </div>
                 </div>
 
@@ -154,10 +143,11 @@
                         </div>
                     </div>
                     <div class="product-info">
-                        <h3 class="product-name">16oz Clear/Frosted Tumbler</h3>
+                        <h3 class="product-name">
+                            10oz Snow Globe Tumbler</h3>
                         <p class="product-description">Any design</p>
                         <div class="product-price">£10.00</div>
-                        <button class="add-to-cart-btn" data-product="16oz Clear/Frosted Tumbler" data-price="10.00">Add to Cart</button>
+                        <button class="add-to-cart-btn" data-product="10oz Snow Globe Tumbler" data-price="10.00">Add to Cart</button>
                     </div>
                 </div>
 
@@ -576,7 +566,12 @@
 
         <div id="checkout-summary"></div>
 
-        <div id="paypal-button-container" style="margin-top: 20px;"></div>
+        <div id="paypal-container-ENL24WJ5GSQ3Y"></div>
+<script>
+  paypal.HostedButtons({
+    hostedButtonId: "ENL24WJ5GSQ3Y",
+  }).render("#paypal-container-ENL24WJ5GSQ3Y")
+</script>
     </div>
 </div>
     <div class="success-message" id="success-message">
