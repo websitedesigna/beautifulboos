@@ -13,7 +13,7 @@ body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     color: #333;
-    background: linear-gradient(135deg, #f36ef3 0%, #ff3ef5 100%);
+    background: linear-gradient(135deg, #f36ef3 0%, #f893f3 100%);
     min-height: 100vh;
 }
 
@@ -50,7 +50,7 @@ body {
 }
 
 .text-pink {
-    color: #ff6b9d;
+    color: #ff0055;
 }
 
 .text-blue {
@@ -170,7 +170,7 @@ body {
 
 .hero-subtitle {
     font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(243, 0, 203, 0.9);
     margin-bottom: 2rem;
     line-height: 1.6;
 }
@@ -248,7 +248,10 @@ body {
     height: 200px;
     object-fit: cover;
 }
-
+i {
+    font-style: italic;
+    color: #ff3ef5;
+}
 /* Products Section */
 .products {
     padding: 80px 0;
@@ -392,7 +395,7 @@ body {
     font-size: 1.3rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
-    color: #333;
+    color: #b409a6;
 }
 
 .product-description {
