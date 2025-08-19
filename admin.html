@@ -3,112 +3,508 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin Dashboard - Orders</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body { background: #f8f9fa; padding: 2rem; font-family: sans-serif; }
-        h1 { margin-bottom: 1rem; }
-        table { width: 100%; border-collapse: collapse; background: white; }
-        th, td { border: 1px solid #ddd; padding: 0.75rem; text-align: left; vertical-align: top; }
-        th { background: #ff6b9d; color: white; }
-        tr:nth-child(even) { background: #f2f2f2; }
-        img.thumb { max-width: 80px; max-height: 80px; border-radius: 8px; }
-        .status-pending { color: orange; font-weight: bold; }
-        .status-paid { color: green; font-weight: bold; }
-        .status-shipped { color: blue; font-weight: bold; }
-        .status-cancelled { color: red; font-weight: bold; }
-        button { padding: 5px 10px; margin-right: 5px; border: none; border-radius: 4px; cursor: pointer; }
-        .btn-ship { background: #4ecdc4; color: white; }
-        .btn-cancel { background: #ff4757; color: white; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body { 
+            background: linear-gradient(180deg, 
+                #fce4ec 0%,
+                #f8bbd9 25%,
+                #f48fb1 50%,
+                #f06292 75%,
+                #e91e63 100%
+            );
+            min-height: 100vh;
+            padding: 2rem; 
+            font-family: 'Inter', sans-serif; 
+            color: #c2185b;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            box-shadow: 0 25px 80px rgba(194, 24, 91, 0.3);
+            overflow: hidden;
+        }
+        
+        h1 { 
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 2rem; 
+            padding: 2rem;
+            background: linear-gradient(135deg, #c2185b, #4ecdc4);
+            color: white;
+            text-align: center;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .table-container {
+            padding: 2rem;
+            overflow-x: auto;
+        }
+        
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(194, 24, 91, 0.1);
+        }
+        
+        th, td { 
+            border: none;
+            padding: 1rem; 
+            text-align: left; 
+            vertical-align: top;
+            border-bottom: 1px solid rgba(194, 24, 91, 0.1);
+        }
+        
+        th { 
+            background: linear-gradient(135deg, #c2185b, #4ecdc4);
+            color: white; 
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        tr:nth-child(even) { 
+            background: linear-gradient(135deg, #fce4ec, #f8bbd9);
+        }
+        
+        tr:hover {
+            background: rgba(194, 24, 91, 0.05);
+            transform: scale(1.01);
+            transition: all 0.3s ease;
+        }
+        
+        img.thumb { 
+            max-width: 80px; 
+            max-height: 80px; 
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(194, 24, 91, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        img.thumb:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(194, 24, 91, 0.3);
+        }
+        
+        .status-pending { 
+            color: #ffa726; 
+            font-weight: bold; 
+            padding: 0.5rem 1rem;
+            background: rgba(255, 167, 38, 0.1);
+            border-radius: 50px;
+            border: 2px solid #ffa726;
+        }
+        
+        .status-paid { 
+            color: #2ed573; 
+            font-weight: bold; 
+            padding: 0.5rem 1rem;
+            background: rgba(46, 213, 115, 0.1);
+            border-radius: 50px;
+            border: 2px solid #2ed573;
+        }
+        
+        .status-shipped { 
+            color: #54a0ff; 
+            font-weight: bold; 
+            padding: 0.5rem 1rem;
+            background: rgba(84, 160, 255, 0.1);
+            border-radius: 50px;
+            border: 2px solid #54a0ff;
+        }
+        
+        .status-cancelled { 
+            color: #ff4757; 
+            font-weight: bold; 
+            padding: 0.5rem 1rem;
+            background: rgba(255, 71, 87, 0.1);
+            border-radius: 50px;
+            border: 2px solid #ff4757;
+        }
+        
+        button { 
+            padding: 0.7rem 1.2rem; 
+            margin: 0.25rem; 
+            border: none; 
+            border-radius: 50px; 
+            cursor: pointer;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-ship { 
+            background: linear-gradient(135deg, #2ed573, #1e90ff);
+            color: white; 
+        }
+        
+        .btn-cancel { 
+            background: linear-gradient(135deg, #ff4757, #ff3742);
+            color: white; 
+        }
+        
         #login-screen {
-            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.85); display: flex;
-            align-items: center; justify-content: center; flex-direction: column;
-            color: white; z-index: 9999;
+            position: fixed; 
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(135deg, rgba(194, 24, 91, 0.95), rgba(78, 205, 196, 0.95));
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center; 
+            justify-content: center; 
+            flex-direction: column;
+            color: white; 
+            z-index: 9999;
         }
+        
+        .login-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 3rem;
+            border-radius: 25px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            min-width: 400px;
+        }
+        
+        .login-card h2 {
+            font-family: 'Playfair Display', serif;
+            color: #c2185b;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+        
         #login-screen input {
-            padding: 10px; border-radius: 5px; border: none;
-            margin-bottom: 10px; font-size: 16px;
+            width: 100%;
+            padding: 1rem;
+            border-radius: 15px;
+            border: 2px solid rgba(194, 24, 91, 0.2);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            background: rgba(255, 255, 255, 0.8);
+            color: #c2185b;
+            transition: all 0.3s ease;
         }
-        #login-screen button {
-            background: #ff6b9d; color: white; padding: 10px 20px; border: none;
-            border-radius: 5px; font-size: 16px; cursor: pointer;
+        
+        #login-screen input:focus {
+            outline: none;
+            border-color: #c2185b;
+            box-shadow: 0 0 0 4px rgba(194, 24, 91, 0.1);
+            transform: translateY(-2px);
         }
+        
+        #login-screen input::placeholder {
+            color: rgba(194, 24, 91, 0.6);
+        }
+        
+        .login-btn {
+            background: linear-gradient(135deg, #c2185b, #4ecdc4);
+            color: white; 
+            padding: 1rem 2rem; 
+            border: none;
+            border-radius: 50px; 
+            font-size: 1.1rem; 
+            cursor: pointer;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            width: 100%;
+            box-shadow: 0 8px 25px rgba(194, 24, 91, 0.3);
+        }
+        
+        .login-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(194, 24, 91, 0.4);
+        }
+        
         .color-dot {
             display: inline-block;
-            width: 14px; height: 14px;
+            width: 16px; 
+            height: 16px;
             border-radius: 50%;
-            border: 1px solid #ccc;
-            margin-left: 5px;
+            border: 2px solid rgba(194, 24, 91, 0.3);
+            margin-left: 8px;
+            vertical-align: middle;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .customization-details {
+            background: rgba(194, 24, 91, 0.05);
+            padding: 0.75rem;
+            border-radius: 10px;
+            border-left: 4px solid #c2185b;
+            margin: 0.5rem 0;
+        }
+        
+        .order-id {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            color: #c2185b;
+        }
+        
+        .order-time {
+            color: #ad1457;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(194, 24, 91, 0.2);
+            border-radius: 50%;
+            border-top-color: #c2185b;
+            animation: spin 1s ease-in-out infinite;
+            margin-left: 10px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 0 2rem;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(252, 228, 236, 0.9));
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(194, 24, 91, 0.1);
+        }
+        
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #c2185b;
+        }
+        
+        .stat-label {
+            color: #ad1457;
+            font-weight: 500;
+            margin-top: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            
+            .login-card {
+                min-width: auto;
+                width: 90%;
+                padding: 2rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+                padding: 1.5rem;
+            }
+            
+            .table-container {
+                padding: 1rem;
+            }
+            
+            th, td {
+                padding: 0.75rem 0.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 1rem;
+                padding: 0 1rem;
+            }
         }
     </style>
 </head>
 <body>
     <div id="login-screen">
-        <h2>Admin Login</h2>
-        <input type="password" id="admin-password" placeholder="Enter password">
-        <button onclick="checkPassword()">Login</button>
+        <div class="login-card">
+            <h2>Admin Login</h2>
+            <input type="password" id="admin-password" placeholder="Enter admin password">
+            <button class="login-btn" onclick="checkPassword()">
+                Login <span class="loading-spinner" id="login-spinner" style="display: none;"></span>
+            </button>
+        </div>
     </div>
 
-    <h1>Admin Dashboard - Orders</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Order ID</th>
-                <th>Product</th>
-                <th>Customization</th>
-                <th>Image</th>
-                <th>Price</th>
-                <th>Status</th>
-                <th>Time</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody id="orders-table"></tbody>
-    </table>
+    <div class="container" id="admin-content" style="display: none;">
+        <h1>BeautifulBoos Admin Dashboard</h1>
+        
+        <div class="stats-grid" id="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number" id="total-orders">0</div>
+                <div class="stat-label">Total Orders</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="pending-orders">0</div>
+                <div class="stat-label">Pending Orders</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="shipped-orders">0</div>
+                <div class="stat-label">Shipped Orders</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">£<span id="total-revenue">0.00</span></div>
+                <div class="stat-label">Total Revenue</div>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Product</th>
+                        <th>Customization</th>
+                        <th>Image</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                        <th>Time</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="orders-table"></tbody>
+            </table>
+        </div>
+    </div>
 
     <script>
         const ADMIN_PASSWORD = "Admin19836"; 
 
         function checkPassword() {
             const entered = document.getElementById('admin-password').value;
-            if (entered === ADMIN_PASSWORD) {
-                document.getElementById('login-screen').style.display = 'none';
-                loadOrders();
-                setInterval(loadOrders, 3000);
-            } else {
-                alert("Incorrect password");
-            }
+            const spinner = document.getElementById('login-spinner');
+            const button = document.querySelector('.login-btn');
+            
+            // Show loading state
+            spinner.style.display = 'inline-block';
+            button.style.opacity = '0.7';
+            button.disabled = true;
+            
+            // Simulate authentication delay
+            setTimeout(() => {
+                if (entered === ADMIN_PASSWORD) {
+                    document.getElementById('login-screen').style.opacity = '0';
+                    setTimeout(() => {
+                        document.getElementById('login-screen').style.display = 'none';
+                        document.getElementById('admin-content').style.display = 'block';
+                        document.getElementById('admin-content').style.animation = 'fadeIn 0.5s ease';
+                        loadOrders();
+                        updateStats();
+                        setInterval(() => {
+                            loadOrders();
+                            updateStats();
+                        }, 5000); // Refresh every 5 seconds
+                    }, 500);
+                } else {
+                    // Reset loading state
+                    spinner.style.display = 'none';
+                    button.style.opacity = '';
+                    button.disabled = false;
+                    
+                    // Show error
+                    const input = document.getElementById('admin-password');
+                    input.style.borderColor = '#ff4757';
+                    input.style.animation = 'shake 0.5s ease';
+                    
+                    setTimeout(() => {
+                        input.style.borderColor = '';
+                        input.style.animation = '';
+                    }, 500);
+                    
+                    showNotification('Incorrect password! Please try again.', 'error');
+                }
+            }, 1000);
         }
 
         function formatCustomization(cust) {
+            if (!cust) return '<em style="color: #ad1457; opacity: 0.7;">Standard item</em>';
+            
             let details = [];
-            if (cust.text) details.push(`<strong>Text:</strong> ${cust.text}`);
-            if (cust.color) {
+            if (cust.text) {
+                details.push(`<strong style="color: #c2185b;">Text:</strong> <span style="color: #ad1457;">"${cust.text}"</span>`);
+            }
+            if (cust.color && cust.color !== '#c2185b') {
                 details.push(
-                    `<strong>Color:</strong> ${cust.color} <span class="color-dot" style="background:${cust.color}"></span>`
+                    `<strong style="color: #c2185b;">Color:</strong> <span style="color: ${cust.color};">${cust.color}</span> <span class="color-dot" style="background:${cust.color}; border-color: ${cust.color};"></span>`
                 );
             }
             if (cust.glitter && cust.glitter.length) {
-                details.push(`<strong>Glitter:</strong> ${cust.glitter.join(', ')}`);
+                details.push(`<strong style="color: #c2185b;">Glitter:</strong> <span style="color: #ad1457;">${cust.glitter.join(', ')}</span>`);
             }
-            if (cust.hasLidStraw) details.push(`<strong>Lid & Straw:</strong> Yes`);
-            return details.length ? details.join('<br>') : 'None';
+            if (cust.hasLidStraw) {
+                details.push(`<strong style="color: #c2185b;">Extras:</strong> <span style="color: #ad1457;">Color Change Lid & Straw</span>`);
+            }
+            
+            return details.length ? `<div class="customization-details">${details.join('<br>')}</div>` : '<em style="color: #ad1457; opacity: 0.7;">No customization</em>';
         }
 
         function loadOrders() {
             const orders = JSON.parse(localStorage.getItem('orders') || '[]');
             const table = document.getElementById('orders-table');
-            table.innerHTML = orders.map(order => `
-                <tr>
-                    <td>${order.id}</td>
-                    <td>${order.product}</td>
-                    <td>${order.customization ? formatCustomization(order.customization) : 'None'}</td>
-                    <td>${order.previewImage ? `<img src="${order.previewImage}" class="thumb">` : '—'}</td>
-                    <td>£${order.price.toFixed(2)}</td>
-                    <td class="status-${order.status}">${order.status}</td>
-                    <td>${new Date(order.time).toLocaleString()}</td>
+            
+            if (orders.length === 0) {
+                table.innerHTML = '<tr><td colspan="8" style="text-align: center; padding: 3rem; color: #ad1457; font-style: italic;">No orders found. Orders will appear here once customers make purchases.</td></tr>';
+                return;
+            }
+            
+            // Sort orders by time (newest first)
+            orders.sort((a, b) => b.time - a.time);
+            
+            table.innerHTML = orders.map((order, index) => `
+                <tr style="animation: fadeInUp 0.3s ease ${index * 0.1}s both;">
                     <td>
-                        <button class="btn-ship" onclick="updateOrderStatus('${order.id}', 'shipped')">Ship</button>
-                        <button class="btn-cancel" onclick="updateOrderStatus('${order.id}', 'cancelled')">Cancel</button>
+                        <div class="order-id">#${order.id.toString().slice(-6)}</div>
+                        <div class="order-time">${new Date(order.time).toLocaleDateString()}</div>
+                    </td>
+                    <td>
+                        <strong style="color: #c2185b;">${order.product}</strong>
+                    </td>
+                    <td>${formatCustomization(order.customization)}</td>
+                    <td>${order.previewImage ? `<img src="${order.previewImage}" class="thumb" alt="Custom design">` : '<em style="color: #ad1457; opacity: 0.7;">No image</em>'}</td>
+                    <td><strong style="color: #c2185b; font-size: 1.1rem;">£${order.price.toFixed(2)}</strong></td>
+                    <td><span class="status-${order.status}">${order.status.charAt(0).toUpperCase() + order.status.slice(1)}</span></td>
+                    <td>
+                        <div style="color: #ad1457;">${new Date(order.time).toLocaleString()}</div>
+                    </td>
+                    <td>
+                        <button class="btn-ship" onclick="updateOrderStatus('${order.id}', 'shipped')" ${order.status === 'shipped' || order.status === 'cancelled' ? 'disabled style="opacity: 0.5;"' : ''}>
+                            <i class="fas fa-shipping-fast"></i> Ship
+                        </button>
+                        <button class="btn-cancel" onclick="updateOrderStatus('${order.id}', 'cancelled')" ${order.status === 'cancelled' ? 'disabled style="opacity: 0.5;"' : ''}>
+                            <i class="fas fa-times"></i> Cancel
+                        </button>
                     </td>
                 </tr>
             `).join('');
@@ -116,15 +512,122 @@
 
         function updateOrderStatus(orderId, newStatus) {
             let orders = JSON.parse(localStorage.getItem('orders') || '[]');
-            orders = orders.map(order => {
-                if (order.id === orderId) {
-                    order.status = newStatus;
-                }
-                return order;
-            });
-            localStorage.setItem('orders', JSON.stringify(orders));
-            loadOrders();
+            const order = orders.find(order => order.id === orderId);
+            
+            if (order) {
+                const oldStatus = order.status;
+                order.status = newStatus;
+                localStorage.setItem('orders', JSON.stringify(orders));
+                loadOrders();
+                updateStats();
+                
+                showNotification(
+                    `Order #${orderId.slice(-6)} status updated from ${oldStatus} to ${newStatus}`, 
+                    'success'
+                );
+            }
         }
+        
+        function updateStats() {
+            const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+            
+            const totalOrders = orders.length;
+            const pendingOrders = orders.filter(o => o.status === 'pending' || o.status === 'paid').length;
+            const shippedOrders = orders.filter(o => o.status === 'shipped').length;
+            const totalRevenue = orders.reduce((sum, o) => sum + o.price, 0);
+            
+            // Animate number changes
+            animateNumber('total-orders', totalOrders);
+            animateNumber('pending-orders', pendingOrders);
+            animateNumber('shipped-orders', shippedOrders);
+            animateNumber('total-revenue', totalRevenue.toFixed(2));
+        }
+        
+        function animateNumber(elementId, targetValue) {
+            const element = document.getElementById(elementId);
+            const currentValue = parseFloat(element.textContent) || 0;
+            const increment = (targetValue - currentValue) / 10;
+            let current = currentValue;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if ((increment > 0 && current >= targetValue) || (increment < 0 && current <= targetValue)) {
+                    element.textContent = elementId === 'total-revenue' ? targetValue : Math.floor(targetValue);
+                    clearInterval(timer);
+                } else {
+                    element.textContent = elementId === 'total-revenue' ? current.toFixed(2) : Math.floor(current);
+                }
+            }, 50);
+        }
+        
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === 'success' ? 'linear-gradient(135deg, #2ed573, #1e90ff)' : 
+                             type === 'error' ? 'linear-gradient(135deg, #ff4757, #ff3742)' : 
+                             'linear-gradient(135deg, #42a5f5, #478ed1)'};
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 50px;
+                font-weight: 600;
+                z-index: 10000;
+                transform: translateX(400px);
+                transition: all 0.3s ease;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+                font-family: 'Inter', sans-serif;
+            `;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+            
+            setTimeout(() => {
+                notification.style.transform = 'translateX(400px)';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+        
+        // Allow Enter key to login
+        document.getElementById('admin-password').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+        
+        // Add CSS animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            
+            @keyframes fadeInUp {
+                from { 
+                    opacity: 0; 
+                    transform: translateY(20px); 
+                }
+                to { 
+                    opacity: 1; 
+                    transform: translateY(0); 
+                }
+            }
+            
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                25% { transform: translateX(-5px); }
+                75% { transform: translateX(5px); }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
