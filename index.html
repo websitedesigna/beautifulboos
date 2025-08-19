@@ -10,25 +10,35 @@
 </script>
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <img src="/images/logo1.jpg" alt="BeautifulBoos" class="loading-img">
+                <h2>BeautifulBoos</h2>
+            </div>
+            <div class="loading-spinner"></div>
+        </div>
+    </div>
+
     <!-- Header -->
-    <header class="header">
+    <header class="header" id="header">
         <div class="container">
             <div class="nav-brand">
                 <h1 class="logo">
                     <img class="logo-img" src="/images/logo1.jpg" alt="BeautifulBoos Logo">
                     <span class="text-pink">Beautiful</span><span class="text-blue">Boos</span>
-
                 </h1>
             </div>
             <nav class="nav-menu" id="nav-menu">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#products" class="nav-link">Products</a>
-                <a href="#custom" class="nav-link">Custom Design</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#contact" class="nav-link">Contact</a>
+                <a href="#home" class="nav-link" data-section="home">Home</a>
+                <a href="#products" class="nav-link" data-section="products">Products</a>
+                <a href="#custom" class="nav-link" data-section="custom">Custom Design</a>
+                <a href="#about" class="nav-link" data-section="about">About</a>
+                <a href="#contact" class="nav-link" data-section="contact">Contact</a>
             </nav>
             <div class="nav-actions">
                 <button class="cart-btn" id="cart-btn">
@@ -44,6 +54,7 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
+        <div class="hero-particles" id="hero-particles"></div>
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
@@ -69,14 +80,26 @@
                 </div>
                 <div class="hero-image">
                     <div class="product-showcase">
-                        <div class="showcase-item">
+                        <div class="showcase-item" data-aos="fade-up" data-aos-delay="100">
                             <img src="/images/bow_tumbler.jpeg" alt="Custom Tumbler">
+                            <div class="showcase-overlay">
+                                <h3>Custom Tumblers</h3>
+                                <p>Personalized to perfection</p>
+                            </div>
                         </div>
-                        <div class="showcase-item">
-                            <img src="/images/Strawberry_drinking_glass.jpeg" alt="Custom Hoodie">
+                        <div class="showcase-item" data-aos="fade-up" data-aos-delay="200">
+                            <img src="/images/Strawberry_drinking_glass.jpeg" alt="Custom Glass">
+                            <div class="showcase-overlay">
+                                <h3>Glass Collection</h3>
+                                <p>Elegant & unique designs</p>
+                            </div>
                         </div>
-                        <div class="showcase-item">
-                            <img src="/images/bow_cup.jpeg" alt="Custom Mug">
+                        <div class="showcase-item" data-aos="fade-up" data-aos-delay="300">
+                            <img src="/images/bow_cup.jpeg" alt="Custom Cup">
+                            <div class="showcase-overlay">
+                                <h3>Custom Cups</h3>
+                                <p>Your style, your way</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -87,13 +110,13 @@
     <!-- Products Section -->
     <section class="products" id="products">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-aos="fade-up">
                 <h2 class="section-title">Our Products</h2>
                 <p class="section-subtitle">Choose from our wide range of customizable items</p>
             </div>
 
             <!-- Product Categories -->
-            <div class="product-categories">
+            <div class="product-categories" data-aos="fade-up" data-aos-delay="100">
                 <button class="category-btn active" data-category="all">All Products</button>
                 <button class="category-btn" data-category="cups">Cups & Tumblers</button>
                 <button class="category-btn" data-category="clothing">Clothing</button>
@@ -103,14 +126,13 @@
             <!-- Product Grid -->
             <div class="product-grid" id="product-grid">
                 <!-- Cups & Tumblers -->
-             
-
-                <div class="product-card" data-category="cups">
+                <div class="product-card" data-category="cups" data-aos="fade-up" data-aos-delay="100">
                     <div class="product-image">
-                        <img src="/images/water_bottle.jpeg" alt="10oz Water Bottle">
+                        <img src="/images/water_bottle.jpeg" alt="20oz Water Bottle">
                         <div class="product-overlay">
                             <button class="quick-view-btn" onclick="openCustomizer('bottle')">Customize</button>
                         </div>
+                        <div class="product-badge">Popular</div>
                     </div>
                     <div class="product-info">
                         <h3 class="product-name">20oz Water Bottle</h3>
@@ -120,9 +142,9 @@
                     </div>
                 </div>
 
-                <div class="product-card" data-category="cups">
+                <div class="product-card" data-category="cups" data-aos="fade-up" data-aos-delay="150">
                     <div class="product-image">
-                        <img src="/images/16ozG.jpg" alt="10oz Glass Tumbler">
+                        <img src="/images/16ozG.jpg" alt="11oz Glass Tumbler">
                         <div class="product-overlay">
                             <button class="quick-view-btn" onclick="openCustomizer('tumbler')">Customize</button>
                         </div>
@@ -135,28 +157,28 @@
                     </div>
                 </div>
 
-                <div class="product-card" data-category="cups">
+                <div class="product-card" data-category="cups" data-aos="fade-up" data-aos-delay="200">
                     <div class="product-image">
-                        <img src="/images/16ozG.jpg" alt="16oz Tumbler">
+                        <img src="/images/16ozG.jpg" alt="10oz Snow Globe Tumbler">
                         <div class="product-overlay">
                             <button class="quick-view-btn" onclick="openCustomizer('tumbler16')">Customize</button>
                         </div>
                     </div>
                     <div class="product-info">
-                        <h3 class="product-name">
-                            10oz Snow Globe Tumbler</h3>
+                        <h3 class="product-name">10oz Snow Globe Tumbler</h3>
                         <p class="product-description">Any design</p>
                         <div class="product-price">£10.00</div>
                         <button class="add-to-cart-btn" data-product="10oz Snow Globe Tumbler" data-price="10.00">Add to Cart</button>
                     </div>
                 </div>
 
-                <div class="product-card" data-category="cups">
+                <div class="product-card" data-category="cups" data-aos="fade-up" data-aos-delay="250">
                     <div class="product-image">
                         <img src="/images/snowGlobe.jpg" alt="16oz Snow Globe Tumbler">
                         <div class="product-overlay">
                             <button class="quick-view-btn" onclick="openCustomizer('snowglobe')">Customize</button>
                         </div>
+                        <div class="product-badge special">Special</div>
                     </div>
                     <div class="product-info">
                         <h3 class="product-name">16oz Snow Globe Tumbler</h3>
@@ -166,7 +188,7 @@
                     </div>
                 </div>
 
-                <div class="product-card" data-category="cups">
+                <div class="product-card" data-category="cups" data-aos="fade-up" data-aos-delay="300">
                     <div class="product-image">
                         <img src="/images/pBottle.jpg" alt="20oz Metal Tumbler">
                         <div class="product-overlay">
@@ -182,7 +204,7 @@
                 </div>
 
                 <!-- Clothing -->
-                <div class="product-card" data-category="clothing">
+                <div class="product-card" data-category="clothing" data-aos="fade-up" data-aos-delay="100">
                     <div class="product-image">
                         <img src="images/kidshoodie.jpeg" alt="Adult Hoodie">
                         <div class="product-overlay">
@@ -197,7 +219,7 @@
                     </div>
                 </div>
 
-                <div class="product-card" data-category="clothing">
+                <div class="product-card" data-category="clothing" data-aos="fade-up" data-aos-delay="150">
                     <div class="product-image">
                         <img src="images/kidshoodie.jpeg" alt="Kids Hoodie">
                         <div class="product-overlay">
@@ -212,7 +234,7 @@
                     </div>
                 </div>
 
-                <div class="product-card" data-category="clothing">
+                <div class="product-card" data-category="clothing" data-aos="fade-up" data-aos-delay="200">
                     <div class="product-image">
                         <img src="images/tshirt.jpeg" alt="Adult T-Shirt">
                         <div class="product-overlay">
@@ -227,7 +249,7 @@
                     </div>
                 </div>
 
-                <div class="product-card" data-category="clothing">
+                <div class="product-card" data-category="clothing" data-aos="fade-up" data-aos-delay="250">
                     <div class="product-image">
                         <img src="images/tshirt.jpeg" alt="Kids T-Shirt">
                         <div class="product-overlay">
@@ -242,7 +264,7 @@
                     </div>
                 </div>
 
-                <div class="product-card" data-category="clothing">
+                <div class="product-card" data-category="other" data-aos="fade-up" data-aos-delay="300">
                     <div class="product-image">
                         <img src="images/cap.jpeg" alt="Cap">
                         <div class="product-overlay">
@@ -257,7 +279,7 @@
                     </div>
                 </div>
 
-                <div class="product-card" data-category="clothing">
+                <div class="product-card" data-category="other" data-aos="fade-up" data-aos-delay="350">
                     <div class="product-image">
                         <img src="images/rucksack.jpeg" alt="Bags">
                         <div class="product-overlay">
@@ -272,7 +294,7 @@
                     </div>
                 </div>
 
-                <div class="product-card" data-category="Stationary">
+                <div class="product-card" data-category="other" data-aos="fade-up" data-aos-delay="400">
                     <div class="product-image">
                         <img src="images/fn.jpg" alt="Pencil Case">
                         <div class="product-overlay">
@@ -286,8 +308,6 @@
                         <button class="add-to-cart-btn" data-product="Custom Pencil Cases" data-price="5.00">Add to Cart</button>
                     </div>
                 </div>
-
-                
             </div>
         </div>
     </section>
@@ -295,7 +315,7 @@
     <!-- Custom Design Section -->
     <section class="custom-design" id="custom">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-aos="fade-up">
                 <h2 class="section-title">Custom Design Studio</h2>
                 <p class="section-subtitle">Create your perfect personalized item with our design tools</p>
             </div>
@@ -359,7 +379,8 @@
                                     <div class="glitter-option" data-glitter="purple">Purple</div>
                                     <div class="glitter-option" data-glitter="green">Green</div>
                                 </div>
-                            </div>  
+                            </div>
+
                             <div class="custom-option">
                                 <label for="textColor">Text Color (+£1)</label>
                                 <input type="color" id="textColor" value="#000000">
@@ -368,8 +389,6 @@
                             <div class="custom-option">
                                 <label><input type="checkbox" id="decorative-lid"> Decorative Lid (+£2.50)</label>
                             </div>
-
-                            
 
                             <div class="option-group" id="lid-straw-options" style="display: none;">
                                 <label class="option-label">
@@ -428,27 +447,27 @@
     <section class="about" id="about">
         <div class="container">
             <div class="about-content">
-                <div class="about-text">
+                <div class="about-text" data-aos="fade-right">
                     <h2 class="section-title">About BeautifulBoos</h2>
                     <p class="about-description">
                         We specialize in creating personalized items that are uniquely yours. With our wide range of colors and design palettes, we can bring any vision to life. Whether you have your own design or need us to create something custom, we're here to help make your ideas a reality.
                     </p>
                     <div class="about-features">
-                        <div class="feature-item">
+                        <div class="feature-item" data-aos="fade-up" data-aos-delay="100">
                             <i class="fas fa-palette"></i>
                             <div>
                                 <h4>Wide Range of Colors</h4>
                                 <p>Extensive color palette for all your design needs</p>
                             </div>
                         </div>
-                        <div class="feature-item">
+                        <div class="feature-item" data-aos="fade-up" data-aos-delay="200">
                             <i class="fas fa-magic"></i>
                             <div>
                                 <h4>Custom Designs</h4>
                                 <p>We create unique designs tailored to your vision</p>
                             </div>
                         </div>
-                        <div class="feature-item">
+                        <div class="feature-item" data-aos="fade-up" data-aos-delay="300">
                             <i class="fas fa-heart"></i>
                             <div>
                                 <h4>Made with Love</h4>
@@ -457,7 +476,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="about-image">
+                <div class="about-image" data-aos="fade-left">
                     <img src="/images/logo1.jpg" alt="Custom Design Process">
                 </div>
             </div>
@@ -467,35 +486,49 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-aos="fade-up">
                 <h2 class="section-title">Get In Touch</h2>
                 <p class="section-subtitle">Ready to create something beautiful? Contact us for quotes and custom designs</p>
             </div>
             <div class="contact-content">
                 <div class="contact-info">
-                    <div class="contact-item">
+                    <div class="contact-item" data-aos="fade-up" data-aos-delay="100">
                         <i class="fas fa-envelope"></i>
                         <div>
                             <h4>Email Us</h4>
                             <p>beautifulboos@outlook.com</p>
                         </div>
                     </div>
-                    <div class="contact-item">
+                    <div class="contact-item" data-aos="fade-up" data-aos-delay="150">
                         <i class="fas fa-phone"></i>
                         <div>
                             <h4>Call Us</h4>
-                            <p>Phone isn't available</p>
+                            <p>07865 937597</p>
                         </div>
                     </div>
-                    <div class="contact-item">
+                    <div class="contact-item" data-aos="fade-up" data-aos-delay="200">
                         <i class="fas fa-clock"></i>
                         <div>
                             <h4>Business Hours</h4>
                             <p>Mon-Fri: 9AM-6PM<br>Sat-Sun: 10AM-4PM</p>
                         </div>
                     </div>
+                    <div class="social-links" data-aos="fade-up" data-aos-delay="250">
+                        <h4>Follow Us</h4>
+                        <div class="social-icons">
+                            <a href="https://www.tiktok.com/@think.finance.fre?_t=ZN-8yhxq3AE1aA&_r=1" target="_blank" class="social-icon tiktok">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                            <a href="https://www.facebook.com/share/16KHRhLD8f/" target="_blank" class="social-icon facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.instagram.com/beautifulboos25?utm_source=qr&igsh=MW40d3Jjd2E4aTBmdA==" target="_blank" class="social-icon instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="contact-form">
+                <div class="contact-form" data-aos="fade-up" data-aos-delay="300">
                     <form id="contact-form">
                         <div class="form-group">
                             <input type="text" id="name" name="name" placeholder="Your Name" required>
@@ -553,31 +586,35 @@
                 <div class="cart-actions">
                     <button class="continue-shopping" id="continue-shopping">Continue Shopping</button>
                     <button class="checkout-btn" onclick="openCheckoutModal()" id="checkout-btn">Checkout</button>
-                    
-
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Checkout Modal -->
     <div id="checkout-modal" class="checkout-modal" style="display: none;">
-    <div class="checkout-content">
-        <h2>Complete Your Order</h2>
-
-        <div id="checkout-summary"></div>
-
-        <div id="paypal-container-ENL24WJ5GSQ3Y"></div>
-<script>
-  paypal.HostedButtons({
-    hostedButtonId: "ENL24WJ5GSQ3Y",
-  }).render("#paypal-container-ENL24WJ5GSQ3Y")
-</script>
+        <div class="checkout-content">
+            <h2>Complete Your Order</h2>
+            <div id="checkout-summary"></div>
+            <div id="paypal-container-ENL24WJ5GSQ3Y"></div>
+            <script>
+              paypal.HostedButtons({
+                hostedButtonId: "ENL24WJ5GSQ3Y",
+              }).render("#paypal-container-ENL24WJ5GSQ3Y")
+            </script>
+        </div>
     </div>
-</div>
+
+    <!-- Success Message -->
     <div class="success-message" id="success-message">
         <i class="fas fa-check-circle"></i>
         <span>Item added to cart!</span>
     </div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script src="script.js"></script>
 </body>
