@@ -2203,3 +2203,22 @@ button, .btn {
 .show-gallery-btn:hover {
   background-color: #444;
 }
+
+.order-box { max-width: 600px; margin: auto; background: #fff; padding: 25px;
+      border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);}
+
+#name, #orderDetails { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc;
+      margin-bottom: 15px; font-size: 15px;}
+
+#submit{
+    width: 100%; padding: 12px; background: #4CAF50; color: #fff; border: none;
+      border-radius: 8px; font-size: 16px; cursor: pointer;
+}
+#submit:hover{
+background: #43a047;
+}
+.input {
+    width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc;
+      margin-bottom: 15px; font-size: 15px;
+}
+.success { text-align: center; margin-top: 15px; color: green; font-weight: bold;}
