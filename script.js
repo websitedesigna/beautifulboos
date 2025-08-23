@@ -10,6 +10,8 @@ let currentCustomization = {
     hasLidStraw: false
 };
 
+let customerDetails = {};
+
 // DOM Elements
 const cartBtn = document.getElementById('cart-btn');
 const cartCount = document.getElementById('cart-count');
@@ -482,6 +484,7 @@ function closeCartModal() {
     document.body.style.overflow = 'auto';
 }
 
+// Checkout Functions
 function openCheckoutModal() {
     if (cart.length === 0) {
         showNotification('Your cart is empty!', 'warning');
@@ -491,23 +494,12 @@ function openCheckoutModal() {
     const checkoutModal = document.getElementById('checkout-modal');
     if (checkoutModal) {
         checkoutModal.style.display = 'flex';
-
-        const DELIVERY_FEE = 4.99;
-        let subtotal = 0;
-        cart.forEach(item => subtotal += item.price * item.quantity);
-        const totalAmount = subtotal + DELIVERY_FEE;
-
-        const summaryElement = document.getElementById('checkout-summary');
-        if (summaryElement) {
-            summaryElement.innerHTML = `
-                <div style="background: linear-gradient(135deg, #fce4ec, #f8bbd9); padding: 1.5rem; border-radius: 15px; margin-bottom: 1.5rem;">
-                    <h3 style="color: #c2185b; margin-bottom: 1rem; font-family: 'Playfair Display', serif;">Order Summary</h3>
-                    <p><strong>Subtotal:</strong> £${subtotal.toFixed(2)}</p>
-                    <p><strong>Delivery:</strong> £${DELIVERY_FEE.toFixed(2)}</p>
-                    <p style="font-size: 1.2rem; font-weight: 700; color: #c2185b; border-top: 2px solid rgba(194, 24, 91, 0.2); padding-top: 1rem; margin-top: 1rem;"><strong>Total:</strong> £${totalAmount.toFixed(2)}</p>
-                </div>
-            `;
-        }
+        
+        // Reset to first step
+        showCustomerDetailsStep();
+        
+        // Update order summary
+        updateCheckoutSummary();
     }
 }
 
@@ -518,7 +510,172 @@ function closeCheckoutModal() {
     }
 }
 
-function completeOrder(customerName) {
+function showCustomerDetailsStep() {
+    // Update step indicators
+    document.getElementById('step-1').classList.add('active');
+    document.getElementById('step-2').classList.remove('active');
+    
+    // Show/hide step content
+    document.getElementById('customer-details-step').style.display = 'block';
+    document.getElementById('payment-step').style.display = 'none';
+}
+
+function showPaymentStep() {
+    // Update step indicators
+    document.getElementById('step-1').classList.remove('active');
+    document.getElementById('step-2').classList.add('active');
+    
+    // Show/hide step content
+    document.getElementById('customer-details-step').style.display = 'none';
+    document.getElementById('payment-step').style.display = 'block';
+}
+
+function proceedToPayment() {
+    const form = document.getElementById('customer-details-form');
+    const formData = new FormData(form);
+    
+    // Validate required fields
+    const requiredFields = ['firstName', 'lastName', 'email', 'address', 'city', 'postcode', 'country'];
+    let isValid = true;
+    
+    for (let field of requiredFields) {
+        const value = formData.get(field);
+        if (!value || value.trim() === '') {
+            isValid = false;
+            const input = document.querySelector(`[name="${field}"]`);
+            if (input) {
+                input.style.borderColor = '#ff4757';
+                input.addEventListener('input', function() {
+                    this.style.borderColor = '';
+                }, { once: true });
+            }
+        }
+    }
+    
+    if (!isValid) {
+        showNotification('Please fill in all required fields', 'warning');
+        return;
+    }
+    
+    // Store customer details
+    customerDetails = {
+        firstName: formData.get('firstName'),
+        lastName: formData.get('lastName'),
+        email: formData.get('email'),
+        phone: formData.get('phone'),
+        address: formData.get('address'),
+        city: formData.get('city'),
+        postcode: formData.get('postcode'),
+        country: formData.get('country'),
+        notes: formData.get('notes')
+    };
+    
+    // Show payment step
+    showPaymentStep();
+    
+    // Update customer summary
+    updateCustomerSummary();
+    
+    // Initialize PayPal
+    initializePayPal();
+}
+
+function backToCustomerDetails() {
+    showCustomerDetailsStep();
+}
+
+function updateCheckoutSummary() {
+    const DELIVERY_FEE = 4.99;
+    let subtotal = 0;
+    cart.forEach(item => subtotal += item.price * item.quantity);
+    const totalAmount = subtotal + DELIVERY_FEE;
+
+    const summaryElement = document.getElementById('checkout-summary');
+    if (summaryElement) {
+        summaryElement.innerHTML = `
+            <div style="background: linear-gradient(135deg, #fce4ec, #f8bbd9); padding: 1.5rem; border-radius: 15px; margin-bottom: 1.5rem;">
+                <h4 style="color: #c2185b; margin-bottom: 1rem; font-family: 'Playfair Display', serif;">Order Summary</h4>
+                ${cart.map(item => `
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; color: #ad1457;">
+                        <span>${item.name} x${item.quantity}</span>
+                        <span>£${(item.price * item.quantity).toFixed(2)}</span>
+                    </div>
+                `).join('')}
+                <hr style="border: 1px solid rgba(194, 24, 91, 0.2); margin: 1rem 0;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; color: #ad1457;">
+                    <span>Subtotal:</span>
+                    <span>£${subtotal.toFixed(2)}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 1rem; color: #ad1457;">
+                    <span>Delivery:</span>
+                    <span>£${DELIVERY_FEE.toFixed(2)}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: 700; color: #c2185b; border-top: 2px solid rgba(194, 24, 91, 0.2); padding-top: 1rem;">
+                    <span>Total:</span>
+                    <span>£${totalAmount.toFixed(2)}</span>
+                </div>
+            </div>
+        `;
+    }
+}
+
+function updateCustomerSummary() {
+    const summaryElement = document.getElementById('customer-summary');
+    if (summaryElement && customerDetails.firstName) {
+        summaryElement.innerHTML = `
+            <h4>Delivery Details</h4>
+            <p><strong>Name:</strong> ${customerDetails.firstName} ${customerDetails.lastName}</p>
+            <p><strong>Email:</strong> ${customerDetails.email}</p>
+            ${customerDetails.phone ? `<p><strong>Phone:</strong> ${customerDetails.phone}</p>` : ''}
+            <p><strong>Address:</strong> ${customerDetails.address}</p>
+            <p><strong>City:</strong> ${customerDetails.city}</p>
+            <p><strong>Postcode:</strong> ${customerDetails.postcode}</p>
+            <p><strong>Country:</strong> ${customerDetails.country}</p>
+            ${customerDetails.notes ? `<p><strong>Notes:</strong> ${customerDetails.notes}</p>` : ''}
+        `;
+    }
+}
+
+function initializePayPal() {
+    const DELIVERY_FEE = 4.99;
+    let subtotal = 0;
+    cart.forEach(item => subtotal += item.price * item.quantity);
+    const totalAmount = subtotal + DELIVERY_FEE;
+
+    // Clear existing PayPal buttons
+    const container = document.getElementById('paypal-button-container');
+    if (container) {
+        container.innerHTML = '';
+    }
+
+    if (window.paypal) {
+        paypal.Buttons({
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: totalAmount.toFixed(2),
+                            currency_code: 'GBP'
+                        },
+                        description: `BeautifulBoos Order - ${cart.length} item(s)`
+                    }]
+                });
+            },
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    // Payment successful
+                    completeOrder(details);
+                });
+            },
+            onError: function(err) {
+                console.error('PayPal Error:', err);
+                showNotification('Payment failed. Please try again.', 'error');
+            }
+        }).render('#paypal-button-container');
+    }
+}
+
+function completeOrder(paymentDetails) {
     const DELIVERY_FEE = 4.99;
     const orderId = Date.now();
     const orders = JSON.parse(localStorage.getItem('orders') || '[]');
@@ -528,20 +685,35 @@ function completeOrder(customerName) {
             id: orderId + '-' + Math.floor(Math.random() * 1000),
             product: item.name,
             customization: item.customization,
-            price: item.price + DELIVERY_FEE,
+            price: item.price * item.quantity + (DELIVERY_FEE / cart.length), // Distribute delivery fee
             status: 'paid',
             time: Date.now(),
-            previewImage: item.customization?.image || null
+            previewImage: item.customization?.image || null,
+            customerDetails: customerDetails,
+            paymentDetails: {
+                paypalOrderId: paymentDetails.id,
+                payerEmail: paymentDetails.payer.email_address,
+                payerName: paymentDetails.payer.name.given_name + ' ' + paymentDetails.payer.name.surname
+            }
         });
     });
 
     localStorage.setItem('orders', JSON.stringify(orders));
+    
+    // Clear cart
     cart = [];
-    localStorage.removeItem('cart');
+    localStorage.removeItem('beautifulboos_cart');
     updateCartDisplay();
+    
+    // Close modals
     closeCheckoutModal();
     closeCartModal();
-    showNotification(`Order placed successfully! Thank you, ${customerName || 'Customer'}!`, 'success');
+    
+    // Show success message
+    showNotification(`Order placed successfully! Thank you, ${customerDetails.firstName}!`, 'success');
+    
+    // Reset customer details
+    customerDetails = {};
 }
 
 function handleCheckout() {
@@ -916,6 +1088,9 @@ document.addEventListener('keydown', function(e) {
         if (cartModal?.classList.contains('active')) {
             closeCartModal();
         }
+        if (document.getElementById('checkout-modal')?.style.display === 'flex') {
+            closeCheckoutModal();
+        }
     }
 });
 
@@ -942,6 +1117,8 @@ window.removeFromCart = removeFromCart;
 window.scrollToSection = scrollToSection;
 window.openCheckoutModal = openCheckoutModal;
 window.closeCheckoutModal = closeCheckoutModal;
+window.proceedToPayment = proceedToPayment;
+window.backToCustomerDetails = backToCustomerDetails;
 
 // Initialize theme
 document.documentElement.style.setProperty('--primary-color', '#c2185b');
@@ -949,3 +1126,109 @@ document.documentElement.style.setProperty('--secondary-color', '#4ecdc4');
 document.documentElement.style.setProperty('--accent-color', '#ff6b9d');
 
 console.log('✨ BeautifulBoos website loaded successfully!');
+
+// Lightbox for gallery
+document.addEventListener("DOMContentLoaded", () => {
+  const galleryImages = document.querySelectorAll(".gallery-grid img");
+  const lightbox = document.createElement("div");
+  lightbox.classList.add("lightbox");
+  document.body.appendChild(lightbox);
+
+  const img = document.createElement("img");
+  lightbox.appendChild(img);
+
+  galleryImages.forEach(image => {
+    image.addEventListener("click", () => {
+      img.src = image.src;
+      lightbox.classList.add("active");
+    });
+  });
+
+  lightbox.addEventListener("click", () => {
+    lightbox.classList.remove("active");
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const categoryCards = document.querySelectorAll(".category-card");
+  const productsSection = document.querySelector("#products .product-grid");
+  const products = document.querySelectorAll(".product-card");
+
+  // hide products until a category/nav action
+  productsSection.style.display = "none";
+
+  // function to show products with filter
+  function showProducts(category) {
+    productsSection.style.display = "grid";
+
+    products.forEach(product => {
+      if (category === "all" || product.getAttribute("data-category") === category) {
+        product.style.display = "block";
+        product.classList.add("fade-in");
+      } else {
+        product.style.display = "none";
+        product.classList.remove("fade-in");
+      }
+    });
+  }
+
+  // category card clicks
+  categoryCards.forEach(card => {
+    card.addEventListener("click", () => {
+      const category = card.getAttribute("data-category");
+
+      showProducts(category);
+
+      // highlight card
+      categoryCards.forEach(c => c.classList.remove("active"));
+      card.classList.add("active");
+
+      // smooth scroll to products
+      productsSection.scrollIntoView({ behavior: "smooth" });
+    });
+  });
+
+  // nav links (shop now / products)
+  const shopNowLink = document.querySelector("a[href='#products'], .shop-now-btn");
+  if (shopNowLink) {
+    shopNowLink.addEventListener("click", e => {
+      e.preventDefault();
+      showProducts("all");
+      productsSection.scrollIntoView({ behavior: "smooth" });
+    });
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const gallery = document.querySelector(".gallery-grid");
+  if (!gallery) return;
+
+  const galleryItems = Array.from(gallery.querySelectorAll("img"));
+  if (galleryItems.length <= 5) return; // nothing to hide
+
+  // Hide everything after the 5th image
+  galleryItems.slice(5).forEach(img => {
+    img.style.display = "none";
+  });
+
+  // Create toggle button
+  const toggleBtn = document.createElement("button");
+  toggleBtn.textContent = "Show Full Gallery";
+  toggleBtn.classList.add("show-gallery-btn");
+  gallery.insertAdjacentElement("afterend", toggleBtn);
+
+  let expanded = false;
+
+  toggleBtn.addEventListener("click", () => {
+    expanded = !expanded;
+
+    if (expanded) {
+      galleryItems.forEach(img => (img.style.display = "block"));
+      toggleBtn.textContent = "Show Less";
+    } else {
+      galleryItems.slice(5).forEach(img => (img.style.display = "none"));
+      toggleBtn.textContent = "Show Full Gallery";
+      gallery.scrollIntoView({ behavior: "smooth" });
+    }
+  });
+});
