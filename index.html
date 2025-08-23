@@ -5,10 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BeautifulBoos - Personalized Items with Love</title>
     <link rel="stylesheet" href="style.css">
-    <script 
-  src="https://www.paypal.com/sdk/js?client-id=BAAeIuuq2aNamk4wy3j7qqrptZrtLFGWr8eSBKk7jJMSQtAHOEEreObJ4TgYCuZNiYd9t_InRl2KER0E98&components=hosted-buttons&disable-funding=venmo&currency=GBP">
-</script>
-
+    <script src="https://www.paypal.com/sdk/js?client-id=BAAeIuuq2aNamk4wy3j7qqrptZrtLFGWr8eSBKk7jJMSQtAHOEEreObJ4TgYCuZNiYd9t_InRl2KER0E98&components=hosted-buttons&disable-funding=venmo&currency=GBP"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -17,7 +14,7 @@
     <div class="loading-screen" id="loading-screen">
         <div class="loading-content">
             <div class="loading-logo">
-                <img src="/images/logo1.jpg" alt="BeautifulBoos" class="loading-img">
+                <img src="images/logo1.jpg" alt="BeautifulBoos" class="loading-img">
                 <h2>BeautifulBoos</h2>
             </div>
             <div class="loading-spinner"></div>
@@ -29,7 +26,7 @@
         <div class="container">
             <div class="nav-brand">
                 <h1 class="logo">
-                    <img class="logo-img" src="/images/logo1.jpg" alt="BeautifulBoos Logo">
+                    <img class="logo-img" src="images/logo1.jpg" alt="BeautifulBoos Logo">
                     <span class="text-pink">Beautiful</span><span class="text-blue">Boos</span>
                 </h1>
             </div>
@@ -81,23 +78,23 @@
                 <div class="hero-image">
                     <div class="product-showcase">
                         <div class="showcase-item" data-aos="fade-up" data-aos-delay="100">
-                            <img src="/images/bow_tumbler.jpeg" alt="Custom Tumbler">
+                            <img src="images/labubutumbler.jpeg" alt="Custom Tumbler">
                             <div class="showcase-overlay">
                                 <h3>Custom Tumblers</h3>
                                 <p>Personalized to perfection</p>
                             </div>
                         </div>
                         <div class="showcase-item" data-aos="fade-up" data-aos-delay="200">
-                            <img src="/images/Strawberry_drinking_glass.jpeg" alt="Custom Glass">
+                            <img src="images/mBottle.jpg" alt="Custom Glass">
                             <div class="showcase-overlay">
                                 <h3>Glass Collection</h3>
                                 <p>Elegant & unique designs</p>
                             </div>
                         </div>
                         <div class="showcase-item" data-aos="fade-up" data-aos-delay="300">
-                            <img src="/images/bow_cup.jpeg" alt="Custom Cup">
+                            <img src="images/wrap6.jpeg" alt="Custom Cup">
                             <div class="showcase-overlay">
-                                <h3>Custom Cups</h3>
+                                <h3>Custom Wraps</h3>
                                 <p>Your style, your way</p>
                             </div>
                         </div>
@@ -107,210 +104,417 @@
         </div>
     </section>
 
-    <!-- Products Section -->
-    <section class="products" id="products">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">Our Products</h2>
-                <p class="section-subtitle">Choose from our wide range of customizable items</p>
-            </div>
+    <!-- Products Section (drop-in) -->
 
-            <!-- Product Categories -->
-            <div class="product-categories" data-aos="fade-up" data-aos-delay="100">
-                <button class="category-btn active" data-category="all">All Products</button>
-                <button class="category-btn" data-category="cups">Cups & Tumblers</button>
-                <button class="category-btn" data-category="clothing">Clothing</button>
-                <button class="category-btn" data-category="other">Other Items</button>
-            </div>
 
-            <!-- Product Grid -->
-            <div class="product-grid" id="product-grid">
-                <!-- Cups & Tumblers -->
-                <div class="product-card" data-category="cups" data-aos="fade-up" data-aos-delay="100">
-                    <div class="product-image">
-                        <img src="/images/water_bottle.jpeg" alt="20oz Water Bottle">
-                        <div class="product-overlay">
-                            <button class="quick-view-btn" onclick="openCustomizer('bottle')">Customize</button>
-                        </div>
-                        <div class="product-badge">Popular</div>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">20oz Water Bottle</h3>
-                        <p class="product-description">Custom design wrap</p>
-                        <div class="product-price">£8.00</div>
-                        <button class="add-to-cart-btn" data-product="20oz Water Bottle" data-price="8.00">Add to Cart</button>
-                    </div>
-                </div>
+<section class="products" id="products">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <h2 class="section-title">Our Products</h2>
+      <p class="section-subtitle">Everything is customizable — pick a base and make it yours.</p>
+    </div>
 
-                <div class="product-card" data-category="cups" data-aos="fade-up" data-aos-delay="150">
-                    <div class="product-image">
-                        <img src="/images/16ozG.jpg" alt="11oz Glass Tumbler">
-                        <div class="product-overlay">
-                            <button class="quick-view-btn" onclick="openCustomizer('tumbler')">Customize</button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">11oz Glass Tumbler</h3>
-                        <p class="product-description">Any design</p>
-                        <div class="product-price">£3.00</div>
-                        <button class="add-to-cart-btn" data-product="11oz Glass Tumbler" data-price="3.00">Add to Cart</button>
-                    </div>
-                </div>
+    <!-- Category Filters -->
+   <!-- Category Image Cards -->
+<div class="category-cards">
+  <div class="category-card" data-category="all">
+    <img src="images/water_bottle.jpeg" alt="All Products">
+    <div class="category-label">All Products</div>
+  </div>
+  <div class="category-card" data-category="cups">
+    <img src="images/mBottle.jpg" alt="Cups & Tumblers">
+    <div class="category-label">Cups & Tumblers</div>
+  </div>
+  <div class="category-card" data-category="clothing">
+    <img src="images/kidshoodie.jpeg" alt="Clothing">
+    <div class="category-label">Clothing</div>
+  </div>
+  <div class="category-card" data-category="wrap">
+    <img src="images/wrap6.jpeg" alt="">
+    <div class="category-label">Wraps</div>
+  </div>
+  <div class="category-card" data-category="other">
+    <img src="images/rucksack.jpeg" alt="Other Items">
+    <div class="category-label">Other Items</div>
+  </div>
+</div>
 
-                <div class="product-card" data-category="cups" data-aos="fade-up" data-aos-delay="200">
-                    <div class="product-image">
-                        <img src="/images/16ozG.jpg" alt="10oz Snow Globe Tumbler">
-                        <div class="product-overlay">
-                            <button class="quick-view-btn" onclick="openCustomizer('tumbler16')">Customize</button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">10oz Snow Globe Tumbler</h3>
-                        <p class="product-description">Any design</p>
-                        <div class="product-price">£10.00</div>
-                        <button class="add-to-cart-btn" data-product="10oz Snow Globe Tumbler" data-price="10.00">Add to Cart</button>
-                    </div>
-                </div>
 
-                <div class="product-card" data-category="cups" data-aos="fade-up" data-aos-delay="250">
-                    <div class="product-image">
-                        <img src="/images/snowGlobe.jpg" alt="16oz Snow Globe Tumbler">
-                        <div class="product-overlay">
-                            <button class="quick-view-btn" onclick="openCustomizer('snowglobe')">Customize</button>
-                        </div>
-                        <div class="product-badge special">Special</div>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">16oz Snow Globe Tumbler</h3>
-                        <p class="product-description">Any design + 3 glitter choices</p>
-                        <div class="product-price">£12.00</div>
-                        <button class="add-to-cart-btn" data-product="16oz Snow Globe Tumbler" data-price="12.00">Add to Cart</button>
-                    </div>
-                </div>
+    <!-- Product Grid -->
+    <div class="product-grid">
 
-                <div class="product-card" data-category="cups" data-aos="fade-up" data-aos-delay="300">
-                    <div class="product-image">
-                        <img src="/images/pBottle.jpg" alt="20oz Metal Tumbler">
-                        <div class="product-overlay">
-                            <button class="quick-view-btn" onclick="openCustomizer('metal')">Customize</button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">20oz Metal Tumbler</h3>
-                        <p class="product-description">Sublimation design</p>
-                        <div class="product-price">£15.00</div>
-                        <button class="add-to-cart-btn" data-product="20oz Metal Tumbler" data-price="15.00">Add to Cart</button>
-                    </div>
-                </div>
+      <!-- Cups & Tumblers -->
+ 
 
-                <!-- Clothing -->
-                <div class="product-card" data-category="clothing" data-aos="fade-up" data-aos-delay="100">
-                    <div class="product-image">
-                        <img src="images/kidshoodie.jpeg" alt="Adult Hoodie">
-                        <div class="product-overlay">
-                            <button class="quick-view-btn" onclick="openCustomizer('hoodie-adult')">Customize</button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Adult Hoodie</h3>
-                        <p class="product-description">Custom design</p>
-                        <div class="product-price">From £25.00</div>
-                        <button class="add-to-cart-btn" data-product="Adult Hoodie" data-price="25.00">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="clothing" data-aos="fade-up" data-aos-delay="150">
-                    <div class="product-image">
-                        <img src="images/kidshoodie.jpeg" alt="Kids Hoodie">
-                        <div class="product-overlay">
-                            <button class="quick-view-btn" onclick="openCustomizer('hoodie-kids')">Customize</button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Kids Hoodie</h3>
-                        <p class="product-description">Custom design</p>
-                        <div class="product-price">From £20.00</div>
-                        <button class="add-to-cart-btn" data-product="Kids Hoodie" data-price="20.00">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="clothing" data-aos="fade-up" data-aos-delay="200">
-                    <div class="product-image">
-                        <img src="images/tshirt.jpeg" alt="Adult T-Shirt">
-                        <div class="product-overlay">
-                            <button class="quick-view-btn" onclick="openCustomizer('tee-adult')">Customize</button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Adult T-Shirt</h3>
-                        <p class="product-description">Custom design</p>
-                        <div class="product-price">From £7.00</div>
-                        <button class="add-to-cart-btn" data-product="Adult T-Shirt" data-price="7.00">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="clothing" data-aos="fade-up" data-aos-delay="250">
-                    <div class="product-image">
-                        <img src="images/tshirt.jpeg" alt="Kids T-Shirt">
-                        <div class="product-overlay">
-                            <button class="quick-view-btn" onclick="openCustomizer('tee-kids')">Customize</button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Kids T-Shirt</h3>
-                        <p class="product-description">Custom design</p>
-                        <div class="product-price">From £5.00</div>
-                        <button class="add-to-cart-btn" data-product="Kids T-Shirt" data-price="5.00">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="other" data-aos="fade-up" data-aos-delay="300">
-                    <div class="product-image">
-                        <img src="images/cap.jpeg" alt="Cap">
-                        <div class="product-overlay">
-                            <button class="quick-view-btn" onclick="openCustomizer('cap')">Customize</button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Cap</h3>
-                        <p class="product-description">Custom design</p>
-                        <div class="product-price">£5.00</div>
-                        <button class="add-to-cart-btn" data-product="Cap" data-price="5.00">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="other" data-aos="fade-up" data-aos-delay="350">
-                    <div class="product-image">
-                        <img src="images/rucksack.jpeg" alt="Bags">
-                        <div class="product-overlay">
-                            <button class="quick-view-btn" onclick="openCustomizer('bags')">Customize</button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Rucksacks & Drawstring Bags</h3>
-                        <p class="product-description">Custom design</p>
-                        <div class="product-price">From £5.00</div>
-                        <button class="add-to-cart-btn" data-product="Rucksacks & Drawstring Bags" data-price="5.00">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="other" data-aos="fade-up" data-aos-delay="400">
-                    <div class="product-image">
-                        <img src="images/fn.jpg" alt="Pencil Case">
-                        <div class="product-overlay">
-                            <button class="quick-view-btn" onclick="openCustomizer('Case')">Customize</button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Custom Pencil Cases</h3>
-                        <p class="product-description">Custom design</p>
-                        <div class="product-price">From £5.00</div>
-                        <button class="add-to-cart-btn" data-product="Custom Pencil Cases" data-price="5.00">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
+      <div class="product-card" data-category="cups" data-aos="fade-up" data-aos-delay="120">
+        <div class="product-image">
+          <img src="images/water_bottle.jpeg" alt="20oz Water Bottle">
+          <div class="product-overlay">
+            <button class="quick-view-btn" onclick="openCustomizer('bottle')">Customize</button>
+          </div>
         </div>
-    </section>
+        <div class="product-info">
+          <h3 class="product-name">20oz Water Bottle</h3>
+          <p class="product-description">Any design</p>
+          <div class="product-price">£8.00</div>
+          <button class="add-to-cart-btn" data-product="20oz Water Bottle" data-price="8.00">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="cups" data-aos="fade-up" data-aos-delay="140">
+        <div class="product-image">
+          <img src="images/16ozG.jpg" alt="11oz Glass Tumbler">
+          <div class="product-overlay">
+            <button class="quick-view-btn" onclick="openCustomizer('tumbler')">Customize</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">11oz Glass Tumbler</h3>
+          <p class="product-description">Any design</p>
+          <div class="product-price">£3.00</div>
+          <button class="add-to-cart-btn" data-product="11oz Glass Tumbler" data-price="3.00">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="cups" data-aos="fade-up" data-aos-delay="160">
+        <div class="product-image">
+          <img src="images/16ozG.jpg" alt="10oz Snow Globe Tumbler">
+          <div class="product-overlay">
+            <button class="quick-view-btn" onclick="openCustomizer('tumbler16')">Customize</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">10oz Snow Globe Tumbler</h3>
+          <p class="product-description">Any design</p>
+          <div class="product-price">£10.00</div>
+          <button class="add-to-cart-btn" data-product="10oz Snow Globe Tumbler" data-price="10.00">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="cups" data-aos="fade-up" data-aos-delay="180">
+        <div class="product-image">
+          <img src="images/snowGlobe.jpg" alt="16oz Snow Globe Tumbler">
+          <div class="product-overlay">
+            <button class="quick-view-btn" onclick="openCustomizer('snowglobe')">Customize</button>
+          </div>
+          <div class="product-badge special">Special</div>
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">16oz Snow Globe Tumbler</h3>
+          <p class="product-description">Any design + 3 glitter choices</p>
+          <div class="product-price">£12.00</div>
+          <button class="add-to-cart-btn" data-product="16oz Snow Globe Tumbler" data-price="12.00">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="cups" data-aos="fade-up" data-aos-delay="200">
+        <div class="product-image">
+          <img src="images/pBottle.jpg" alt="20oz Metal Tumbler">
+          <div class="product-overlay">
+            <button class="quick-view-btn" onclick="openCustomizer('metal')">Customize</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">20oz Metal Tumbler</h3>
+          <p class="product-description">Sublimation design</p>
+          <div class="product-price">£15.00</div>
+          <button class="add-to-cart-btn" data-product="20oz Metal Tumbler" data-price="15.00">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Clothing -->
+      <div class="product-card" data-category="clothing" data-aos="fade-up" data-aos-delay="220">
+        <div class="product-image">
+          <img src="images/kidshoodie.jpeg" alt="Adult Hoodie">
+          <div class="product-overlay">
+            <button class="quick-view-btn" onclick="openCustomizer('hoodie-adult')">Customize</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Adult Hoodie</h3>
+          <p class="product-description">Custom design</p>
+          <div class="product-price">From £25.00</div>
+          <button class="add-to-cart-btn" data-product="Adult Hoodie" data-price="25.00">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="clothing" data-aos="fade-up" data-aos-delay="240">
+        <div class="product-image">
+          <img src="images/kidshoodie.jpeg" alt="Kids Hoodie">
+          <div class="product-overlay">
+            <button class="quick-view-btn" onclick="openCustomizer('hoodie-kids')">Customize</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Kids Hoodie</h3>
+          <p class="product-description">Custom design</p>
+          <div class="product-price">From £20.00</div>
+          <button class="add-to-cart-btn" data-product="Kids Hoodie" data-price="20.00">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="clothing" data-aos="fade-up" data-aos-delay="260">
+        <div class="product-image">
+          <img src="images/tshirt.jpeg" alt="Adult T-Shirt">
+          <div class="product-overlay">
+            <button class="quick-view-btn" onclick="openCustomizer('tee-adult')">Customize</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Adult T-Shirt</h3>
+          <p class="product-description">Custom design</p>
+          <div class="product-price">From £7.00</div>
+          <button class="add-to-cart-btn" data-product="Adult T-Shirt" data-price="7.00">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="clothing" data-aos="fade-up" data-aos-delay="280">
+        <div class="product-image">
+          <img src="images/tshirt.jpeg" alt="Kids T-Shirt">
+          <div class="product-overlay">
+            <button class="quick-view-btn" onclick="openCustomizer('tee-kids')">Customize</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Kids T-Shirt</h3>
+          <p class="product-description">Custom design</p>
+          <div class="product-price">From £5.00</div>
+          <button class="add-to-cart-btn" data-product="Kids T-Shirt" data-price="5.00">Add to Cart</button>
+        </div>
+      </div>
+      <!-- Wraps -->
+      <!-- Wraps -->
+<div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="100">
+  <div class="product-image">
+    <img src="images/wrap1.jpeg" alt="Wrap 1">
+  </div>
+  <div class="product-info">
+    <h3 class="product-name">Wrap</h3>
+    <p class="product-description">Winnie the Pooh Wrap</p>
+    <div class="product-price">£2.00</div>
+    <button class="add-to-cart-btn" data-product="Winniewrap" data-price="2.00">Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="150">
+  <div class="product-image">
+    <img src="images/wrap2.jpeg" alt="Wrap 2">
+  </div>
+  <div class="product-info">
+    <h3 class="product-name">Wrap 2</h3>
+    <p class="product-description">Winnie the Pooh Wrap</p>
+    <div class="product-price">£2.00</div>
+    <button class="add-to-cart-btn" data-product="WinnieWrap1" data-price="2.00">Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="200">
+  <div class="product-image">
+    <img src="images/wrap3.jpeg" alt="Wrap 3">
+  </div>
+  <div class="product-info">
+    <h3 class="product-name">Wrap 3</h3>
+    <p class="product-description">Pokemon Wrap</p>
+    <div class="product-price">£2.00</div>
+    <button class="add-to-cart-btn" data-product="PokemonWrap" data-price="2.00">Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="250">
+  <div class="product-image">
+    <img src="images/wrap4.jpeg" alt="Wrap 4">
+  </div>
+  <div class="product-info">
+    <h3 class="product-name">Wrap 4</h3>
+    <p class="product-description">Pokemon Wrap</p>
+    <div class="product-price">£2.00</div>
+    <button class="add-to-cart-btn" data-product="PokemonWrap1" data-price="2.00">Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="300">
+  <div class="product-image">
+    <img src="images/wrap5.jpeg" alt="Wrap 5">
+  </div>
+  <div class="product-info">
+    <h3 class="product-name">Wrap 5</h3>
+    <p class="product-description">Pokemon Wrap</p>
+    <div class="product-price">£2.00</div>
+    <button class="add-to-cart-btn" data-product="Pokemonwrap3" data-price="2.00">Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="350">
+  <div class="product-image">
+    <img src="images/wrap6.jpeg" alt="Wrap 6">
+  </div>
+  <div class="product-info">
+    <h3 class="product-name">Wrap 6</h3>
+    <p class="product-description">Pikachu Wrap</p>
+    <div class="product-price">£2.00</div>
+    <button class="add-to-cart-btn" data-product="pikachuWrap" data-price="2.00">Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="400">
+  <div class="product-image">
+    <img src="images/wrap7.jpeg" alt="Wrap 7">
+  </div>
+  <div class="product-info">
+    <h3 class="product-name">Wrap 7</h3>
+    <p class="product-description">Spongebob Wrap</p>
+    <div class="product-price">£2.00</div>
+    <button class="add-to-cart-btn" data-product="SpongebobWrap" data-price="2.00">Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="450">
+  <div class="product-image">
+    <img src="images/wrap8.jpeg" alt="Wrap 8">
+  </div>
+  <div class="product-info">
+    <h3 class="product-name">Wrap 8</h3>
+    <p class="product-description">Nightmare Before Christmas</p>
+    <div class="product-price">£2.00</div>
+    <button class="add-to-cart-btn" data-product="NightmareBeforeChristmas" data-price="2.00">Add to Cart</button>
+  </div>
+</div>
+
+<div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="500">
+  <div class="product-image">
+    <img src="images/wra9.jpeg" alt="Wrap 9">
+  </div>
+  <div class="product-info">
+    <h3 class="product-name">Wrap 9</h3>
+    <p class="product-description">Cool Designed Wrap</p>
+    <div class="product-price">£2.00</div>
+    <button class="add-to-cart-btn" data-product="Wrap 9" data-price="2.00">Add to Cart</button>
+  </div>
+</div>
+
+      <!-- Other Items -->
+      <div class="product-card" data-category="other" data-aos="fade-up" data-aos-delay="300">
+        <div class="product-image">
+          <img src="images/cap.jpeg" alt="Cap">
+          <div class="product-overlay">
+            <button class="quick-view-btn" onclick="openCustomizer('cap')">Customize</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Cap</h3>
+          <p class="product-description">Custom design</p>
+          <div class="product-price">From £5.00</div>
+          <button class="add-to-cart-btn" data-product="Cap" data-price="5.00">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="other" data-aos="fade-up" data-aos-delay="320">
+        <div class="product-image">
+          <img src="images/rucksack.jpeg" alt="Rucksacks & Drawstring Bags">
+          <div class="product-overlay">
+            <button class="quick-view-btn" onclick="openCustomizer('bags')">Customize</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Rucksacks & Drawstring Bags</h3>
+          <p class="product-description">Custom design</p>
+          <div class="product-price">From £5.00</div>
+          <button class="add-to-cart-btn" data-product="Rucksacks & Drawstring Bags" data-price="5.00">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="other" data-aos="fade-up" data-aos-delay="340">
+        <div class="product-image">
+          <img src="images/fn.jpg" alt="Custom Pencil Cases">
+          <div class="product-overlay">
+            <button class="quick-view-btn" onclick="openCustomizer('Case')">Customize</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Custom Pencil Cases</h3>
+          <p class="product-description">Custom design</p>
+          <div class="product-price">From £5.00</div>
+          <button class="add-to-cart-btn" data-product="Custom Pencil Cases" data-price="5.00">Add to Cart</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Gallery</h2>
+      <p class="section-subtitle">Explore some of our recent work</p>
+    </div>
+    <div class="gallery-grid">
+      <img src="images/wrap6.jpeg" alt="">
+      <img src="images/mBottle.jpg" alt="">
+      <img src="images/wrap7.jpeg" alt="">
+      <img src="images/image10.jpeg" alt="">
+      <img src="images/wra9.jpeg" alt="">
+      <img src="images/animal_bags.jpeg" alt="">
+      <img src="images/bag.jpeg" alt="">
+      <img src="images/bag_w_purse.jpeg" alt="">
+      <img src="images/bBottle.jpg" alt="">
+      <img src="images/bow_cup.jpeg" alt="">
+      <img src="images/wrap1.jpeg" alt="">
+      <img src="images/bow_drinking_glass.jpeg" alt="">
+      <img src="images/bow_teacups.jpeg" alt="">
+      <img src="images/bow_teacups1.jpeg" alt="">
+      <img src="images/bow_tumbler.jpeg" alt="">
+      <img src="images/bowdrinkingglass.jpeg" alt="">
+      <img src="images/wrap2.jpeg" alt="">
+      <img src="images/wrap3.jpeg" alt="">
+      <img src="images/wrap4.jpeg" alt="">
+      <img src="images/cap.jpeg" alt="">
+      <img src="images/clearBottle.jpg" alt="">
+      <img src="images/cow_.jpeg" alt="">
+      <img src="images/cow_costas.jpeg" alt="">
+      <img src="images/cow_mug.jpeg" alt="">
+      <img src="images/cow_pot.jpeg" alt="">
+      <img src="images/cow_tumbler.jpeg" alt="">
+      <img src="images/dolls.jpeg" alt="">
+      <img src="images/dpBottle.jpg" alt="">
+      <img src="images/flower_cup.jpeg" alt="">
+      <img src="images/fn.jpg" alt="">
+      <img src="images/frame with photo.jpeg" alt="">
+      <img src="images/gBottle.jpg" alt="">
+      <img src="images/image 2789.jpeg" alt="">
+      <img src="images/wrap5.jpeg" alt="">
+      <img src="images/wrap6.jpeg" alt="">
+      <img src="images/wrap8.jpeg" alt="">
+      <img src="images/image9.jpeg" alt="">
+      <img src="images/image10.jpeg" alt="">
+      <img src="images/image32.jpeg" alt="">
+      <img src="images/image72.jpeg" alt="">
+      <img src="images/image108.jpeg" alt="">
+      <img src="images/image897.jpeg" alt="">
+      <img src="images/jewellery_box.jpeg" alt="">
+      <img src="images/key_chains.jpeg" alt="">
+      <img src="images/keyrings.jpeg" alt="">
+      <img src="images/kidshoodie.jpeg" alt="">
+      <img src="images/labubutumbler.jpeg" alt="">
+      <img src="images/logo1.jpg" alt="">
+      <img src="images/pBottle.jpg" alt="">
+      <img src="images/plant_tumbler.jpeg" alt="">
+      <img src="images/pretty_plant_pot.jpeg" alt="">
+      <img src="images/roblox.jpg" alt="">
+      <img src="images/rose_plantpot.jpeg" alt="">
+      <img src="images/rucksack.jpeg" alt="">
+      <img src="images/snowGlobe.jpg" alt="">
+      <img src="images/stitch.jpg" alt="">
+      <img src="images/Strawberry_drinking_glass.jpeg" alt="">
+      <img src="images/strawberry_tumbler.jpeg" alt="">
+      <img src="images/totes_bag.jpeg" alt="">
+      <img src="images/tshirt.jpeg" alt="">
+      <img src="images/water_bottle.jpeg" alt="">
+      <img src="images/cowpots.jpeg" alt="">
+      
+    </div>
+  </div>
+</section>
 
     <!-- Custom Design Section -->
     <section class="custom-design" id="custom">
@@ -346,6 +550,7 @@
                                     Choose Color
                                 </label>
                                 <div class="color-options">
+                                    <div class="color-option active" data-color="#c2185b" style="background: #c2185b;"></div>
                                     <div class="color-option" data-color="#ff6b9d" style="background: #ff6b9d;"></div>
                                     <div class="color-option" data-color="#4ecdc4" style="background: #4ecdc4;"></div>
                                     <div class="color-option" data-color="#45b7d1" style="background: #45b7d1;"></div>
@@ -353,7 +558,6 @@
                                     <div class="color-option" data-color="#feca57" style="background: #feca57;"></div>
                                     <div class="color-option" data-color="#ff9ff3" style="background: #ff9ff3;"></div>
                                     <div class="color-option" data-color="#54a0ff" style="background: #54a0ff;"></div>
-                                    <div class="color-option" data-color="#5f27cd" style="background: #5f27cd;"></div>
                                 </div>
                             </div>
 
@@ -379,15 +583,6 @@
                                     <div class="glitter-option" data-glitter="purple">Purple</div>
                                     <div class="glitter-option" data-glitter="green">Green</div>
                                 </div>
-                            </div>
-
-                            <div class="custom-option">
-                                <label for="textColor">Text Color (+£1)</label>
-                                <input type="color" id="textColor" value="#000000">
-                            </div>
-
-                            <div class="custom-option">
-                                <label><input type="checkbox" id="decorative-lid"> Decorative Lid (+£2.50)</label>
                             </div>
 
                             <div class="option-group" id="lid-straw-options" style="display: none;">
@@ -477,7 +672,7 @@
                     </div>
                 </div>
                 <div class="about-image" data-aos="fade-left">
-                    <img src="/images/logo1.jpg" alt="Custom Design Process">
+                    <img src="images/logo1.jpg" alt="Custom Design Process">
                 </div>
             </div>
         </div>
@@ -525,6 +720,10 @@
                             <a href="https://www.instagram.com/beautifulboos25?utm_source=qr&igsh=MW40d3Jjd2E4aTBmdA==" target="_blank" class="social-icon instagram">
                                 <i class="fab fa-instagram"></i>
                             </a>
+                        
+                        <a href="linktr.ee/BeautifulBoos">
+                            <i class="fab fa-linktree"></i>
+                        </a>
                         </div>
                     </div>
                 </div>
@@ -594,14 +793,118 @@
     <!-- Checkout Modal -->
     <div id="checkout-modal" class="checkout-modal" style="display: none;">
         <div class="checkout-content">
-            <h2>Complete Your Order</h2>
-            <div id="checkout-summary"></div>
-            <div id="paypal-container-ENL24WJ5GSQ3Y"></div>
+            <div class="checkout-header">
+                <h2>Complete Your Order</h2>
+                <button class="close-checkout" onclick="closeCheckoutModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="checkout-steps">
+                <div class="step active" id="step-1">
+                    <span class="step-number">1</span>
+                    <span class="step-text">Customer Details</span>
+                </div>
+                <div class="step" id="step-2">
+                    <span class="step-number">2</span>
+                    <span class="step-text">Payment</span>
+                </div>
+            </div>
+
+            <div class="checkout-step-content" id="customer-details-step">
+                <h3>Customer Information</h3>
+                <form id="customer-details-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="customer-first-name">First Name *</label>
+                            <input type="text" id="customer-first-name" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-last-name">Last Name *</label>
+                            <input type="text" id="customer-last-name" name="lastName" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customer-email">Email Address *</label>
+                        <input type="email" id="customer-email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customer-phone">Phone Number</label>
+                        <input type="tel" id="customer-phone" name="phone">
+                    </div>
+                    
+                    <h4>Delivery Address</h4>
+                    <div class="form-group">
+                        <label for="customer-address">Street Address *</label>
+                        <input type="text" id="customer-address" name="address" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="customer-city">City *</label>
+                            <input type="text" id="customer-city" name="city" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-postcode">Postcode *</label>
+                            <input type="text" id="customer-postcode" name="postcode" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customer-country">Country *</label>
+                        <select id="customer-country" name="country" required>
+                            <option value="">Select Country</option>
+                            <option value="UK" selected>United Kingdom</option>
+                            <option value="Ireland">Ireland</option>
+                            <option value="France">France</option>
+                            <option value="Germany">Germany</option>
+                            <option value="Spain">Spain</option>
+                            <option value="Italy">Italy</option>
+                            <option value="Netherlands">Netherlands</option>
+                            <option value="Belgium">Belgium</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="order-notes">Order Notes (Optional)</label>
+                        <textarea id="order-notes" name="notes" rows="3" placeholder="Any special instructions or requests..."></textarea>
+                    </div>
+                    
+                    <button type="button" class="next-step-btn" onclick="proceedToPayment()">
+                        Continue to Payment <i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
+            </div>
+
+            <div class="checkout-step-content" id="payment-step" style="display: none;">
+                <h3>Order Summary & Payment</h3>
+                <div id="checkout-summary"></div>
+                
+                <div class="customer-summary" id="customer-summary"></div>
+                
+                <div class="payment-section">
+                    <h4>Payment Method</h4>
+                    <div class="payment-method">
+                        <i class="fab fa-paypal"></i>
+                        <span>Pay securely with PayPal</span>
+                    </div>
+                    
+                    <div id="paypal-container-ENL24WJ5GSQ3Y"></div>
             <script>
               paypal.HostedButtons({
                 hostedButtonId: "ENL24WJ5GSQ3Y",
               }).render("#paypal-container-ENL24WJ5GSQ3Y")
             </script>
+        </div>
+                </div>
+                
+                <button type="button" class="back-step-btn" onclick="backToCustomerDetails()">
+                    <i class="fas fa-arrow-left"></i> Back to Customer Details
+                </button>
+            </div>
         </div>
     </div>
 
