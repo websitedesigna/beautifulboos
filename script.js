@@ -1245,83 +1245,62 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
+document.addEventListener("DOMContentLoaded", () => {
   function openWrap(categoryId) {
-  
     const sections = document.querySelectorAll(".wrap-section");
+    let found = false;
+
     sections.forEach(section => {
-      section.style.display = "none";
+      if (section.id.toLowerCase() === categoryId.toLowerCase()) {
+        section.style.display = "block";
+        found = true;
+      } else {
+        section.style.display = "none";
+      }
     });
 
-
-    const selected = document.getElementById(categoryId);
-    if (selected) {
-      selected.style.display = "block";
-      selected.scrollIntoView({ behavior: "smooth" });
-
+    if (found) {
+      const selected = document.getElementById(categoryId);
+      if (selected) {
+        selected.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      console.warn(`No wrap section found for: ${categoryId}`);
     }
   }
 
-  
-  function openLabubuWraps() { openWrap("Labubu"); }
-  function openMarvelWraps() { openWrap("Marvel"); }
-  function openDCWraps() { openWrap("DC"); }
-  function openGamingWraps() { openWrap("Gaming"); }
-  function openDisneyWraps() { openWrap("Disney"); }
-  function openHelloKittyWraps() { openWrap("HelloKitty"); }
-  function openWickedWraps() { openWrap("Wicked"); }
-  function openLiloAndStitchWraps() { openWrap("LiloAndStitch"); }
-  function openTVShowsWraps() { openWrap("TVShows"); }
-  function openDesignerWraps() { openWrap("Designer"); }
-  function openSpongebobAndPokemonWraps() { openWrap("SpongebobAndPokemon"); }
-  function openOtherWraps() { openWrap("Other"); }
+  document.querySelectorAll(".wrapCategory").forEach(category => {
+    category.addEventListener("click", () => {
+      const categoryId = category.dataset.category.trim();
+      openWrap(categoryId);
+    });
+  });
 
-
-
-function generateProducts(categoryName, count, price, ext = "jpeg") {
-    const container = document.getElementById(categoryName.toLowerCase() + "-products");
-    if (!container) {
-        console.error("Container not found for", categoryName);
-        return;
-    }
-
-
-
+  function attachAddToCartEvents(container = document) {
     container.querySelectorAll(".add-to-cart-btn").forEach(btn => {
-        btn.addEventListener("click", function () {
-            const product = this.dataset.product;
-            const price = parseFloat(this.dataset.price);
-            addToCart(product, price);
-        });
+      btn.addEventListener("click", function () {
+        const product = this.dataset.product;
+        const price = parseFloat(this.dataset.price);
+        addToCart(product, price);
+      });
     });
-}
+  }
 
+  attachAddToCartEvents();
 
-function openWrapCategory(category) {
-    document.querySelectorAll(".wrap-section").forEach(section => {
-        section.style.display = "none";
-    });
-    const section = document.getElementById(category);
-    if (section) section.style.display = "block";
-    section.scrollIntoView({ behavior: "smooth" });
-    
-}
-
-
-
-
-
-
-document.addEventListener("DOMContentLoaded", () => {
   const wrapCard = document.querySelector('.category-card[data-category="wrap"]');
   const wrapCategories = document.querySelector('.wrapCategories');
+  const wrapSections = document.querySelectorAll(".wrap-section");
 
   if (wrapCard && wrapCategories) {
     wrapCard.addEventListener("click", () => {
-    
       wrapCategories.style.display = "flex";
-
-    
       wrapCategories.scrollIntoView({ behavior: "smooth" });
+
+      wrapSections.forEach(section => {
+        section.style.display = "none";
+      });
     });
   }
 });
@@ -1399,3 +1378,34 @@ document.getElementById("order-form").addEventListener("submit", function(e) {
                 document.getElementById("success-message").style.display = "none";
             }, 3000);
         });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const clothingCard = document.querySelector('.category-card[data-category="clothing"]');
+  const clothingForm = document.querySelector('.form-container[data-category="clothing"]');
+
+  function openClothingForm() {
+    clothingForm.style.display = "block";
+    clothingForm.scrollIntoView({ behavior: "smooth" });
+  }
+
+  function hideClothingForm() {
+    clothingForm.style.display = "none";
+  }
+
+  clothingCard.addEventListener("click", (e) => {
+    e.stopPropagation();
+    openClothingForm();
+  });
+
+  document.addEventListener("click", (e) => {
+    if (
+      clothingForm.style.display === "block" &&
+      !clothingForm.contains(e.target) &&
+      !clothingCard.contains(e.target)
+    ) {
+      hideClothingForm();
+    }
+  });
+
+  hideClothingForm();
+});
