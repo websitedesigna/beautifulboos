@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BeautifulBoos - Personalized Items with Love</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://www.paypal.com/sdk/js?components=hosted-buttons&currency=GBP"></script>
-    <script src="https://www.paypal.com/sdk/js?client-id=AQlB8q6V5zF5UmKJnvxzF5UmKJnvxzF5UmKJnvxzF5UmKJnvxzF5UmKJnvxzF5UmKJnvxzF5UmKJnvxz&currency=GBP"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=AVDzBVF4wLRb8qc3Fol878gbvUsEAeGFRySgw4lE1nNjc29sw3xzlkHUAwXUZILYTdaaV17pR3s_lHl2&currency=GBP"></script>
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -115,8 +115,6 @@
       <p class="section-subtitle">Everything is customizable — pick a base and make it yours.</p>
     </div>
 
-    <!-- Category Filters -->
-   <!-- Category Image Cards -->
 <div class="category-cards">
   <div class="category-card" data-category="all">
     <img src="images/water_bottle.jpeg" alt="All Products">
@@ -142,92 +140,88 @@
 
 
     <!-- Product Grid -->
-    <div class="product-grid">
+   
 
       <!-- Cups & Tumblers -->
- 
+        <div class="container1" data-category="cups">
+        <div class="product-card" data-category="cups" data-aos="fade-up" data-aos-delay="100">
+            <div class="product-image">
+                <img src="images/tumbler.jpeg" alt="Custom Tumbler 1">
+            </div>
+            <div class="product-overlay">
+                <button onclick="openCustomizer('tumbler')" class="opencust">Customise</button>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Custom Tumbler </h3>
+                <p class="product-description">Any design</p>
+                <div class="product-price"> £10.00</div>
+                <button class="add-to-cart-btn" data-product="Custom Tumbler" data-price="10.00">Add to Cart</button>
+            </div>
+        </div>
 
-      <div class="product-card" data-category="cups" data-aos="fade-up" data-aos-delay="120">
-        <div class="product-image">
-          <img src="images/water_bottle.jpeg" alt="20oz Water Bottle">
-          <div class="product-overlay">
-            <button class="quick-view-btn" onclick="openCustomizer('bottle')">Customize</button>
-          </div>
-        </div>
-        <div class="product-info">
-          <h3 class="product-name">20oz Water Bottle</h3>
-          <p class="product-description">Any design</p>
-          <div class="product-price">£8.00</div>
-          <button class="add-to-cart-btn" data-product="20oz Water Bottle" data-price="8.00">Add to Cart</button>
-        </div>
-      </div>
 
-      <div class="product-card" data-category="cups" data-aos="fade-up" data-aos-delay="140">
-        <div class="product-image">
-          <img src="images/16ozG.jpg" alt="11oz Glass Tumbler">
-          <div class="product-overlay">
-            <button class="quick-view-btn" onclick="openCustomizer('tumbler')">Customize</button>
-          </div>
+        
+        <div class="product-card" data-category="cups" data-aos="fade-up" data-aos-delay="100">
+            <div class="product-image">
+                <img src="images/tumblerG.jpeg" alt="Custom Tumbler 2">
+            </div>
+            <div class="product-overlay">
+                <button onclick="openCustomizer('tumbler16')" class="opencust">Customise</button>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Custom Tumbler </h3>
+                <p class="product-description">Any design</p>
+                <div class="product-price"> £12.00</div>
+                <button class="add-to-cart-btn" data-product="Custom Tumbler" data-price="12.00">Add to Cart</button>
+            </div>
         </div>
-        <div class="product-info">
-          <h3 class="product-name">11oz Glass Tumbler</h3>
-          <p class="product-description">Any design</p>
-          <div class="product-price">£3.00</div>
-          <button class="add-to-cart-btn" data-product="11oz Glass Tumbler" data-price="3.00">Add to Cart</button>
-        </div>
-      </div>
 
-      <div class="product-card" data-category="cups" data-aos="fade-up" data-aos-delay="160">
-        <div class="product-image">
-          <img src="images/16ozG.jpg" alt="10oz Snow Globe Tumbler">
-          <div class="product-overlay">
-            <button class="quick-view-btn" onclick="openCustomizer('tumbler16')">Customize</button>
-          </div>
+  
+        <div class="product-card" data-category="cups" data-aos="fade-up" data-aos-delay="100">
+            <div class="product-image">
+                <img src="images/20ozwb.jpeg" alt="Custom Tumbler 2">
+            </div>
+            <div class="product-overlay">
+                <button onclick="openCustomizer('bottle')" class="opencust">Customise</button>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Custom Bottle</h3>
+                <p class="product-description">Any design</p>
+                <div class="product-price"> £15.00</div>
+                <button class="add-to-cart-btn" data-product="Custom Bottle" data-price="15.00">Add to Cart</button>
+            </div>
         </div>
-        <div class="product-info">
-          <h3 class="product-name">10oz Snow Globe Tumbler</h3>
-          <p class="product-description">Any design</p>
-          <div class="product-price">£10.00</div>
-          <button class="add-to-cart-btn" data-product="10oz Snow Globe Tumbler" data-price="10.00">Add to Cart</button>
-        </div>
-      </div>
-
-      <div class="product-card" data-category="cups" data-aos="fade-up" data-aos-delay="180">
-        <div class="product-image">
-          <img src="images/snowGlobe.jpg" alt="16oz Snow Globe Tumbler">
-          <div class="product-overlay">
-            <button class="quick-view-btn" onclick="openCustomizer('snowglobe')">Customize</button>
-          </div>
-          <div class="product-badge special">Special</div>
-        </div>
-        <div class="product-info">
-          <h3 class="product-name">16oz Snow Globe Tumbler</h3>
-          <p class="product-description">Any design + 3 glitter choices</p>
-          <div class="product-price">£12.00</div>
-          <button class="add-to-cart-btn" data-product="16oz Snow Globe Tumbler" data-price="12.00">Add to Cart</button>
-        </div>
-      </div>
-
-      <div class="product-card" data-category="cups" data-aos="fade-up" data-aos-delay="200">
-        <div class="product-image">
-          <img src="images/pBottle.jpg" alt="20oz Metal Tumbler">
-          <div class="product-overlay">
-            <button class="quick-view-btn" onclick="openCustomizer('metal')">Customize</button>
-          </div>
-        </div>
-        <div class="product-info">
-          <h3 class="product-name">20oz Metal Tumbler</h3>
-          <p class="product-description">Sublimation design</p>
-          <div class="product-price">£15.00</div>
-          <button class="add-to-cart-btn" data-product="20oz Metal Tumbler" data-price="15.00">Add to Cart</button>
-        </div>
-      </div>
 </div>
       <!-- Clothing -->
 
 
-    
-  
+    <div data-category="clothing" class="form-container">
+        <h2>Clothing Order Form</h2>
+        <p style="color:#ad1457; text-align:center;">
+            All clothing design, sizes, and styles — please list below.  
+            A quotation will be sent over for approval and payment.
+        </p>
+
+        <form id="order-form">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Your full name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="you@example.com" required>
+
+            <label for="mobile">Mobile</label>
+            <input type="tel" id="mobile" placeholder="+44 7123 456789" required>
+
+            <label for="order-details">Order Details</label>
+            <textarea id="order-details" placeholder="Please add sizes, colours, logos/designs, etc." required></textarea>
+
+            <button type="submit">Submit Order</button>
+
+            <div id="success-message" class="success-message">
+                ✅ Your order has been submitted! We'll send a quotation shortly.
+            </div>
+        </form>
+    </div>
 
 
       <!-- Wraps -->
@@ -1381,14 +1375,12 @@
                         <span>Pay securely with PayPal</span>
                     </div>
                     
-                    <div id="paypal-container-ENL24WJ5GSQ3Y"></div>
-            <script>
-            paypal.HostedButtons({
-            hostedButtonId: "ENL24WJ5GSQ3Y",
-            }).render("#paypal-container-ENL24WJ5GSQ3Y")
+                    <div id="paypal-button-container"></div>
 
-            </script>
-        </div>
+          
+
+
+     </div>
                 </div>
                 
                 <button type="button" class="back-step-btn" onclick="backToCustomerDetails()">
