@@ -1,4 +1,4 @@
-// Global Variables
+
 let cart = [];
 let currentCustomization = {
     product: '',
@@ -12,7 +12,7 @@ let currentCustomization = {
 
 let customerDetails = {};
 
-// DOM Elements
+
 const cartBtn = document.getElementById('cart-btn');
 const cartCount = document.getElementById('cart-count');
 const cartModal = document.getElementById('cart-modal');
@@ -31,7 +31,6 @@ const scrollToTopBtn = document.getElementById('scroll-to-top');
 const loadingScreen = document.getElementById('loading-screen');
 const header = document.getElementById('header');
 
-// Customizer Elements
 const customizerContainer = document.getElementById('customizer-container');
 const closeCustomizer = document.getElementById('close-customizer');
 const customText = document.getElementById('custom-text');
@@ -49,9 +48,8 @@ const glitterOptions = document.getElementById('glitter-options');
 const lidStrawOptions = document.getElementById('lid-straw-options');
 const lidStrawAddon = document.getElementById('lid-straw-addon');
 
-// Initialize
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Show loading screen
     setTimeout(() => {
         loadingScreen.classList.add('hidden');
     }, 2000);
@@ -59,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeEventListeners();
     updateCartDisplay();
     initializeProductFilters();
+    initializeWrapFilters();
     initializeMobileMenu();
     initializeScrollEffects();
     initializeParticles();
@@ -66,23 +65,24 @@ document.addEventListener('DOMContentLoaded', function() {
     loadCartFromStorage();
 });
 
-// Event Listeners
+
+
 function initializeEventListeners() {
-    // Cart Modal
+    
     cartBtn?.addEventListener('click', openCart);
     closeCart?.addEventListener('click', closeCartModal);
     cartOverlay?.addEventListener('click', closeCartModal);
     continueShoppingBtn?.addEventListener('click', closeCartModal);
     checkoutBtn?.addEventListener('click', handleCheckout);
 
-    // Customizer
+
     closeCustomizer?.addEventListener('click', closeCustomizerModal);
     customText?.addEventListener('input', debounce(updateCustomization, 300));
     customImage?.addEventListener('change', handleImageUpload);
     addCustomToCart?.addEventListener('click', addCustomItemToCart);
     lidStrawAddon?.addEventListener('change', updateCustomization);
 
-    // Color Options
+ 
     document.querySelectorAll('.color-option').forEach(option => {
         option.addEventListener('click', function() {
             document.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('active'));
@@ -93,7 +93,7 @@ function initializeEventListeners() {
         });
     });
 
-    // Glitter Options
+
     document.querySelectorAll('.glitter-option').forEach(option => {
         option.addEventListener('click', function() {
             const glitter = this.dataset.glitter;
@@ -111,14 +111,13 @@ function initializeEventListeners() {
         });
     });
 
-    // Add to Cart Buttons
     document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
         btn.addEventListener('click', function() {
             const product = this.dataset.product;
             const price = parseFloat(this.dataset.price);
             addToCart(product, price);
             
-            // Button animation
+           
             this.style.transform = 'scale(0.95)';
             setTimeout(() => {
                 this.style.transform = '';
@@ -126,18 +125,17 @@ function initializeEventListeners() {
         });
     });
 
-    // Navigation Links
+   
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const targetId = this.getAttribute('href').substring(1);
             scrollToSection(targetId);
             
-            // Update active nav link
+
             document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
             this.classList.add('active');
-            
-            // Close mobile menu if open
+     
             const navMenu = document.getElementById('nav-menu');
             if (navMenu.classList.contains('active')) {
                 navMenu.classList.remove('active');
@@ -145,13 +143,13 @@ function initializeEventListeners() {
         });
     });
 
-    // Contact Form
+
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', handleContactForm);
     }
 
-    // Scroll to top button
+
     scrollToTopBtn?.addEventListener('click', () => {
         window.scrollTo({
             top: 0,
@@ -160,14 +158,14 @@ function initializeEventListeners() {
     });
 }
 
-// Advanced Scroll Effects
+
 function initializeScrollEffects() {
     let lastScrollTop = 0;
     
     window.addEventListener('scroll', throttle(() => {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        // Header effects
+    
+ 
         if (scrollTop > 100) {
             header?.classList.add('scrolled');
         } else {
@@ -267,43 +265,65 @@ function initializeIntersectionObserver() {
     });
 }
 
-// Product Filters with Animation
-function initializeProductFilters() {
-    const categoryBtns = document.querySelectorAll('.category-btn');
-    const productCards = document.querySelectorAll('.product-card');
+function initializeWrapFilters() {
+    const wrapCategories = document.querySelectorAll('.wrapCategory');
+    const wrapSections = document.querySelectorAll('.wrap-section');
 
-    categoryBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            const category = this.dataset.category;
-            
-            // Update active button with animation
-            categoryBtns.forEach(b => {
-                b.classList.remove('active');
-                b.style.transform = 'scale(1)';
-            });
-            this.classList.add('active');
-            this.style.transform = 'scale(1.05)';
-            
-            setTimeout(() => {
-                this.style.transform = '';
-            }, 200);
+    wrapCategories.forEach(cat => {
+        cat.addEventListener('click', () => {
+            const category = cat.dataset.category;
 
-            // Filter products with stagger animation
-            productCards.forEach((card, index) => {
-                const cardCategory = card.dataset.category;
-                
-                setTimeout(() => {
-                    if (category === 'all' || cardCategory === category) {
-                        card.classList.remove('hidden');
-                        card.style.animationDelay = `${index * 50}ms`;
-                    } else {
-                        card.classList.add('hidden');
-                    }
-                }, index * 25);
-            });
+            // Hide all wrap sections
+            wrapSections.forEach(section => section.style.display = 'none');
+
+            // Show only the selected wrap section
+            const target = document.getElementById(category);
+            if (target) {
+                target.style.display = 'block';
+            }
         });
     });
 }
+
+function initializeProductFilters() {
+    const categoryCards = document.querySelectorAll('.category-card');
+    const productCards = document.querySelectorAll('.product-card');
+    const wrapCategories = document.querySelectorAll('.wrapCategory');
+    const wrapSections = document.querySelectorAll('.wrap-section');
+
+    categoryCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const category = this.dataset.category;
+
+            // Reset active state
+            categoryCards.forEach(c => c.classList.remove('active'));
+            this.classList.add('active');
+
+            // Hide everything first
+            productCards.forEach(card => card.style.display = 'none');
+            wrapCategories.forEach(wrap => wrap.style.display = 'none');
+            wrapSections.forEach(section => section.style.display = 'none');
+
+            if (category === 'wrap') {
+                // Show wrap category tiles (Labubu, Marvel, etc.)
+                wrapCategories.forEach(wrap => wrap.style.display = 'block');
+            } else {
+                // Show normal products
+                productCards.forEach(card => {
+                    const cardCategory = card.dataset.category;
+                    if (category === 'all' || cardCategory === category) {
+                        card.classList.remove('hidden');
+                        card.style.display = 'block';
+                    } else {
+                        card.classList.add('hidden');
+                        card.style.display = 'none';
+                    }
+                });
+            }
+        });
+    });
+}
+
 
 // Enhanced Mobile Menu
 function initializeMobileMenu() {
@@ -699,20 +719,20 @@ function completeOrder(paymentDetails) {
     });
 
     localStorage.setItem('orders', JSON.stringify(orders));
+
     
-    // Clear cart
     cart = [];
     localStorage.removeItem('beautifulboos_cart');
     updateCartDisplay();
     
-    // Close modals
+
     closeCheckoutModal();
     closeCartModal();
     
-    // Show success message
+ 
     showNotification(`Order placed successfully! Thank you, ${customerDetails.firstName}!`, 'success');
     
-    // Reset customer details
+
     customerDetails = {};
 }
 
@@ -725,13 +745,12 @@ function handleCheckout() {
     openCheckoutModal();
 }
 
-// Enhanced Customizer Functions
+
 function openCustomizer(productType) {
     const productData = getProductData(productType) || { name: 'Custom Item', price: 0.00 };
 
     scrollToSection('custom');
     
-    // Reset customization with animation
     currentCustomization = {
         product: productData.name,
         basePrice: productData.price,
@@ -750,7 +769,6 @@ function openCustomizer(productType) {
     
     if (customImage) customImage.value = '';
 
-    // Reset UI elements with animation
     const allColors = document.querySelectorAll('.color-option');
     if (allColors.length) {
         allColors.forEach((opt, index) => {
@@ -1231,5 +1249,88 @@ document.addEventListener("DOMContentLoaded", () => {
       gallery.scrollIntoView({ behavior: "smooth" });
     }
   });
+});
+
+
+
+  function openWrap(categoryId) {
+  
+    const sections = document.querySelectorAll(".wrap-section");
+    sections.forEach(section => {
+      section.style.display = "none";
+    });
+
+
+    const selected = document.getElementById(categoryId);
+    if (selected) {
+      selected.style.display = "block";
+      selected.scrollIntoView({ behavior: "smooth" });
+
+    }
+  }
+
+  
+  function openLabubuWraps() { openWrap("Labubu"); }
+  function openMarvelWraps() { openWrap("Marvel"); }
+  function openDCWraps() { openWrap("DC"); }
+  function openGamingWraps() { openWrap("Gaming"); }
+  function openDisneyWraps() { openWrap("Disney"); }
+  function openHelloKittyWraps() { openWrap("HelloKitty"); }
+  function openWickedWraps() { openWrap("Wicked"); }
+  function openLiloAndStitchWraps() { openWrap("LiloAndStitch"); }
+  function openTVShowsWraps() { openWrap("TVShows"); }
+  function openDesignerWraps() { openWrap("Designer"); }
+  function openSpongebobAndPokemonWraps() { openWrap("SpongebobAndPokemon"); }
+  function openOtherWraps() { openWrap("Other"); }
+
+
+
+function generateProducts(categoryName, count, price, ext = "jpeg") {
+    const container = document.getElementById(categoryName.toLowerCase() + "-products");
+    if (!container) {
+        console.error("Container not found for", categoryName);
+        return;
+    }
+
+
+
+    container.querySelectorAll(".add-to-cart-btn").forEach(btn => {
+        btn.addEventListener("click", function () {
+            const product = this.dataset.product;
+            const price = parseFloat(this.dataset.price);
+            addToCart(product, price);
+        });
+    });
+}
+
+
+function openWrapCategory(category) {
+    document.querySelectorAll(".wrap-section").forEach(section => {
+        section.style.display = "none";
+    });
+    const section = document.getElementById(category);
+    if (section) section.style.display = "block";
+    section.scrollIntoView({ behavior: "smooth" });
+    
+}
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const wrapCard = document.querySelector('.category-card[data-category="wrap"]');
+  const wrapCategories = document.querySelector('.wrapCategories');
+
+  if (wrapCard && wrapCategories) {
+    wrapCard.addEventListener("click", () => {
+    
+      wrapCategories.style.display = "flex";
+
+    
+      wrapCategories.scrollIntoView({ behavior: "smooth" });
+    });
+  }
 });
 
