@@ -124,7 +124,7 @@
     <img src="images/mBottle.jpg" alt="Cups & Tumblers">
     <div class="category-label">Cups & Tumblers</div>
   </div>
-  <div class="category-card" data-category="clothing">
+  <div onclick="openClothingForm()" class="category-card" data-category="clothing">
     <img src="images/kidshoodie.jpeg" alt="Clothing">
     <div class="category-label">Clothing</div>
   </div>
@@ -192,6 +192,8 @@
             </div>
         </div>
 </div>
+</div>
+</section>
       <!-- Clothing -->
 
 
@@ -216,35 +218,33 @@
             <textarea id="order-details" placeholder="Please add sizes, colours, logos/designs, etc." required></textarea>
 
             <button type="submit">Submit Order</button>
-
-            <div id="success-message" class="success-message">
-                ✅ Your order has been submitted! We'll send a quotation shortly.
-            </div>
         </form>
     </div>
+
+  
 
 
       <!-- Wraps -->
     <div class="wrapCategories">
-      <div class="wrapCategory" data-category="Labubu"><img src="images/Labubu1.jpeg">Labubu Wraps</div>
-      <div class="wrapCategory" data-category="Marvel"><img src="images/Marvel1.jpeg">Marvel Wraps</div>
-      <div class="wrapCategory" data-category="DC"><img src="images/DC1.jpeg">DC Wraps</div>
-      <div class="wrapCategory" data-category="Gaming"><img src="images/Gaming1.jpeg">Gaming Wraps</div>
-      <div class="wrapCategory" data-category="Disney"><img src="images/Disney1.jpeg">Disney Wraps</div>
-      <div class="wrapCategory" data-category="HelloKitty"><img src="images/HelloKitty1.jpeg">Hello Kitty Wraps</div>
-      <div class="wrapCategory" data-category="Wicked"><img src="images/Wicked1.jpeg">Wicked Wraps</div>
-      <div class="wrapCategory" data-category="LiloAndStitch"><img src="images/LiloandStich1.jpeg">Lilo and Stitch Wraps</div>
-      <div class="wrapCategory" data-category="TVShows"><img src="images/TVShows1.jpeg">TV-shows Wraps</div>
-      <div class="wrapCategory" data-category="Designer"><img src="images/Designer1.jpeg">Designer Wraps</div>
-      <div class="wrapCategory" data-category="SpongebobAndPokemon"><img src="images/SpongebobAndPokemon1.jpeg">Spongebob and Pokemon Wraps</div>
-    </div>
+  <div class="wrapCategory" data-category="Labubu"><img src="images/Labubu1.jpeg">Labubu Wraps</div>
+  <div class="wrapCategory" data-category="Marvel"><img src="images/Marvel1.jpeg">Marvel Wraps</div>
+  <div class="wrapCategory" data-category="DC"><img src="images/DC1.jpeg">DC Wraps</div>
+  <div class="wrapCategory" data-category="Gaming"><img src="images/Gaming1.jpeg">Gaming Wraps</div>
+  <div class="wrapCategory" data-category="Disney"><img src="images/Disney1.jpeg">Disney Wraps</div>
+  <div class="wrapCategory" data-category="HelloKitty"><img src="images/HelloKitty1.jpeg">Hello Kitty Wraps</div>
+  <div class="wrapCategory" data-category="Wicked"><img src="images/Wicked1.jpeg">Wicked Wraps</div>
+  <div class="wrapCategory" data-category="LiloAndStitch"><img src="images/LiloandStich1.jpeg">Lilo and Stitch Wraps</div>
+  <div class="wrapCategory" data-category="TVShows"><img src="images/TVShows1.jpeg">TV-shows Wraps</div>
+  <div class="wrapCategory" data-category="Designer"><img src="images/Designer1.jpeg">Designer Wraps</div>
+  <div class="wrapCategory" data-category="SpongebobAndPokemon"><img src="images/SpongebobAndPokemon1.jpeg">Spongebob and Pokemon Wraps</div>
+</div>
 
 
-<section id="Labubu" class="wrap-section">
+<section id="Labubu" data-category="Labubu" class="wrap-section">
   <h2>Labubu Wraps</h2>
 
-    <div class="wrapContainer">
-            <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="220">
+    <div class="wrapContainer" data-category="Labubu">
+            <div class="category-card data-category="wrap" data-aos="fade-up" data-aos-delay="220">
             <div class="product-image">
             <img src="images/Labubu1.jpeg" alt="Labubu Wrap 1">
             </div>
@@ -256,7 +256,7 @@
             </div>
         </div>
     
-        <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="240">
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="240">
             <div class="product-image">
             <img src="images/Labubu2.jpeg" alt="Labubu Wrap 2">
             </div>
@@ -267,8 +267,8 @@
             <button class="add-to-cart-btn" data-product="Labubu Wrap 2" data-price="2.00">Add to Cart</button>
             </div>
         </div>
-    
-        <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="260">
+
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="260">
             <div class="product-image">
             <img src="images/Labubu3.jpeg" alt="Labubu Wrap 3">
             </div>
@@ -279,7 +279,7 @@
             <button class="add-to-cart-btn" data-product="Labubu Wrap 3" data-price="2.00">Add to Cart</button>
             </div>
         </div>
-        <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="280">
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="280">
             <div class="product-image">
             <img src="images/Labubu4.jpeg" alt="Labubu Wrap 4">
             </div>
@@ -291,7 +291,7 @@
             </div>
         </div>
 
-        <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="300">
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="300">
             <div class="product-image">
             <img src="images/Labubu5.jpeg" alt="Labubu Wrap 5">
             </div>
@@ -303,7 +303,7 @@
             </div>
         </div>
 
-        <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="320">
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="320">
             <div class="product-image">
             <img src="images/Labubu6.jpeg" alt="Labubu Wrap 6">
             </div>
@@ -315,7 +315,7 @@
             </div>
         </div>
 
-        <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="340">
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="340">
             <div class="product-image">
             <img src="images/Labubu7.jpeg" alt="Labubu Wrap 7">
             </div>
@@ -327,7 +327,7 @@
             </div>
         </div>
 
-        <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="360">
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="360">
             <div class="product-image">
             <img src="images/Labubu8.jpeg" alt="Labubu Wrap 8">
             </div>
@@ -339,7 +339,7 @@
             </div>
         </div>
 
-        <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="380">
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="380">
             <div class="product-image">
             <img src="images/Labubu9.jpeg" alt="Labubu Wrap 9">
             </div>
@@ -351,7 +351,7 @@
             </div>
         </div>
 
-        <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="400">
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="400">
             <div class="product-image">
             <img src="images/Labubu10.jpeg" alt="Labubu Wrap 10">
             </div>
@@ -363,7 +363,7 @@
             </div>
         </div>
 
-        <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="420">
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="420">
             <div class="product-image">
             <img src="images/Labubu11.jpeg" alt="Labubu Wrap 11">
             </div>
@@ -375,7 +375,7 @@
             </div>
         </div>
 
-        <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="440">
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="440">
             <div class="product-image">
             <img src="images/Labubu12.jpeg" alt="Labubu Wrap 12">
             </div>
@@ -387,7 +387,7 @@
             </div>
         </div>
 
-        <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="460">
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="460">
             <div class="product-image">
             <img src="images/Labubu13.jpeg" alt="Labubu Wrap 13">
             </div>
@@ -399,7 +399,7 @@
             </div>
         </div>
 
-        <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="480">
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="480">
             <div class="product-image">
             <img src="images/Labubu14.jpeg" alt="Labubu Wrap 14">
             </div>
@@ -411,7 +411,7 @@
             </div>
         </div>
 
-        <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="480">
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="480">
             <div class="product-image">
             <img src="images/Labubu15.jpeg" alt="Labubu Wrap 15">
             </div>
@@ -423,7 +423,7 @@
             </div>
         </div>
 
-        <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="480">
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="480">
             <div class="product-image">
             <img src="images/Labubu16.jpeg" alt="Labubu Wrap 16">
             </div>
@@ -435,7 +435,7 @@
             </div>
         </div>
 
-        <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="480">
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="480">
             <div class="product-image">
             <img src="images/Labubu17.jpeg" alt="Labubu Wrap 17">
             </div>
@@ -447,7 +447,7 @@
             </div>
         </div>
 
-        <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="480">
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="480">
             <div class="product-image">
             <img src="images/Labubu18.jpeg" alt="Labubu Wrap 18">
             </div>
@@ -459,7 +459,7 @@
             </div>
         </div>
 
-        <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="480">
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="480">
             <div class="product-image">
             <img src="images/Labubu19.jpeg" alt="Labubu Wrap 19">
             </div>
@@ -471,7 +471,7 @@
             </div>
         </div>
 
-        <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="480">
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="480">
             <div class="product-image">
             <img src="images/Labubu20.jpeg" alt="Labubu Wrap 20">
             </div>
@@ -483,7 +483,7 @@
             </div>
         </div>
 
-        <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="480">
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="480">
             <div class="product-image">
             <img src="images/Labubu21.jpeg" alt="Labubu Wrap 21">
             </div>
@@ -506,8 +506,8 @@
     <h2>Marvel Wraps</h2>
     <p>All the Marvel themed wraps go here.</p> 
     <div class="wrapContainer">
-    
-        <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="480">
+
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="480">
             <div class="product-image">
                 <img src="images/Marvel1.jpeg" alt="Marvel Wrap 1">
             </div>
@@ -518,7 +518,7 @@
                 <button class="add-to-cart-btn" data-product="Marvel Wrap 1" data-price="2.00">Add to Cart</button>
             </div>
         </div>
-        <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="500">
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="500">
             <div class="product-image">
                 <img src="images/Marvel2.jpeg" alt="Marvel Wrap 2">
             </div>
@@ -529,7 +529,7 @@
                 <button class="add-to-cart-btn" data-product="Marvel Wrap 2" data-price="2.00">Add to Cart</button>
             </div>
         </div>
-        <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="520">
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="520">
             <div class="product-image">
                 <img src="images/Marvel3.jpeg" alt="Marvel Wrap 3">
             </div>
@@ -540,7 +540,7 @@
                 <button class="add-to-cart-btn" data-product="Marvel Wrap 3" data-price="2.00">Add to Cart</button>
             </div>
         </div>
-        <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="540">
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="540">
             <div class="product-image">
                 <img src="images/Marvel4.jpeg" alt="Marvel Wrap 4">
             </div>
@@ -552,7 +552,7 @@
             </div>
         </div>
 
-        <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="560">
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="560">
             <div class="product-image">
                 <img src="images/Marvel5.jpeg" alt="Marvel Wrap 5">
             </div>
@@ -564,7 +564,7 @@
             </div>
         </div>
 
-        <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="580">
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="580">
             <div class="product-image">
                 <img src="images/Marvel6.jpeg" alt="Marvel Wrap 6">
             </div>
@@ -583,7 +583,7 @@
     <p>All the DC themed wraps go here.</p>
 
     <div class="wrapContainer">
-        <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="600">
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="600">
             <div class="product-image">
                 <img src="images/DC1.jpeg" alt="DC Wrap 1">
             </div>
@@ -600,7 +600,7 @@
     <div class="wrapContainer">
     <h2>Gaming Wraps</h2>
     <p>All the Gaming themed wraps go here.</p>
-    <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="600">
+    <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="600">
         <div class="product-image">
             <img src="images/Gaming1.jpeg" alt="Gaming Wrap 1">
         </div>
@@ -612,7 +612,7 @@
         </div>
     </div>
 
-    <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="620">
+    <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="620">
         <div class="product-image">
             <img src="images/Gaming2.jpeg" alt="Gaming Wrap 2">
         </div>
@@ -624,7 +624,7 @@
         </div>
     </div>
 
-      <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="620">
+      <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="620">
         <div class="product-image">
             <img src="images/Gaming3.jpeg" alt="Gaming Wrap 3">
         </div>
@@ -635,7 +635,7 @@
             <button class="add-to-cart-btn" data-product="Gaming Wrap 3" data-price="2.00">Add to Cart</button>
         </div>
     </div>
-      <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="620">
+      <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="620">
         <div class="product-image">
             <img src="images/Gaming4.jpeg" alt="Gaming Wrap 4">
         </div>
@@ -646,7 +646,7 @@
             <button class="add-to-cart-btn" data-product="Gaming Wrap 4" data-price="2.00">Add to Cart</button>
         </div>
     </div>
-      <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="620">
+      <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="620">
         <div class="product-image">
             <img src="images/Gaming5.jpeg" alt="Gaming Wrap 5">
         </div>
@@ -657,7 +657,7 @@
             <button class="add-to-cart-btn" data-product="Gaming Wrap 5" data-price="2.00">Add to Cart</button>
         </div>
     </div>
-        <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="620">
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="620">
         <div class="product-image">
             <img src="images/Gaming6.jpeg" alt="Gaming Wrap 6">
         </div>
@@ -674,7 +674,7 @@
 </section>
 <section id="Disney" class="wrap-section">
     <div class="wrapContainer">
-    <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="600">
+    <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="600">
         <div class="product-image">
             <img src="images/Disney1.jpeg" alt="Disney Wrap 1">
         </div>
@@ -686,7 +686,7 @@
         </div>
     </div>
 
-    <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="620">
+    <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="620">
         <div class="product-image">
             <img src="images/Disney2.jpeg" alt="Disney Wrap 2">
         </div>
@@ -698,7 +698,7 @@
         </div>
     </div>
 
-    <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="620">
+    <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="620">
         <div class="product-image">
             <img src="images/Disney3.jpeg" alt="Disney Wrap 3">
         </div>
@@ -710,7 +710,7 @@
         </div>
     </div>
 
-    <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="620">
+    <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="620">
         <div class="product-image">
             <img src="images/Disney4.jpeg" alt="Disney Wrap 4">
         </div>
@@ -727,7 +727,7 @@
     <div class="wrapContainer">
 
 
-    <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="300">
+    <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="300">
         <div class="product-image">
             <img src="images/HelloKitty1.jpeg" alt="Hello Kitty Wrap 1">
         </div>
@@ -739,7 +739,7 @@
         </div>
     </div>
 
-    <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="320">
+    <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="320">
         <div class="product-image">
             <img src="images/HelloKitty2.jpeg" alt="Hello Kitty Wrap 2">
         </div>
@@ -751,7 +751,7 @@
         </div>
     </div>
 
-    <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="340">
+    <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="340">
         <div class="product-image">
             <img src="images/HelloKitty3.jpeg" alt="Hello Kitty Wrap 3">
         </div>
@@ -768,7 +768,7 @@
     <h2>Wicked Wraps</h2>
     <p>All the Wicked themed wraps go here.</p>
     <div class="wrapContainer">
-    <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="300">
+    <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="300">
         <div class="product-image">
             <img src="images/Wicked1.jpeg" alt="Wicked Wrap 1">
         </div>
@@ -779,7 +779,7 @@
             <button class="add-to-cart-btn" data-product="Wicked Wrap 1" data-price="2.00">Add to Cart</button>
         </div>
     </div>
-    <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="320">
+    <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="320">
         <div class="product-image">
             <img src="images/Wicked2.jpeg" alt="Wicked Wrap 2">
         </div>
@@ -790,7 +790,7 @@
             <button class="add-to-cart-btn" data-product="Wicked Wrap 2" data-price="2.00">Add to Cart</button>
         </div>
     </div>
-    <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="340">
+    <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="340">
         <div class="product-image">
             <img src="images/Wicked3.jpeg" alt="Wicked Wrap 3">
         </div>
@@ -802,7 +802,7 @@
         </div>
     </div>
 
-    <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="400">
+    <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="400">
         <div class="product-image">
             <img src="images/Wicked4.jpeg" alt="Wicked Wrap 4">
         </div>
@@ -818,7 +818,7 @@
 <section id="LiloAndStitch" class="wrap-section">
     <div class="wrapContainer">
 
-    <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="300">
+    <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="300">
         <div class="product-image">
             <img src="images/LiloandStich1.jpeg" alt="Lilo and Stitch Wrap 1">
         </div>
@@ -830,7 +830,7 @@
         </div>
     </div>
 
-    <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="320">
+    <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="320">
         <div class="product-image">
             <img src="images/LiloandStich2.jpeg" alt="Lilo and Stitch Wrap 2">
         </div>
@@ -842,7 +842,7 @@
         </div>
     </div>
 
-    <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="340">
+    <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="340">
         <div class="product-image">
             <img src="images/LiloandStich3.jpeg" alt="Lilo and Stitch Wrap 3">
         </div>
@@ -858,7 +858,7 @@
 <section id="TVShows" class="wrap-section">
 
     <div class="wrapContainer">
-    <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="300">
+    <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="300">
         <div class="product-image">
             <img src="images/TVShows1.jpeg" alt="TV Show Wrap 1">
         </div>
@@ -870,7 +870,7 @@
         </div>
     </div>
 
-    <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="320">
+    <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="320">
         <div class="product-image">
             <img src="images/TVShows2.jpeg" alt="TV Show Wrap 2">
         </div>
@@ -882,7 +882,7 @@
         </div>
     </div>
 
-    <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="340">
+    <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="340">
         <div class="product-image">
             <img src="images/TVShows3.jpeg" alt="TV Show Wrap 3">
         </div>
@@ -899,7 +899,7 @@
     <h2>Designer Wraps</h2>
     <p>All the Designer themed wraps go here.</p>
     <div class="wrapContainer">
-        <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="300">
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="300">
             <div class="product-image">
                 <img src="images/Designer1.jpeg" alt="Designer Wrap 1">
             </div>
@@ -911,7 +911,7 @@
             </div>
         </div>
 
-        <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="320">
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="320">
             <div class="product-image">
                 <img src="images/Designer2.jpeg" alt="Designer Wrap 2">
             </div>
@@ -923,7 +923,7 @@
             </div>
         </div>
 
-        <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="340">
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="340">
             <div class="product-image">
                 <img src="images/Designer3.jpeg" alt="Designer Wrap 3">
             </div>
@@ -938,7 +938,7 @@
 </section>
 <section id="SpongebobAndPokemon" class="wrap-section">
     <div class="wrapContainer">
-        <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="300">
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="300">
             <div class="product-image">
                 <img src="images/SpongebobAndPokemon1.jpeg" alt="Spongebob Wrap 1">
             </div>
@@ -950,7 +950,7 @@
             </div>
         </div>
 
-        <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="300">
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="300">
             <div class="product-image">
                 <img src="images/SpongebobAndPokemon2.jpeg" alt="Spongebob Wrap 2">
             </div>
@@ -962,7 +962,7 @@
             </div>
         </div>
 
-        <div class="product-card" data-category="wrap" data-aos="fade-up" data-aos-delay="300">
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="300">
             <div class="product-image">
                 <img src="images/SpongebobAndPokemon3.jpeg" alt="Spongebob Wrap 3">
             </div>
