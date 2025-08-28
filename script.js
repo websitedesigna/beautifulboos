@@ -747,7 +747,7 @@ function handleCheckout() {
 
 
 function openCustomizer(productType) {
-    const productData = getProductData(productType) || { name: 'Custom Item', price: 0.00 };
+    const productData = getProductData(productType) || { name: 'Custom Item', price: 10.00 };
 
     scrollToSection('custom');
     
@@ -826,19 +826,11 @@ function closeCustomizerModal() {
 
 function getProductData(productType) {
     const products = {
-        'mug': { name: '10oz Mug', price: 5.00 },
-        'bottle': { name: '20oz Water Bottle', price: 8.00 },
-        'tumbler': { name: '11oz Glass Tumbler', price: 3.00 },
-        'tumbler16': { name: '10oz Snow Globe Tumbler', price: 10.00 },
-        'snowglobe': { name: '16oz Snow Globe Tumbler', price: 12.00 },
-        'metal': { name: '20oz Metal Tumbler', price: 15.00 },
-        'hoodie-adult': { name: 'Adult Hoodie', price: 25.00 },
-        'hoodie-kids': { name: 'Kids Hoodie', price: 20.00 },
-        'tee-adult': { name: 'Adult T-Shirt', price: 7.00 },
-        'tee-kids': { name: 'Kids T-Shirt', price: 5.00 },
-        'cap': { name: 'Cap', price: 5.00 },
-        'bags': { name: 'Rucksacks & Drawstring Bags', price: 5.00 },
-        'Case': { name: 'Custom Pencil Cases', price: 5.00 }
+        'bottle': { name: '20oz Water Bottle', price: 15.00 },
+        'tumbler': { name: '16oz Metal Tumbler', price: 10.00 },
+        'tumbler16': { name: '16oz Glass Tumbler', price: 12.00 },
+        'snowglobe': { name: '16oz Snow Globe Tumbler', price: 15.00 },
+        'snowglobe20': {name: '20oz Snow Globe Tumbler', price: 20.00}
     };
     
     return products[productType] || { name: 'Custom Item', price: 0.00 };
@@ -911,7 +903,7 @@ function updatePricing() {
 function handleImageUpload(event) {
     const file = event.target.files[0];
     if (file) {
-        if (file.size > 5 * 1024 * 1024) { // 5MB limit
+        if (file.size > 5 * 1024 * 1024) { 
             showNotification('File size too large. Please choose a smaller image.', 'warning');
             return;
         }
@@ -1334,3 +1326,76 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+
+
+function initializePayPal() {
+    const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0) + 4.99;
+
+    paypal.Buttons({
+        style: {
+            color: 'blue',
+            shape: 'pill',
+            label: 'paypal',
+            layout: 'vertical'
+        },
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: total.toFixed(2),
+                        currency_code: "GBP"
+                    },
+                    description: "BeautifulBoos Order"
+                }]
+            });
+        },
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+                showNotification(`Payment successful! Thank you, ${details.payer.name.given_name}`, 'success');
+                cart = [];
+                saveCartToStorage();
+                updateCartDisplay();
+                closeCheckoutModal();
+            });
+        },
+        onError: function(err) {
+            console.error(err);
+            showNotification("Payment failed. Please try again.", "error");
+        }
+    }).render("#paypal-button-container");
+}
+
+
+
+document.getElementById("order-form").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const mobile = document.getElementById("mobile").value.trim();
+            const orderDetails = document.getElementById("order-details").value.trim();
+
+            const newOrder = {
+                id: "ORD" + Date.now(),
+                product: "Custom Clothing Order",
+                customization: {
+                    text: orderDetails
+                },
+                price: 0,
+                previewImage: "",
+                status: "pending",
+                time: Date.now(),
+                customer: { name, email, mobile }
+            };
+
+            let orders = JSON.parse(localStorage.getItem("orders") || "[]");
+            orders.push(newOrder);
+            localStorage.setItem("orders", JSON.stringify(orders));
+
+            document.getElementById("success-message").style.display = "block";
+
+            setTimeout(() => {
+                document.getElementById("order-form").reset();
+                document.getElementById("success-message").style.display = "none";
+            }, 3000);
+        });
