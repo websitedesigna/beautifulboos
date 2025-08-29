@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BeautifulBoos - Personalized Items with Love</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://www.paypal.com/sdk/js?client-id=AVDzBVF4wLRb8qc3Fol878gbvUsEAeGFRySgw4lE1nNjc29sw3xzlkHUAwXUZILYTdaaV17pR3s_lHl2&currency=GBP"></script>
+   
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -191,8 +191,73 @@
                 <button class="add-to-cart-btn" data-product="Custom Bottle" data-price="15.00">Add to Cart</button>
             </div>
         </div>
+
+
+        <div class="product-card" data-category="cups" data-aos="fade-up" data-aos-delay="100">
+            <div class="product-image">
+                <img src="images/snowglobe1.jpeg" alt="Custom Snow Globe">
+            </div>
+            <div class="product-overlay">
+                <button onclick="openCustomizer('snowglobe')" class="opencust">Customise</button>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Custom 16oz Snow Globe</h3>
+                <p class="product-description">Any design</p>
+                <div class="product-price"> £15.00</div>
+                <button class="add-to-cart-btn" data-product="Custom Snow Globe 16oz" data-price="15.00">Add to Cart</button>
+            </div>
+        </div>
+
+
+        <div class="product-card" data-category="cups" data-aos="fade-up" data-aos-delay="100">
+            <div class="product-image">
+                <img src="images/snowglobe1.jpeg" alt="Custom Snow Globe">
+            </div>
+            <div class="product-overlay">
+                <button onclick="openCustomizer('snowglobe20')" class="opencust">Customise</button>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Custom 20oz Snow Globe</h3>
+                <p class="product-description">Any design</p>
+                <div class="product-price"> £20.00</div>
+                <button class="add-to-cart-btn" data-product="Custom Snow Globe 20oz" data-price="20.00">Add to Cart</button>
+            </div>
+        </div>
+
+
+        <div class="product-card" data-category="cups" data-aos="fade-up" data-aos-delay="100">
+            <div class="product-image">
+                <img src="images/sublimationSpeaker.jpeg" alt="Custom Sublimation Speaker">
+            </div>
+            <div class="product-overlay">
+                <button onclick="openCustomizer('sublimation')" class="opencust">Customise</button>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Custom Sublimation Speaker</h3>
+                <p class="product-description">Any design</p>
+                <div class="product-price"> £25.00</div>
+                <button class="add-to-cart-btn" data-product="Custom Sublimation Speaker" data-price="25.00">Add to Cart</button>
+            </div>
+        </div>
+
+
+        <div class="product-card" data-category="cups" data-aos="fade-up" data-aos-delay="100">
+            <div class="product-image">
+                <img src="images/110zMug.jpeg" alt="Custom 11oz Mug">
+            </div>
+            <div class="product-overlay">
+                <button onclick="openCustomizer('mug')" class="opencust">Customise</button>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Custom 11oz Mug</h3>
+                <p class="product-description">Any design</p>
+                <div class="product-price"> £12.00</div>
+                <button class="add-to-cart-btn" data-product="Custom 11oz Mug" data-price="12.00">Add to Cart</button>
+            </div>
+        </div>
 </div>
 </div>
+
 </section>
       <!-- Clothing -->
 
@@ -1375,7 +1440,9 @@
                         <span>Pay securely with PayPal</span>
                     </div>
                     
-                    <div id="paypal-button-container"></div>
+                            <div id="paypal-button-container"></div>
+                            <p id="result-message"></p>
+                            
 
           
 
@@ -1400,7 +1467,7 @@
     <button class="scroll-to-top" id="scroll-to-top">
         <i class="fas fa-arrow-up"></i>
     </button>
-
+    <script src="https://www.paypal.com/sdk/js?client-id=AVDzBVF4wLRb8qc3Fol878gbvUsEAeGFRySgw4lE1nNjc29sw3xzlkHUAwXUZILYTdaaV17pR3s_lHl2&currency=USD"></script>
     <script src="script.js"></script>
    
 </html>
