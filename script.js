@@ -830,7 +830,10 @@ function getProductData(productType) {
         'tumbler': { name: '16oz Metal Tumbler', price: 10.00 },
         'tumbler16': { name: '16oz Glass Tumbler', price: 12.00 },
         'snowglobe': { name: '16oz Snow Globe Tumbler', price: 15.00 },
-        'snowglobe20': {name: '20oz Snow Globe Tumbler', price: 20.00}
+        'snowglobe20': {name: '20oz Snow Globe Tumbler', price: 20.00},
+        'tumbler20': {name: '20oz Metal Tumbler', price: 20.00},
+        'mug': {name: '11oz Coffee Mug', price: 12.00},
+        'sublimation': {name: 'Sublimation Speaker', price: 25.00}
     };
     
     return products[productType] || { name: 'Custom Item', price: 0.00 };
@@ -1308,6 +1311,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 function initializePayPal() {
+    const paypalContainer = document.querySelector("#paypal-button-container");
+    if (paypalContainer) {
+        paypalContainer.innerHTML = ""; // Clear old buttons
+    }
+
     const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0) + 4.99;
 
     paypal.Buttons({
@@ -1317,7 +1325,9 @@ function initializePayPal() {
             label: 'paypal',
             layout: 'vertical'
         },
+
         createOrder: function(data, actions) {
+            console.log("Creating order for total:", total); // <-- Debug
             return actions.order.create({
                 purchase_units: [{
                     amount: {
@@ -1328,8 +1338,11 @@ function initializePayPal() {
                 }]
             });
         },
+
         onApprove: function(data, actions) {
+            console.log("Order approved:", data); // <-- Debug
             return actions.order.capture().then(function(details) {
+                console.log("Payment captured:", details);
                 showNotification(`Payment successful! Thank you, ${details.payer.name.given_name}`, 'success');
                 cart = [];
                 saveCartToStorage();
@@ -1337,10 +1350,12 @@ function initializePayPal() {
                 closeCheckoutModal();
             });
         },
+
         onError: function(err) {
-            console.error(err);
+            console.error("PayPal Error:", err);
             showNotification("Payment failed. Please try again.", "error");
         }
+
     }).render("#paypal-button-container");
 }
 
