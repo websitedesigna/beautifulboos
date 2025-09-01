@@ -1310,54 +1310,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-function initializePayPal() {
-    const paypalContainer = document.querySelector("#paypal-button-container");
-    if (paypalContainer) {
-        paypalContainer.innerHTML = ""; // Clear old buttons
-    }
-
-    const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0) + 4.99;
-
-    paypal.Buttons({
-        style: {
-            color: 'blue',
-            shape: 'pill',
-            label: 'paypal',
-            layout: 'vertical'
-        },
-
-        createOrder: function(data, actions) {
-            console.log("Creating order for total:", total); // <-- Debug
-            return actions.order.create({
-                purchase_units: [{
-                    amount: {
-                        value: total.toFixed(2),
-                        currency_code: "GBP"
-                    },
-                    description: "BeautifulBoos Order"
-                }]
-            });
-        },
-
-        onApprove: function(data, actions) {
-            console.log("Order approved:", data); // <-- Debug
-            return actions.order.capture().then(function(details) {
-                console.log("Payment captured:", details);
-                showNotification(`Payment successful! Thank you, ${details.payer.name.given_name}`, 'success');
-                cart = [];
-                saveCartToStorage();
-                updateCartDisplay();
-                closeCheckoutModal();
-            });
-        },
-
-        onError: function(err) {
-            console.error("PayPal Error:", err);
-            showNotification("Payment failed. Please try again.", "error");
-        }
-
-    }).render("#paypal-button-container");
-}
 
 
 
