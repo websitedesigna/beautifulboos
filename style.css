@@ -2428,3 +2428,22 @@ background: #43a047;
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(194, 24, 91, 0.4);
 }
+
+footer {
+    background: #111;
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+footer a {
+    color: #4ecdc4;
+    text-decoration: none;
+}
+footer a:hover {
+    text-decoration: underline;
+}
+footer p {
+    margin: 5px 0;
+    color: #4ecdc4;
+}
