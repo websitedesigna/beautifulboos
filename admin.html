@@ -4235,7 +4235,1481 @@ footer p {
     margin: 5px 0;
     color: #4ecdc4;
 }</code></div>
-      <div id="html" class="code-area" contenteditable="false"></div>
+      <div id="html" class="code-area" contenteditable="false"><code><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeautifulBoos - Personalized Items with Love</title>
+    <link rel="stylesheet" href="style.css">
+   
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <img src="images/logo1.jpg" alt="BeautifulBoos" class="loading-img">
+                <h2>BeautifulBoos</h2>
+            </div>
+            <div class="loading-spinner"></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="nav-brand">
+                <h1 class="logo">
+                    <img class="logo-img" src="images/logo1.jpg" alt="BeautifulBoos Logo">
+                    <span class="text-pink">Beautiful</span><span class="text-blue">Boos</span>
+                </h1>
+            </div>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link" data-section="home">Home</a>
+                <a href="#products" class="nav-link" data-section="products">Products</a>
+                <a href="#custom" class="nav-link" data-section="custom">Custom Design</a>
+                <a href="#about" class="nav-link" data-section="about">About</a>
+                <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="cart-btn" id="cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </button>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-particles" id="hero-particles"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2 class="hero-title">Personalised Items <span class="text-gradient">Made with Love</span></h2>
+                    <p class="hero-subtitle">Custom designs on cups, clothing, and more. Every piece is uniquely yours with our wide range of colours and design palettes.</p>
+                    <div class="hero-features">
+                        <div class="feature-badge">
+                            <i class="fas fa-palette"></i>
+                            <span>Custom Designs</span>
+                        </div>
+                        <div class="feature-badge">
+                            <i class="fas fa-heart"></i>
+                            <span>Made with Love</span>
+                        </div>
+                        <div class="feature-badge">
+                            <i class="fas fa-shipping-fast"></i>
+                            <span>Fast UK Delivery For Just £4.99</span>
+                        </div>
+                    </div>
+                    <button class="cta-btn" onclick="scrollToSection('products')">
+                        Shop Now <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                <div class="hero-image">
+                    <div class="product-showcase">
+                        <div class="showcase-item" data-aos="fade-up" data-aos-delay="100">
+                            <img src="images/labubutumbler.jpeg" alt="Custom Tumbler">
+                            <div class="showcase-overlay">
+                                <h3>Custom Tumblers</h3>
+                                <p>Personalised to perfection</p>
+                            </div>
+                        </div>
+                        <div class="showcase-item" data-aos="fade-up" data-aos-delay="200">
+                            <img src="images/mBottle.jpg" alt="Custom Glass">
+                            <div class="showcase-overlay">
+                                <h3>Glass Collection</h3>
+                                <p>Elegant & unique designs</p>
+                            </div>
+                        </div>
+                        <div class="showcase-item" data-aos="fade-up" data-aos-delay="300">
+                            <img src="images/wrap6.jpeg" alt="Custom Cup">
+                            <div class="showcase-overlay">
+                                <h3>Custom Wraps</h3>
+                                <p>Your style, your way</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section (drop-in) -->
+
+
+<section class="products" id="products">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <h2 class="section-title">Our Products</h2>
+      <p class="section-subtitle">Everything is customizable — pick a base and make it yours.</p>
+    </div>
+
+<div class="category-cards">
+  <div class="category-card" data-category="all">
+    <img src="images/water_bottle.jpeg" alt="All Products">
+    <div class="category-label">All Products</div>
+  </div>
+  <div class="category-card" data-category="cups">
+    <img src="images/mBottle.jpg" alt="Cups & Tumblers">
+    <div class="category-label">Cups & Tumblers</div>
+  </div>
+  <div onclick="openClothingForm()" class="category-card" data-category="clothing">
+    <img src="images/kidshoodie.jpeg" alt="Clothing">
+    <div class="category-label">Clothing</div>
+  </div>
+  <div class="category-card" data-category="wrap">
+    <img src="images/wrap6.jpeg" alt="">
+    <div class="category-label">Wraps</div>
+  </div>
+  <div class="category-card" data-category="other">
+    <img src="images/rucksack.jpeg" alt="Other Items">
+    <div class="category-label">Other Items</div>
+  </div>
+</div>
+
+
+    <!-- Product Grid -->
+   
+
+      <!-- Cups & Tumblers -->
+        <div class="container1" data-category="cups">
+        <div class="product-card" data-category="cups" data-aos="fade-up" data-aos-delay="100">
+            <div class="product-image">
+                <img src="images/tumbler.jpeg" alt="Custom Tumbler 1">
+            </div>
+            <div class="product-overlay">
+                <button onclick="openCustomizer('tumbler')" class="opencust">Customise</button>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Custom Tumbler </h3>
+                <p class="product-description">Any design</p>
+                <div class="product-price"> £10.00</div>
+                <button class="add-to-cart-btn" data-product="Custom Tumbler" data-price="10.00">Add to Cart</button>
+            </div>
+        </div>
+
+
+        
+        <div class="product-card" data-category="cups" data-aos="fade-up" data-aos-delay="100">
+            <div class="product-image">
+                <img src="images/tumblerG.jpeg" alt="Custom Tumbler 2">
+            </div>
+            <div class="product-overlay">
+                <button onclick="openCustomizer('tumbler16')" class="opencust">Customise</button>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Custom Tumbler </h3>
+                <p class="product-description">Any design</p>
+                <div class="product-price"> £12.00</div>
+                <button class="add-to-cart-btn" data-product="Custom Tumbler" data-price="12.00">Add to Cart</button>
+            </div>
+        </div>
+
+  
+        <div class="product-card" data-category="cups" data-aos="fade-up" data-aos-delay="100">
+            <div class="product-image">
+                <img src="images/20ozwb.jpeg" alt="Custom Tumbler 2">
+            </div>
+            <div class="product-overlay">
+                <button onclick="openCustomizer('bottle')" class="opencust">Customise</button>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Custom Bottle</h3>
+                <p class="product-description">Any design</p>
+                <div class="product-price"> £15.00</div>
+                <button class="add-to-cart-btn" data-product="Custom Bottle" data-price="15.00">Add to Cart</button>
+            </div>
+        </div>
+
+
+        <div class="product-card" data-category="cups" data-aos="fade-up" data-aos-delay="100">
+            <div class="product-image">
+                <img src="images/snowglobe1.jpeg" alt="Custom Snow Globe">
+            </div>
+            <div class="product-overlay">
+                <button onclick="openCustomizer('snowglobe')" class="opencust">Customise</button>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Custom 16oz Snow Globe</h3>
+                <p class="product-description">Any design</p>
+                <div class="product-price"> £15.00</div>
+                <button class="add-to-cart-btn" data-product="Custom Snow Globe 16oz" data-price="15.00">Add to Cart</button>
+            </div>
+        </div>
+
+
+        <div class="product-card" data-category="cups" data-aos="fade-up" data-aos-delay="100">
+            <div class="product-image">
+                <img src="images/snowglobe1.jpeg" alt="Custom Snow Globe">
+            </div>
+            <div class="product-overlay">
+                <button onclick="openCustomizer('snowglobe20')" class="opencust">Customise</button>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Custom 20oz Snow Globe</h3>
+                <p class="product-description">Any design</p>
+                <div class="product-price"> £20.00</div>
+                <button class="add-to-cart-btn" data-product="Custom Snow Globe 20oz" data-price="20.00">Add to Cart</button>
+            </div>
+        </div>
+
+
+        <div class="product-card" data-category="cups" data-aos="fade-up" data-aos-delay="100">
+            <div class="product-image">
+                <img src="images/sublimationSpeaker.jpeg" alt="Custom Sublimation Speaker">
+            </div>
+            <div class="product-overlay">
+                <button onclick="openCustomizer('sublimation')" class="opencust">Customise</button>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Custom Sublimation Speaker</h3>
+                <p class="product-description">Any design</p>
+                <div class="product-price"> £25.00</div>
+                <button class="add-to-cart-btn" data-product="Custom Sublimation Speaker" data-price="25.00">Add to Cart</button>
+            </div>
+        </div>
+
+
+        <div class="product-card" data-category="cups" data-aos="fade-up" data-aos-delay="100">
+            <div class="product-image">
+                <img src="images/110zMug.jpeg" alt="Custom 11oz Mug">
+            </div>
+            <div class="product-overlay">
+                <button onclick="openCustomizer('mug')" class="opencust">Customise</button>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Custom 11oz Mug</h3>
+                <p class="product-description">Any design</p>
+                <div class="product-price"> £12.00</div>
+                <button class="add-to-cart-btn" data-product="Custom 11oz Mug" data-price="12.00">Add to Cart</button>
+            </div>
+        </div>
+</div>
+</div>
+
+</section>
+      <!-- Clothing -->
+
+
+    <div data-category="clothing" class="form-container">
+        <h2>Clothing Order Form</h2>
+        <p style="color:#ad1457; text-align:center;">
+            All clothing design, sizes, and styles — please list below.  
+            A quotation will be sent over for approval and payment.
+        </p>
+
+        <form id="order-form">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Your full name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="you@example.com" required>
+
+            <label for="mobile">Mobile</label>
+            <input type="tel" id="mobile" placeholder="+44 7123 456789" required>
+
+            <label for="order-details">Order Details</label>
+            <textarea id="order-details" placeholder="Please add sizes, colours, logos/designs, etc." required></textarea>
+
+            <button type="submit">Submit Order</button>
+        </form>
+    </div>
+
+  
+
+
+      <!-- Wraps -->
+    <div class="wrapCategories">
+  <div class="wrapCategory" data-category="Labubu"><img src="images/Labubu1.jpeg">Labubu Wraps</div>
+  <div class="wrapCategory" data-category="Marvel"><img src="images/Marvel1.jpeg">Marvel Wraps</div>
+  <div class="wrapCategory" data-category="DC"><img src="images/DC1.jpeg">DC Wraps</div>
+  <div class="wrapCategory" data-category="Gaming"><img src="images/Gaming1.jpeg">Gaming Wraps</div>
+  <div class="wrapCategory" data-category="Disney"><img src="images/Disney1.jpeg">Disney Wraps</div>
+  <div class="wrapCategory" data-category="HelloKitty"><img src="images/HelloKitty1.jpeg">Hello Kitty Wraps</div>
+  <div class="wrapCategory" data-category="Wicked"><img src="images/Wicked1.jpeg">Wicked Wraps</div>
+  <div class="wrapCategory" data-category="LiloAndStitch"><img src="images/LiloandStich1.jpeg">Lilo and Stitch Wraps</div>
+  <div class="wrapCategory" data-category="TVShows"><img src="images/TVShows1.jpeg">TV-shows Wraps</div>
+  <div class="wrapCategory" data-category="Designer"><img src="images/Designer1.jpeg">Designer Wraps</div>
+  <div class="wrapCategory" data-category="SpongebobAndPokemon"><img src="images/SpongebobAndPokemon1.jpeg">Spongebob and Pokemon Wraps</div>
+</div>
+
+
+<section id="Labubu" data-category="Labubu" class="wrap-section">
+  <h2>Labubu Wraps</h2>
+
+    <div class="wrapContainer" data-category="Labubu">
+            <div class="category-card data-category="wrap" data-aos="fade-up" data-aos-delay="220">
+            <div class="product-image">
+            <img src="images/Labubu1.jpeg" alt="Labubu Wrap 1">
+            </div>
+            <div class="product-info">
+            <h3 class="product-name">Labubu Wrap 1</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="Labubu Wrap 1" data-price="2.00">Add to Cart</button>
+            </div>
+        </div>
+    
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="240">
+            <div class="product-image">
+            <img src="images/Labubu2.jpeg" alt="Labubu Wrap 2">
+            </div>
+            <div class="product-info">
+            <h3 class="product-name">Labubu Wrap 2</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="Labubu Wrap 2" data-price="2.00">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="260">
+            <div class="product-image">
+            <img src="images/Labubu3.jpeg" alt="Labubu Wrap 3">
+            </div>
+            <div class="product-info">
+            <h3 class="product-name">Labubu Wrap 3</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="Labubu Wrap 3" data-price="2.00">Add to Cart</button>
+            </div>
+        </div>
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="280">
+            <div class="product-image">
+            <img src="images/Labubu4.jpeg" alt="Labubu Wrap 4">
+            </div>
+            <div class="product-info">
+            <h3 class="product-name">Labubu Wrap 4</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="Labubu Wrap 4" data-price="2.00">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="300">
+            <div class="product-image">
+            <img src="images/Labubu5.jpeg" alt="Labubu Wrap 5">
+            </div>
+            <div class="product-info">
+            <h3 class="product-name">Labubu Wrap 5</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="Labubu Wrap 5" data-price="2.00">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="320">
+            <div class="product-image">
+            <img src="images/Labubu6.jpeg" alt="Labubu Wrap 6">
+            </div>
+            <div class="product-info">
+            <h3 class="product-name">Labubu Wrap 6</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="Labubu Wrap 6" data-price="2.00">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="340">
+            <div class="product-image">
+            <img src="images/Labubu7.jpeg" alt="Labubu Wrap 7">
+            </div>
+            <div class="product-info">
+            <h3 class="product-name">Labubu Wrap 7</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="Labubu Wrap 7" data-price="2.00">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="360">
+            <div class="product-image">
+            <img src="images/Labubu8.jpeg" alt="Labubu Wrap 8">
+            </div>
+            <div class="product-info">
+            <h3 class="product-name">Labubu Wrap 8</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="Labubu Wrap 8" data-price="2.00">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="380">
+            <div class="product-image">
+            <img src="images/Labubu9.jpeg" alt="Labubu Wrap 9">
+            </div>
+            <div class="product-info">
+            <h3 class="product-name">Labubu Wrap 9</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="Labubu Wrap 9" data-price="2.00">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="400">
+            <div class="product-image">
+            <img src="images/Labubu10.jpeg" alt="Labubu Wrap 10">
+            </div>
+            <div class="product-info">
+            <h3 class="product-name">Labubu Wrap 10</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="Labubu Wrap 10" data-price="2.00">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="420">
+            <div class="product-image">
+            <img src="images/Labubu11.jpeg" alt="Labubu Wrap 11">
+            </div>
+            <div class="product-info">
+            <h3 class="product-name">Labubu Wrap 11</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="Labubu Wrap 11" data-price="2.00">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="440">
+            <div class="product-image">
+            <img src="images/Labubu12.jpeg" alt="Labubu Wrap 12">
+            </div>
+            <div class="product-info">
+            <h3 class="product-name">Labubu Wrap 12</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="Labubu Wrap 12" data-price="2.00">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="460">
+            <div class="product-image">
+            <img src="images/Labubu13.jpeg" alt="Labubu Wrap 13">
+            </div>
+            <div class="product-info">
+            <h3 class="product-name">Labubu Wrap 13</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="Labubu Wrap 13" data-price="2.00">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="480">
+            <div class="product-image">
+            <img src="images/Labubu14.jpeg" alt="Labubu Wrap 14">
+            </div>
+            <div class="product-info">
+            <h3 class="product-name">Labubu Wrap 14</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="Labubu Wrap 14" data-price="2.00">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="480">
+            <div class="product-image">
+            <img src="images/Labubu15.jpeg" alt="Labubu Wrap 15">
+            </div>
+            <div class="product-info">
+            <h3 class="product-name">Labubu Wrap 15</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="Labubu Wrap 15" data-price="2.00">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="480">
+            <div class="product-image">
+            <img src="images/Labubu16.jpeg" alt="Labubu Wrap 16">
+            </div>
+            <div class="product-info">
+            <h3 class="product-name">Labubu Wrap 16</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="Labubu Wrap 16" data-price="2.00">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="480">
+            <div class="product-image">
+            <img src="images/Labubu17.jpeg" alt="Labubu Wrap 17">
+            </div>
+            <div class="product-info">
+            <h3 class="product-name">Labubu Wrap 17</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="Labubu Wrap 17" data-price="2.00">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="480">
+            <div class="product-image">
+            <img src="images/Labubu18.jpeg" alt="Labubu Wrap 18">
+            </div>
+            <div class="product-info">
+            <h3 class="product-name">Labubu Wrap 18</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="Labubu Wrap 18" data-price="2.00">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="480">
+            <div class="product-image">
+            <img src="images/Labubu19.jpeg" alt="Labubu Wrap 19">
+            </div>
+            <div class="product-info">
+            <h3 class="product-name">Labubu Wrap 19</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="Labubu Wrap 19" data-price="2.00">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="480">
+            <div class="product-image">
+            <img src="images/Labubu20.jpeg" alt="Labubu Wrap 20">
+            </div>
+            <div class="product-info">
+            <h3 class="product-name">Labubu Wrap 20</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="Labubu Wrap 20" data-price="2.00">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="480">
+            <div class="product-image">
+            <img src="images/Labubu21.jpeg" alt="Labubu Wrap 21">
+            </div>
+            <div class="product-info">
+            <h3 class="product-name">Labubu Wrap 21</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="Labubu Wrap 21" data-price="2.00">Add to Cart</button>
+            </div>
+        </div>
+    
+  </div>
+</div>
+</section> 
+
+
+
+</section>
+<section id="Marvel" class="wrap-section">
+    <h2>Marvel Wraps</h2>
+    <p>All the Marvel themed wraps go here.</p> 
+    <div class="wrapContainer">
+
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="480">
+            <div class="product-image">
+                <img src="images/Marvel1.jpeg" alt="Marvel Wrap 1">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Marvel Wrap 1</h3>
+                <p class="product-description">Any design</p>
+                <div class="product-price"> £2.00</div>
+                <button class="add-to-cart-btn" data-product="Marvel Wrap 1" data-price="2.00">Add to Cart</button>
+            </div>
+        </div>
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="500">
+            <div class="product-image">
+                <img src="images/Marvel2.jpeg" alt="Marvel Wrap 2">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Marvel Wrap 2</h3>
+                <p class="product-description">Any design</p>
+                <div class="product-price"> £2.00</div>
+                <button class="add-to-cart-btn" data-product="Marvel Wrap 2" data-price="2.00">Add to Cart</button>
+            </div>
+        </div>
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="520">
+            <div class="product-image">
+                <img src="images/Marvel3.jpeg" alt="Marvel Wrap 3">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Marvel Wrap 3</h3>
+                <p class="product-description">Any design</p>
+                <div class="product-price"> £2.00</div>
+                <button class="add-to-cart-btn" data-product="Marvel Wrap 3" data-price="2.00">Add to Cart</button>
+            </div>
+        </div>
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="540">
+            <div class="product-image">
+                <img src="images/Marvel4.jpeg" alt="Marvel Wrap 4">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Marvel Wrap 4</h3>
+                <p class="product-description">Any design</p>
+                <div class="product-price"> £2.00</div>
+                <button class="add-to-cart-btn" data-product="Marvel Wrap 4" data-price="2.00">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="560">
+            <div class="product-image">
+                <img src="images/Marvel5.jpeg" alt="Marvel Wrap 5">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Marvel Wrap 5</h3>
+                <p class="product-description">Any design</p>
+                <div class="product-price"> £2.00</div>
+                <button class="add-to-cart-btn" data-product="Marvel Wrap 5" data-price="2.00">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="580">
+            <div class="product-image">
+                <img src="images/Marvel6.jpeg" alt="Marvel Wrap 6">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Marvel Wrap 6</h3>
+                <p class="product-description">Any design</p>
+                <div class="product-price"> £2.00</div>
+                <button class="add-to-cart-btn" data-product="Marvel Wrap 6" data-price="2.00">Add to Cart</button>
+            </div>
+
+    </div>
+    </div>
+</section>
+<section id="DC" class="wrap-section">
+    <h2>DC Wraps</h2>
+    <p>All the DC themed wraps go here.</p>
+
+    <div class="wrapContainer">
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="600">
+            <div class="product-image">
+                <img src="images/DC1.jpeg" alt="DC Wrap 1">
+            </div>
+            <div class="product-info">
+            <h3 class="product-name">DC Wrap 1</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="DC Wrap 1" data-price="2.00">Add to Cart</button>
+        </div>
+    </div>
+
+</section>
+<section id="Gaming" class="wrap-section">
+    <div class="wrapContainer">
+    <h2>Gaming Wraps</h2>
+    <p>All the Gaming themed wraps go here.</p>
+    <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="600">
+        <div class="product-image">
+            <img src="images/Gaming1.jpeg" alt="Gaming Wrap 1">
+        </div>
+        <div class="product-info">
+            <h3 class="product-name">Gaming Wrap 1</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="Gaming Wrap 1" data-price="2.00">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="620">
+        <div class="product-image">
+            <img src="images/Gaming2.jpeg" alt="Gaming Wrap 2">
+        </div>
+        <div class="product-info">
+            <h3 class="product-name">Gaming Wrap 2</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="Gaming Wrap 2" data-price="2.00">Add to Cart</button>
+        </div>
+    </div>
+
+      <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="620">
+        <div class="product-image">
+            <img src="images/Gaming3.jpeg" alt="Gaming Wrap 3">
+        </div>
+        <div class="product-info">
+            <h3 class="product-name">Gaming Wrap 3</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="Gaming Wrap 3" data-price="2.00">Add to Cart</button>
+        </div>
+    </div>
+      <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="620">
+        <div class="product-image">
+            <img src="images/Gaming4.jpeg" alt="Gaming Wrap 4">
+        </div>
+        <div class="product-info">
+            <h3 class="product-name">Gaming Wrap 4</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="Gaming Wrap 4" data-price="2.00">Add to Cart</button>
+        </div>
+    </div>
+      <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="620">
+        <div class="product-image">
+            <img src="images/Gaming5.jpeg" alt="Gaming Wrap 5">
+        </div>
+        <div class="product-info">
+            <h3 class="product-name">Gaming Wrap 5</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="Gaming Wrap 5" data-price="2.00">Add to Cart</button>
+        </div>
+    </div>
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="620">
+        <div class="product-image">
+            <img src="images/Gaming6.jpeg" alt="Gaming Wrap 6">
+        </div>
+        <div class="product-info">
+            <h3 class="product-name">Gaming Wrap 6</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="Gaming Wrap 6" data-price="2.00">Add to Cart</button>
+        </div>
+    </div>
+
+
+</div>
+</section>
+<section id="Disney" class="wrap-section">
+    <div class="wrapContainer">
+    <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="600">
+        <div class="product-image">
+            <img src="images/Disney1.jpeg" alt="Disney Wrap 1">
+        </div>
+        <div class="product-info">
+            <h3 class="product-name">Disney Wrap 1</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="Disney Wrap 1" data-price="2.00">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="620">
+        <div class="product-image">
+            <img src="images/Disney2.jpeg" alt="Disney Wrap 2">
+        </div>
+        <div class="product-info">
+            <h3 class="product-name">Disney Wrap 2</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="Disney Wrap 2" data-price="2.00">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="620">
+        <div class="product-image">
+            <img src="images/Disney3.jpeg" alt="Disney Wrap 3">
+        </div>
+        <div class="product-info">
+            <h3 class="product-name">Disney Wrap 3</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="Disney Wrap 3" data-price="2.00">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="620">
+        <div class="product-image">
+            <img src="images/Disney4.jpeg" alt="Disney Wrap 4">
+        </div>
+        <div class="product-info">
+            <h3 class="product-name">Disney Wrap 4</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="Disney Wrap 4" data-price="2.00">Add to Cart</button>
+        </div>
+    </div>
+</div>
+</section>
+<section id="HelloKitty" class="wrap-section">
+    <div class="wrapContainer">
+
+
+    <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="300">
+        <div class="product-image">
+            <img src="images/HelloKitty1.jpeg" alt="Hello Kitty Wrap 1">
+        </div>
+        <div class="product-info">
+            <h3 class="product-name">Hello Kitty Wrap 1</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="Hello Kitty Wrap 1" data-price="2.00">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="320">
+        <div class="product-image">
+            <img src="images/HelloKitty2.jpeg" alt="Hello Kitty Wrap 2">
+        </div>
+        <div class="product-info">
+            <h3 class="product-name">Hello Kitty Wrap 2</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="Hello Kitty Wrap 2" data-price="2.00">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="340">
+        <div class="product-image">
+            <img src="images/HelloKitty3.jpeg" alt="Hello Kitty Wrap 3">
+        </div>
+        <div class="product-info">
+            <h3 class="product-name">Hello Kitty Wrap 3</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="Hello Kitty Wrap 3" data-price="2.00">Add to Cart</button>
+        </div>
+    </div>
+    </div>
+</section>
+<section id="Wicked" class="wrap-section">
+    <h2>Wicked Wraps</h2>
+    <p>All the Wicked themed wraps go here.</p>
+    <div class="wrapContainer">
+    <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="300">
+        <div class="product-image">
+            <img src="images/Wicked1.jpeg" alt="Wicked Wrap 1">
+        </div>
+        <div class="product-info">
+            <h3 class="product-name">Wicked Wrap 1</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="Wicked Wrap 1" data-price="2.00">Add to Cart</button>
+        </div>
+    </div>
+    <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="320">
+        <div class="product-image">
+            <img src="images/Wicked2.jpeg" alt="Wicked Wrap 2">
+        </div>
+        <div class="product-info">
+            <h3 class="product-name">Wicked Wrap 2</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="Wicked Wrap 2" data-price="2.00">Add to Cart</button>
+        </div>
+    </div>
+    <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="340">
+        <div class="product-image">
+            <img src="images/Wicked3.jpeg" alt="Wicked Wrap 3">
+        </div>
+        <div class="product-info">
+            <h3 class="product-name">Wicked Wrap 3</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="Wicked Wrap 3" data-price="2.00">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="400">
+        <div class="product-image">
+            <img src="images/Wicked4.jpeg" alt="Wicked Wrap 4">
+        </div>
+        <div class="product-info">
+            <h3 class="product-name">Wicked Wrap 4</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="Wicked Wrap 4" data-price="2.00">Add to Cart</button>
+        </div>
+    </div>
+</div>
+</section>
+<section id="LiloAndStitch" class="wrap-section">
+    <div class="wrapContainer">
+
+    <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="300">
+        <div class="product-image">
+            <img src="images/LiloandStich1.jpeg" alt="Lilo and Stitch Wrap 1">
+        </div>
+        <div class="product-info">
+            <h3 class="product-name">Lilo and Stitch Wrap 1</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="Lilo and Stitch Wrap 1" data-price="2.00">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="320">
+        <div class="product-image">
+            <img src="images/LiloandStich2.jpeg" alt="Lilo and Stitch Wrap 2">
+        </div>
+        <div class="product-info">
+            <h3 class="product-name">Lilo and Stitch Wrap 2</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="Lilo and Stitch Wrap 2" data-price="2.00">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="340">
+        <div class="product-image">
+            <img src="images/LiloandStich3.jpeg" alt="Lilo and Stitch Wrap 3">
+        </div>
+        <div class="product-info">
+            <h3 class="product-name">Lilo and Stitch Wrap 3</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="Lilo and Stitch Wrap 3" data-price="2.00">Add to Cart</button>
+        </div>
+    </div>
+</div>
+    </section>
+<section id="TVShows" class="wrap-section">
+
+    <div class="wrapContainer">
+    <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="300">
+        <div class="product-image">
+            <img src="images/TVShows1.jpeg" alt="TV Show Wrap 1">
+        </div>
+        <div class="product-info">
+            <h3 class="product-name">TV Show Wrap 1</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="TV Show Wrap 1" data-price="2.00">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="320">
+        <div class="product-image">
+            <img src="images/TVShows2.jpeg" alt="TV Show Wrap 2">
+        </div>
+        <div class="product-info">
+            <h3 class="product-name">TV Show Wrap 2</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="TV Show Wrap 2" data-price="2.00">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="340">
+        <div class="product-image">
+            <img src="images/TVShows3.jpeg" alt="TV Show Wrap 3">
+        </div>
+        <div class="product-info">
+            <h3 class="product-name">TV Show Wrap 3</h3>
+            <p class="product-description">Any design</p>
+            <div class="product-price"> £2.00</div>
+            <button class="add-to-cart-btn" data-product="TV Show Wrap 3" data-price="2.00">Add to Cart</button>
+        </div>
+    </div>
+</div>
+</section>
+<section id="Designer" class="wrap-section" style="display:none;">
+    <h2>Designer Wraps</h2>
+    <p>All the Designer themed wraps go here.</p>
+    <div class="wrapContainer">
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="300">
+            <div class="product-image">
+                <img src="images/Designer1.jpeg" alt="Designer Wrap 1">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Designer Wrap 1</h3>
+                <p class="product-description">Any design</p>
+                <div class="product-price"> £2.00</div>
+                <button class="add-to-cart-btn" data-product="Designer Wrap 1" data-price="2.00">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="320">
+            <div class="product-image">
+                <img src="images/Designer2.jpeg" alt="Designer Wrap 2">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Designer Wrap 2</h3>
+                <p class="product-description">Any design</p>
+                <div class="product-price"> £2.00</div>
+                <button class="add-to-cart-btn" data-product="Designer Wrap 2" data-price="2.00">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="340">
+            <div class="product-image">
+                <img src="images/Designer3.jpeg" alt="Designer Wrap 3">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Designer Wrap 3</h3>
+                <p class="product-description">Any design</p>
+                <div class="product-price"> £2.00</div>
+                <button class="add-to-cart-btn" data-product="Designer Wrap 3" data-price="2.00">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="SpongebobAndPokemon" class="wrap-section">
+    <div class="wrapContainer">
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="300">
+            <div class="product-image">
+                <img src="images/SpongebobAndPokemon1.jpeg" alt="Spongebob Wrap 1">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Pikachu Wrap 1</h3>
+                <p class="product-description">Any design</p>
+                <div class="product-price"> £2.00</div>
+                <button class="add-to-cart-btn" data-product="Pikachu Wrap 1" data-price="2.00">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="300">
+            <div class="product-image">
+                <img src="images/SpongebobAndPokemon2.jpeg" alt="Spongebob Wrap 2">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Pikachu Wrap 2</h3>
+                <p class="product-description">Any design</p>
+                <div class="product-price"> £2.00</div>
+                <button class="add-to-cart-btn" data-product="Pikachu Wrap 2" data-price="2.00">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="category-card" data-category="wrap" data-aos="fade-up" data-aos-delay="300">
+            <div class="product-image">
+                <img src="images/SpongebobAndPokemon3.jpeg" alt="Spongebob Wrap 3">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Pikachu Wrap 3</h3>
+                <p class="product-description">Any design</p>
+                <div class="product-price"> £2.00</div>
+                <button class="add-to-cart-btn" data-product="Pikachu Wrap 3" data-price="2.00">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Gallery</h2>
+      <p class="section-subtitle">Explore some of our recent work</p>
+    </div>
+    <div class="gallery-grid">
+      <img src="images/item1.jpeg" alt="">
+      <img src="images/item2.jpeg" alt="">
+      <img src="images/item3.jpeg" alt="">
+      <img src="images/item4.jpeg" alt="">
+      <img src="images/item5.jpeg" alt="">
+      <img src="images/item6.jpeg" alt="">
+      <img src="images/item7.jpeg" alt="">
+      <img src="images/item8.jpeg" alt="">
+      <img src="images/item9.jpeg" alt="">
+      <img src="images/item10.jpeg" alt="">
+      <img src="images/item11.jpeg" alt="">
+
+      
+    </div>
+  </div>
+</section>
+
+    <!-- Custom Design Section -->
+    <section class="custom-design" id="custom">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Custom Design Studio</h2>
+                <p class="section-subtitle">Create your perfect personalized item with our design tools</p>
+            </div>
+
+            <div class="customizer-container" id="customizer-container">
+                <div class="customizer-card">
+                    <div class="customizer-header">
+                        <h3>Design Your Item</h3>
+                        <button class="close-customizer" id="close-customizer">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+
+                    <div class="customizer-content">
+                        <div class="customizer-options">
+                            <div class="option-group">
+                                <label class="option-label">
+                                    <i class="fas fa-font"></i>
+                                    Personalization Text (up to 10 letters - £2.00)
+                                </label>
+                                <input type="text" id="custom-text" class="custom-input" placeholder="Enter your text" maxlength="10">
+                                <small class="input-help">Each letter counts towards the 10 letter limit</small>
+                            </div>
+
+                            <div class="option-group">
+                                <label class="option-label">
+                                    <i class="fas fa-palette"></i>
+                                    Choose Color
+                                </label>
+                                <div class="color-options">
+                                    <div class="color-option active" data-color="#c2185b" style="background: #c2185b;"></div>
+                                    <div class="color-option" data-color="#ff6b9d" style="background: #ff6b9d;"></div>
+                                    <div class="color-option" data-color="#4ecdc4" style="background: #4ecdc4;"></div>
+                                    <div class="color-option" data-color="#45b7d1" style="background: #45b7d1;"></div>
+                                    <div class="color-option" data-color="#96ceb4" style="background: #96ceb4;"></div>
+                                    <div class="color-option" data-color="#feca57" style="background: #feca57;"></div>
+                                    <div class="color-option" data-color="#ff9ff3" style="background: #ff9ff3;"></div>
+                                    <div class="color-option" data-color="#54a0ff" style="background: #54a0ff;"></div>
+                                </div>
+                            </div>
+
+                            <div class="option-group">
+                                <label class="option-label">
+                                    <i class="fas fa-image"></i>
+                                    Upload Your Design
+                                </label>
+                                <input type="file" id="custom-image" class="file-input" accept="image/*">
+                                <small class="input-help">Upload your own design or logo</small>
+                            </div>
+
+                            <div class="option-group" id="glitter-options" style="display: none;">
+                                <label class="option-label">
+                                    <i class="fas fa-sparkles"></i>
+                                    Choose Glitter (Select 3)
+                                </label>
+                                <div class="glitter-options">
+                                    <div class="glitter-option" data-glitter="gold">Gold</div>
+                                    <div class="glitter-option" data-glitter="silver">Silver</div>
+                                    <div class="glitter-option" data-glitter="pink">Pink</div>
+                                    <div class="glitter-option" data-glitter="blue">Blue</div>
+                                    <div class="glitter-option" data-glitter="purple">Purple</div>
+                                    <div class="glitter-option" data-glitter="green">Green</div>
+                                </div>
+                            </div>
+
+                            <div class="option-group" id="lid-straw-options" style="display: none;">
+                                <label class="option-label">
+                                    <i class="fas fa-plus"></i>
+                                    16oz Lid & Straw Color Change (+£2.50)
+                                </label>
+                                <div class="addon-options">
+                                    <label class="addon-checkbox">
+                                        <input type="checkbox" id="lid-straw-addon">
+                                        <span class="checkmark"></span>
+                                        Add Color Change Lid & Straw
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="customizer-preview">
+                            <div class="preview-container">
+                                <div class="preview-item" id="preview-item">
+                                    <div class="preview-text" id="preview-text">Your Text</div>
+                                    <div class="preview-image" id="preview-image"></div>
+                                </div>
+                            </div>
+                            <div class="preview-info">
+                                <h4 id="preview-title">Custom Item</h4>
+                                <div class="price-breakdown">
+                                    <div class="price-line">
+                                        <span>Base Price:</span>
+                                        <span id="base-price">£0.00</span>
+                                    </div>
+                                    <div class="price-line" id="text-price-line" style="display: none;">
+                                        <span>Personalization:</span>
+                                        <span>£2.00</span>
+                                    </div>
+                                    <div class="price-line" id="addon-price-line" style="display: none;">
+                                        <span>Lid & Straw:</span>
+                                        <span>£2.50</span>
+                                    </div>
+                                    <div class="price-line total-price">
+                                        <span>Total:</span>
+                                        <span id="total-price">£0.00</span>
+                                    </div>
+                                </div>
+                                <button class="add-custom-to-cart" id="add-custom-to-cart">
+                                    Add to Cart <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text" data-aos="fade-right">
+                    <h2 class="section-title">About BeautifulBoos</h2>
+                    <p class="about-description">
+                        We specialise in creating personalised items that are uniquely yours. With our wide range of colors and design palettes, we can bring any vision to life. Whether you have your own design or need us to create something custom, we're here to help make your ideas a reality.
+                    </p>
+                    <div class="about-features">
+                        <div class="feature-item" data-aos="fade-up" data-aos-delay="100">
+                            <i class="fas fa-palette"></i>
+                            <div>
+                                <h4>Wide Range of Colors</h4>
+                                <p>Extensive color palette for all your design needs</p>
+                            </div>
+                        </div>
+                        <div class="feature-item" data-aos="fade-up" data-aos-delay="200">
+                            <i class="fas fa-magic"></i>
+                            <div>
+                                <h4>Custom Designs</h4>
+                                <p>We create unique designs tailored to your vision</p>
+                            </div>
+                        </div>
+                        <div class="feature-item" data-aos="fade-up" data-aos-delay="300">
+                            <i class="fas fa-heart"></i>
+                            <div>
+                                <h4>Made with Love</h4>
+                                <p>Every item is crafted with care and attention to detail</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image" data-aos="fade-left">
+                    <img src="images/logo1.jpg" alt="Custom Design Process">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Ready to create something beautiful? Contact us for quotes and custom designs</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email Us</h4>
+                            <p>beautifulboos@outlook.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item" data-aos="fade-up" data-aos-delay="150">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Call Us</h4>
+                            <p>07865 937597</p>
+                        </div>
+                    </div>
+                    <div class="contact-item" data-aos="fade-up" data-aos-delay="200">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Business Hours</h4>
+                            <p>Mon-Fri: 9AM-6PM<br>Sat-Sun: 10AM-4PM</p>
+                        </div>
+                    </div>
+                    <div class="social-links" data-aos="fade-up" data-aos-delay="250">
+                        <h4>Follow Us</h4>
+                        <div class="social-icons">
+                            <a href="https://www.tiktok.com/@think.finance.fre?_t=ZN-8yhxq3AE1aA&_r=1" target="_blank" class="social-icon tiktok">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                            <a href="https://www.facebook.com/share/16KHRhLD8f/" target="_blank" class="social-icon facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.instagram.com/beautifulboos25?utm_source=qr&igsh=MW40d3Jjd2E4aTBmdA==" target="_blank" class="social-icon instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        
+                        <a href="linktr.ee/BeautifulBoos">
+                            <i class="fab fa-linktree"></i>
+                        </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form" data-aos="fade-up" data-aos-delay="300">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Tell us about your design ideas..." rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            Send Message <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>Terms and conditions apply</p>
+        <a href="policies.html">Terms and Conditions</a>
+        <p>&copy; 2025 BeautifulBoos. All rights reserved.</p>
+        <p>Website by Riley Oliver</p>
+        <p>Want to make a website like this? Contact me at rileyoliver51@gmail.com or visit <a href="https://www.roswebsitedesign.com">roswebsitedesign.com</a></p>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-overlay" id="cart-overlay"></div>
+        <div class="cart-container">
+            <div class="cart-header">
+                <h3>Your Cart</h3>
+                <button class="close-cart" id="close-cart">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="cart-content" id="cart-content">
+                <div class="empty-cart" id="empty-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h4>Your cart is empty</h4>
+                    <p>Add some beautiful items to get started!</p>
+                </div>
+                <div class="cart-items" id="cart-items"></div>
+                <div class="cart-delivery" id="cart-delivery" style="display: none;">
+                    <div class="delivery-line">
+                        <span>Delivery:</span>
+                        <span id="deliveryFee">£4.99</span>
+                    </div>
+                </div>
+            </div>
+            <div class="cart-footer" id="cart-footer" style="display: none;">
+                <div class="cart-total">
+                    <div class="total-line">
+                        <span>Subtotal:</span>
+                        <span id="cart-subtotal">£0.00</span>
+                    </div>
+                    <div class="total-line total">
+                        <span>Total:</span>
+                        <span id="cart-total">£0.00</span>
+                    </div>
+                </div>
+                <div class="cart-actions">
+                    <button class="continue-shopping" id="continue-shopping">Continue Shopping</button>
+                    <button class="checkout-btn" onclick="openCheckoutModal()" id="checkout-btn">Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="checkout-modal" style="display: none;">
+        <div class="checkout-content">
+            <div class="checkout-header">
+                <h2>Complete Your Order</h2>
+                <button class="close-checkout" onclick="closeCheckoutModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="checkout-steps">
+                <div class="step active" id="step-1">
+                    <span class="step-number">1</span>
+                    <span class="step-text">Customer Details</span>
+                </div>
+                <div class="step" id="step-2">
+                    <span class="step-number">2</span>
+                    <span class="step-text">Payment</span>
+                </div>
+            </div>
+
+            <div class="checkout-step-content" id="customer-details-step">
+                <h3>Customer Information</h3>
+                <form id="customer-details-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="customer-first-name">First Name *</label>
+                            <input type="text" id="customer-first-name" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-last-name">Last Name *</label>
+                            <input type="text" id="customer-last-name" name="lastName" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customer-email">Email Address *</label>
+                        <input type="email" id="customer-email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customer-phone">Phone Number</label>
+                        <input type="tel" id="customer-phone" name="phone">
+                    </div>
+                    
+                    <h4>Delivery Address</h4>
+                    <div class="form-group">
+                        <label for="customer-address">Street Address *</label>
+                        <input type="text" id="customer-address" name="address" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="customer-city">City *</label>
+                            <input type="text" id="customer-city" name="city" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-postcode">Postcode *</label>
+                            <input type="text" id="customer-postcode" name="postcode" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customer-country">Country *</label>
+                        <select id="customer-country" name="country" required>
+                            <option value="">Select Country</option>
+                            <option value="UK" selected>United Kingdom</option>
+                            <option value="Ireland">Ireland</option>
+                            <option value="France">France</option>
+                            <option value="Germany">Germany</option>
+                            <option value="Spain">Spain</option>
+                            <option value="Italy">Italy</option>
+                            <option value="Netherlands">Netherlands</option>
+                            <option value="Belgium">Belgium</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="order-notes">Order Notes (Optional)</label>
+                        <textarea id="order-notes" name="notes" rows="3" placeholder="Any special instructions or requests..."></textarea>
+                    </div>
+                    
+                    <button type="button" class="next-step-btn" onclick="proceedToPayment()">
+                        Continue to Payment <i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
+            </div>
+
+            <div class="checkout-step-content" id="payment-step" style="display: none;">
+                <h3>Order Summary & Payment</h3>
+                <div id="checkout-summary"></div>
+                
+                <div class="customer-summary" id="customer-summary"></div>
+                
+                <div class="payment-section">
+                    <h4>Payment Method</h4>
+                    <div class="payment-method">
+                       <a id="payButton" href="https://pay.vivawallet.com/beautifulboos">Pay with Viva Wallet</a>
+
+                    </div>
+
+
+     </div>
+                </div>
+                
+                <button type="button" class="back-step-btn" onclick="backToCustomerDetails()">
+                    <i class="fas fa-arrow-left"></i> Back to Customer Details
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Message -->
+    <div class="success-message" id="success-message">
+        <i class="fas fa-check-circle"></i>
+        <span>Item added to cart!</span>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+
+    <script src="script.js"></script>
+   
+</html></code></div>
     </div>
   </div>
 
