@@ -345,7 +345,89 @@
                 padding: 0 1rem;
             }
         }
-    </style>
+
+            .container {
+      width: 90%;
+      max-width: 900px;
+    }
+    .tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .tab-btn {
+      flex: 1;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 8px;
+      background: #1e1e1e;
+      color: #fff;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+    .tab-btn.active {
+      background: #333;
+      font-weight: bold;
+    }
+    .tab-content {
+      background: #000;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+    }
+    .code-area {
+      height: 400px;
+      padding: 1rem;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      color: #f8f8f2;
+      overflow-y: auto;
+      white-space: pre;
+      background: #000;
+      display: none;
+    }
+    .code-area.active {
+      display: block;
+    }
+    .keyword { color: #569cd6; }
+    .string { color: #ce9178; }
+    .number { color: #b5cea8; }
+    .comment { color: #6a9955; font-style: italic; }
+    .tag { color: #569cd6; }
+    .attr { color: #9cdcfe; }
+    .value { color: #ce9178; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="tabs">
+      <button class="tab-btn active" data-target="js">JavaScript</button>
+      <button class="tab-btn" data-target="css">CSS</button>
+      <button class="tab-btn" data-target="html">HTML</button>
+    </div>
+    <div class="tab-content">
+      <div id="js" class="code-area active" contenteditable="false"></div>
+      <div id="css" class="code-area" contenteditable="false"></div>
+      <div id="html" class="code-area" contenteditable="false"></div>
+    </div>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll('.tab-btn');
+    const areas = document.querySelectorAll('.code-area');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        areas.forEach(a => a.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.target).classList.add('active');
+      });
+    });
+  </script>
+    
 </head>
 <body>
     <div id="login-screen">
